@@ -4,7 +4,9 @@
   "description": "Group project - an app that displays cars and their owners",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "per-env",
+    "start:development": "nodemon -r dotenv/config ./bin/www",
+    "start:production": "./bin/www"
   },
   "repository": {
     "type": "git",
