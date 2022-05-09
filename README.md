@@ -10,10 +10,10 @@ List of sequelize commands to initialize
 npx dotenv sequelize-cli db:create
 
 ----Make the models----------
-npx sequelize model:generate --name User --attributes "userName:string,password:string,name:string,email:string,bio:string,joinedOn:timestamp,state:string"
-npx sequelize model:generate --name Car --attributes "name:string,model:string,make:string,year:integer,color:string,accidents:integer,features:string,description:string,imageId:integer,ownerId:integer"
-npx sequelize model:generate --name Image --attributes "path:string,name:string,carId:integer,userId:integer"
-npx sequelize model:generate --name Comment --attributes "message:string,carId:string,ownerId:integer"
+npx sequelize model:generate --name User --attributes "username:string,hashedPassword:string,firstName:string,lastName:string,email:string,bio:string,state:string"
+npx sequelize model:generate --name Post --attributes "name:string,model:string,make:string,year:integer,color:string,accidents:integer,features:string,description:string,ownerId:integer"
+npx sequelize model:generate --name Image --attributes "path:string,name:string,postId:integer,userId:integer"
+npx sequelize model:generate --name Comment --attributes "message:string,postId:integer,ownerId:integer"
 
 ---Create the tables----
 npx dotenv sequelize db:migrate
