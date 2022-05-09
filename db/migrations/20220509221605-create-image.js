@@ -17,13 +17,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      carId: {
+      postId: {
         type: Sequelize.INTEGER,
-        references: {model: "Cars"}
-      },
-      userId: {
-        type: Sequelize.INTEGER,
-        references: {model: "Users"}
+        references: {model: "Posts"}
       },
       createdAt: {
         allowNull: false,

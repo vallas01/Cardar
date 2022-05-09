@@ -12,10 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(255)
       },
-      carId: {
+      postId: {
         allowNull: false,
         type: Sequelize.STRING,
-        references: {model: "Cars"}
+        references: {model: "Posts"}
       },
       ownerId: {
         allowNull: false,

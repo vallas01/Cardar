@@ -10,19 +10,14 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    carId: {
+    postId: {
       type: Sequelize.INTEGER,
-      references: {model: "Cars"}
-    },
-    userId: {
-      type: Sequelize.INTEGER,
-      references: {model: "Users"}
-    },
+      references: {model: "Posts"}
+    }
   }, {});
   Image.associate = function(models) {
     // associations can be defined here
-    Image.belongsTo(models.Car, {foreignKey: "carId"});
-    Image.belongsTo(models.User, {foreignKey: "userId"});
+    Image.belongsTo(models.Car, {foreignKey: "postId"});
   };
   return Image;
 };

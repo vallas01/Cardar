@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.Comment, {foreignKey: "ownerId"});
     User.hasMany(models.Image, {foreignKey: "userId"});
-    User.hasMany(models.Car, {foreignKey: "ownerId"});
+    User.hasMany(models.Post, {foreignKey: "ownerId"});
   };
 
   User.prototype.validatePassword = function (password) {

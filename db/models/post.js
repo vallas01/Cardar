@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Car = sequelize.define('Car', {
+  const Post = sequelize.define('Post', {
     name: {
       type: Sequelize.STRING(30),
       allowNull: false,
@@ -38,11 +38,11 @@ module.exports = (sequelize, DataTypes) => {
       references: { model: "Users"}
     }
   }, {});
-  Car.associate = function(models) {
+  Post.associate = function(models) {
     // associations can be defined here
-    Car.hasMany(models.Comment, {foreignKey: "carId"});
-    Car.belongsTo(models.User, {foreignKey: "ownerId"});
-    Car.hasMany(models.Image, {foreignKey: "carId"});
+    Post.hasMany(models.Comment, {foreignKey: "postId"});
+    Post.belongsTo(models.User, {foreignKey: "ownerId"});
+    Post.hasMany(models.Image, {foreignKey: "postId"});
   };
-  return Car;
+  return Post;
 };
