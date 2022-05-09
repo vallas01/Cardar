@@ -2,38 +2,38 @@
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
     name: {
-      type: Sequelize.STRING(30),
+      type: DataTypes.STRING(30),
       allowNull: false,
     },
     model: {
-      type: Sequelize.STRING(20),
+      type: DataTypes.STRING(20),
       allowNull: false,
     },
     make: {
       allowNull: false,
-      type: Sequelize.STRING(20)
+      type: DataTypes.STRING(20)
     },
     year: {
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     color: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     accidents: {
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     features: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     description: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     ownerId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: { model: "Users"}
     }

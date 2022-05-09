@@ -3,16 +3,16 @@ module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define('Comment', {
     message: {
       allowNull: false,
-      type: Sequelize.STRING(255)
+      type: DataTypes.STRING(255)
     },
     carId: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       references: {model: "Cars"}
     },
     ownerId: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: {model: "Users"}
     },
   }, {});
