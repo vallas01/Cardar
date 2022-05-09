@@ -1,20 +1,48 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Car = sequelize.define('Car', {
-    name: DataTypes.STRING,
-    model: DataTypes.STRING,
-    make: DataTypes.STRING,
-    year: DataTypes.INTEGER,
-    color: DataTypes.STRING,
-    accidents: DataTypes.INTEGER,
-    features: DataTypes.STRING,
-    description: DataTypes.STRING,
-    imageId: DataTypes.INTEGER,
-    ownerId: DataTypes.INTEGER
+    name: {
+      type: Sequelize.STRING(30),
+      allowNull: false,
+    },
+    model: {
+      type: Sequelize.STRING(20),
+      allowNull: false,
+    },
+    make: {
+      allowNull: false,
+      type: Sequelize.STRING(20)
+    },
+    year: {
+      allowNull: false,
+      type: Sequelize.INTEGER
+    },
+    color: {
+      allowNull: false,
+      type: Sequelize.STRING
+    },
+    accidents: {
+      allowNull: false,
+      type: Sequelize.INTEGER
+    },
+    features: {
+      type: Sequelize.STRING
+    },
+    description: {
+      allowNull: false,
+      type: Sequelize.STRING
+    },
+    ownerId: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      references: { model: "Users"}
+    }
   }, {});
   Car.associate = function(models) {
     // associations can be defined here
-    Car
+    Car.hasMany(models.Comment, {foreignKey: "carId"});
+    Car.belongsTo(models.User, {foreignKey: "ownerId"});
+    Car.hasMany(models.Image, {foreignKey: "carId"});
   };
   return Car;
 };

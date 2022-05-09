@@ -39,12 +39,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      imageId: {
-        type: Sequelize.INTEGER,
-        references: { model: "Images"}
-      },
       ownerId: {
         type: Sequelize.INTEGER,
+        allowNull:false,
         references: { model: "Users"}
       },
       createdAt: {

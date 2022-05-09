@@ -19,12 +19,10 @@ module.exports = {
       },
       carId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {model: "Cars"}
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {model: "Users"}
       },
       createdAt: {
