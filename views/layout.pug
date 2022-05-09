@@ -7,13 +7,13 @@ html
   body
     nav(class='nav-bar')
       div
-        a(class='cardar-logo' href='/' src='/images/Cardar.png')
+        a(class='cardar-logo' href='/' src='./images/Cardar.png')
       div
         a(id='cardar-logo-name' href='/') CARDAR
       div
       div
       if locals.authenticated
-        a(class='user-profile-icon' href=`/users/${user.id}` src='/images/add-post-icon.png')
+        a(class='user-profile-icon' href=`/users/${user.id}` src='./images/add-post-icon.png')
         a(class='add-post-icon' href='posts/new' src='')
         div
           form(class='logout-btn' action='/users/logout' method='post')
