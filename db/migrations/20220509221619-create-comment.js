@@ -9,13 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       message: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(255)
       },
       carId: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        references: {model: "Cars"}
       },
       ownerId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model: "Users"}
       },
       createdAt: {
         allowNull: false,

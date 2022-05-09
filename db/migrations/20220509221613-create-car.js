@@ -9,34 +9,43 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(30),
+        allowNull: false,
       },
       model: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(20),
+        allowNull: false,
       },
       make: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(20)
       },
       year: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       color: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       accidents: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       features: {
         type: Sequelize.STRING
       },
       description: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       imageId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: "Images"}
       },
       ownerId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: "Users"}
       },
       createdAt: {
         allowNull: false,
