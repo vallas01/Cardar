@@ -7,6 +7,15 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/register', csrfProtection, (req, res) => {
+  const user = db.User.build({});
+  res.render('user-register', {
+    user,
+    title: 'Register',
+    csrfToken: req.csrfToken()
+  })
+})
+
 router.get('/login', csrfProtection, (req, res) => {
   res.render('user-login', {
     title: 'Login',
