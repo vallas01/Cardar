@@ -5,4 +5,22 @@ html
         title Cardar - #{title}
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    nav(class='nav-bar')
+      div
+        a(class='cardar-logo' href='/' src='../images/Cardar.png')
+      div
+        a(id='cardar-logo-name' href='/') CARDAR
+      div
+      div
+      if locals.authenticated
+        a(class='user-profile-icon' href=`/users/${user.id}` src='')
+        a(class='add-post-icon' href='posts/new' src='')
+        div
+          form(class='logout-btn' action='/users/logout' method='post')
+            button(class='logout-btn' href='/users/logout') Logout
+      else
+        div
+          button(class='login-btn' href='/users/login') Login
+        div
+          button(class='register-btn' href='/users/register') Register
     block content
