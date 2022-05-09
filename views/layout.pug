@@ -6,20 +6,18 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
     nav(class='nav-bar')
-      div
-        a(href='/'): img(class='cardar-logo' src='/Cardar-test.jpg' style='height: 300px; width:300px')
-      div
+      span(class='left-nav-bar')
+        a(href='/'): img(class='cardar-logo' src='../images/Cardar.png' style='height: 50px; width:50px')
         a(id='cardar-logo-name' href='/') CARDAR
-      div
-      div
+        div
+        div
       if locals.authenticated
         a(href=`/users/1`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='300px' height='300px')
-        a(href=`/posts/new`): img(class='add-post-icon' src='../images/add-post-icon.png')
-        a(class='add-post-icon' href='posts/new' src='')
-      else
+        a(href=`/posts/new`): img(class='add-post-icon' src='..images/add-post-icon.png')
         div
           form(class='logout-btn' action='/users/logout' method='post')
             button(class='logout-btn' href='/users/logout') Logout
+      else
         span(class='user-auth')
           button(class='login-btn' href='/users/login') Login
           button(class='register-btn' href='/users/register') Register
