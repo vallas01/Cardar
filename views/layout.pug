@@ -2,7 +2,23 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title Cardar - #{title}
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    nav(class='nav-bar')
+      span(class='left-nav-bar')
+        a(href='/'): img(class='cardar-logo' src='../images/Cardar.png' style='height: 50px; width:50px')
+        a(id='cardar-logo-name' href='/') CARDAR
+        div
+        div
+      if locals.authenticated
+        a(href=`/users/1`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='300px' height='300px')
+        a(href=`/posts/new`): img(class='add-post-icon' src='..images/add-post-icon.png')
+        div
+          form(class='logout-btn' action='/users/logout' method='post')
+            button(class='logout-btn' href='/users/logout') Logout
+      else
+        span(class='user-auth')
+          a(class='login-btn' href='/users/login') Login
+          a(class='register-btn' href='/users/register') Register
     block content
