@@ -60,7 +60,6 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
 
   const user = db.User.build({
     username,
-    password,
     firstName,
     lastName,
     email,
