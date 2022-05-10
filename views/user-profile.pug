@@ -4,10 +4,10 @@ block content
   div.profile-block  
     div.inner-block
       h1 #{user.firstName} #{user.lastName}
-      p.left-align #{user.state}
-      p.left-align #{user.email}
-      p.right-align #{user.bio}
+      p.left-align State: #{user.state}
+      p.left-align Email: #{user.email}
+      p.right-align Bio: #{user.bio}
       ul Your Posts 
         each post in posts 
          li: a()
-    
+      

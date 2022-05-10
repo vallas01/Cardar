@@ -73,18 +73,16 @@ router.get("/new", asyncHandler(async(req, res) => {
       const validatorErrors = validationResult(req);
     
       if (validatorErrors.isEmpty()) {
-        const hashedPassword = await bcrypt.hash(password, 12)
-        user.hashedPassword = hashedPassword;
-        await user.save();
-        loginUser(req, res, user);
         res.redirect('/');
       } else {
         const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('user-register', {
-            title: 'Register',
+        res.render('post-create', {
+            title: 'Create Post',
             user,
             errors,
             csrfToken: req.csrfToken()
         })
       }
 }))
+
+module.exports = router;
