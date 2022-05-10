@@ -28,12 +28,26 @@ nav {
 }
 
 .user-auth {
-  position: relative;
-  justify-content: right;
-  background-color: red;
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
 }
 
-* {
+.user-auth a {
+  margin-left: 10px;
+}
+
+.nav-btn {
+    border-radius: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  padding: .2rem .2rem;
+  background-color: rgba(196, 196, 196, 1);
+  border: 1px solid rgba(196, 196, 196, 1);
+  color: black;
+}
+
+/* * {
   box-sizing: border-box;
 }
 
@@ -50,4 +64,4 @@ h1, h2, h3, h4, h5, h6, ol, li, ul
 
 h1 {
   font-size: 2rem;
-}
+} */
