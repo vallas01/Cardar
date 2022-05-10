@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { asyncHandler } = require('./utils');
+const { asyncHandler, searchMakes, searchYears, searchModels } = require('./utils');
 
-router.post('/', )
+router.get('/', )
 
 module.exports = router;
