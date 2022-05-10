@@ -33,7 +33,7 @@ router.get('/', asyncHandler(async (req, res) => {
           include:
             Image
     })
-
+    console.log(posts[0].Images[1])
     res.render('search-result', {
         title: "Search Results",
         posts

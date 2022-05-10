@@ -5,8 +5,9 @@ block content
         div(class='column')
             if posts
                 each post in posts
-                    a(href="/posts/" + post.id)
-                    img(class='car_img' src='../images/Lambo_yellow.png')
+                    each image in post.Images
+                        a(href="/posts/" + post.id)
+                            img(class='car_img' src=image.path)
             else
                 div
                     h3 You have no posts
