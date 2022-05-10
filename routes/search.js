@@ -23,11 +23,6 @@ router.get('/', asyncHandler(async (req, res) => {
               [Op.iLike]: `%${req.query.searchedInput}%`
             }
           },
-        //   {
-        //     year: {
-        //       [Op.iLike]: `%${req.query.searchedInput}%` returned: operator does not exist: integer ~~* unknown
-        //     }
-        //   },
           {
             color: {
               [Op.iLike]: `%${req.query.searchedInput}%`
