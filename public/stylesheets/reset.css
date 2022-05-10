@@ -1,18 +1,58 @@
 body {
-  padding: 50px;
+  /* background-color: blue; */
+  background: url('../images/AstonMartin.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: left
 }
 
-* {
+.cardar-logo {
+  height: 25px;
+  padding-right: 10px;
+}
+
+#cardar-logo-name {
+  display: inline-flex;
+  width: 10em;
+  padding-bottom: 7px;
+}
+
+.user-auth {
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+}
+
+.user-auth a {
+  margin-left: 10px;
+}
+
+.nav-btn {
+    border-radius: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  padding: .2rem .2rem;
+  background-color: rgba(196, 196, 196, 1);
+  border: 1px solid rgba(196, 196, 196, 1);
+  color: black;
+}
+
+/* * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
+h1, h2, h3, h4, h5, h6, ol, li, ul
+ {
   font-size: 1rem;
   color: inherit;
   background-color: transparent;
@@ -24,4 +64,4 @@ body, header, nav {
 
 h1 {
   font-size: 2rem;
-}
+} */

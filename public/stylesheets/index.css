@@ -1,3 +1,37 @@
-h1 {
-    color: #555555;
+#title {
+    width: 70%;
+}
+
+div.container1 {
+    height: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+div.container1 button {
+    position:absolute;
+    top: 18rem;
+    height:  3rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    font-size: large;
+    border: 1px solid rgba(196, 196, 196, 1);
+    background-color: rgba(196, 196, 196, 1);
+
+}
+div.container2 {
+    position: relative;
+    height: 5em;
+}
+div.container3 {
+    position: relative;
+    height: 5em;
+}
+
+#chevron {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,100%);
 }
