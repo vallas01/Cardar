@@ -3,11 +3,13 @@ extends layout.pug
 block content 
   div.profile-block  
     div.inner-block
+    article
       h1 #{user.firstName} #{user.lastName}
       p.left-align State: #{user.state}
       p.left-align Email: #{user.email}
       p.right-align Bio: #{user.bio}
       ul Your Posts 
         each post in posts 
-         li: a()
+          div.post-block
+            li: a(href=`/posts/${post.id}`) #{post.make} #{post.model}
       

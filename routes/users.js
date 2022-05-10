@@ -136,11 +136,11 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   const userId = parseInt(req.params.id, 10);
   const user = await db.User.findOne({where: {id: userId}});
-  const posts = db.Post.findAll({ where: { ownerId: userId}});
+  const posts = await db.Post.findAll({ where: { ownerId: userId}});
   res.render('user-profile', {
     title: 'User Profile',
     user,
-    posts,
+    posts
   });
 
 }));

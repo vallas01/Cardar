@@ -83,6 +83,17 @@ router.get("/new", asyncHandler(async(req, res) => {
             csrfToken: req.csrfToken()
         })
       }
-}))
+}));
+
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.Post.findOne({ where: { id: postId } });
+    const comments = await db.Comment.findAll({ where: { postId: postId }});
+    res.render('post-page', {
+        title: 'Post',
+        post,
+        comments
+    })
+}));
 
 module.exports = router;
