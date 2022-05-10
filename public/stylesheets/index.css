@@ -1,3 +1,21 @@
-h1 {
-    color: #555555;
+#title {
+    width: 70%;
+}
+
+div.container1 {
+    height: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+div.container2 {
+    position: relative;
+}
+
+#chevron {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
