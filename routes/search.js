@@ -1,9 +1,13 @@
 const express = require('express');
 const db = require('../db/models');
+const { Op } = require('sequelize');
+
 const router = express.Router();
 
 const { asyncHandler } = require('./utils');
 const { Post } = db;
+
+
 
 router.get('/', asyncHandler(async (req, res) => {
     const { searchedInput } = req.body;
@@ -20,11 +24,11 @@ router.get('/', asyncHandler(async (req, res) => {
               [Op.iLike]: `%${searchedInput}%`
             }
           },
-          {
-            year: {
-              [Op.iLike]: `%${searchedInput}%`
-            }
-          },
+        //   {
+        //     year: {
+        //       [Op.iLike]: `%${searchedInput}%` returned: operator does not exist: integer ~~* unknown
+        //     }
+        //   },
           {
             color: {
               [Op.iLike]: `%${searchedInput}%`
@@ -33,6 +37,7 @@ router.get('/', asyncHandler(async (req, res) => {
         ]
       }
     })
+    
     res.render('search', {
         title: "Search Results",
         posts
