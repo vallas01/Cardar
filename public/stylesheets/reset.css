@@ -9,16 +9,36 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: left
+}
+
+.cardar-logo {
+  height: 25px;
+  padding-right: 10px;
+}
+
+#cardar-logo-name {
+  display: inline-flex;
+  width: 10em;
+  padding-bottom: 7px;
+}
+
+.user-auth {
+  position: relative;
+  justify-content: right;
+  background-color: red;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, span,
- nav {
+h1, h2, h3, h4, h5, h6, ol, li, ul
+ {
   font-size: 1rem;
   color: inherit;
   background-color: transparent;

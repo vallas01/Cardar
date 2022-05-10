@@ -7,8 +7,8 @@ html
   body
     nav(class='nav-bar')
       span(class='left-nav-bar')
-        a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' style='height: 50px; width:50px')
-        a(id='cardar-logo-name' href='/') CARDAR
+        a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' )
+        a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
         div
         div
       if locals.authenticated
@@ -19,6 +19,6 @@ html
             button(class='logout-btn' href='/users/logout') Logout
       else
         span(class='user-auth')
-          a(class='login-btn' href='/users/login') Login
-          a(class='register-btn' href='/users/register') Register
+          a(class='nav-btn' href='/users/login') Login
+          a(class='nav-btn' href='/users/register') Register
     block content
