@@ -12,8 +12,8 @@ html
         div
         div
       if locals.authenticated
-        a(href=`/users/1`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='300px' height='300px')
-        a(href=`/posts/new`): img(class='add-post-icon' src='..images/add-post-icon.png')
+        a(href=`/users/${user.id}`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='300px' height='300px')
+        a(href=`/posts/new`): img(class='add-post-icon' src='../images/add-post-icon.png')
         div
           form(class='logout-btn' action='/users/logout' method='post')
             button(class='logout-btn' href='/users/logout') Logout
