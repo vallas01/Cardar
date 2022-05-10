@@ -1,0 +1,11 @@
+extends layout.pug 
+
+block content 
+    if posts
+        each post in posts
+            a(href="/posts/" + post.id)
+                img(src='../images/add-post-icon.png')
+    else
+      div
+        h3 You have no posts
+        p Why don't you go and #[a(href="/posts/new") make one]!

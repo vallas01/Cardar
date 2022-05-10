@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
 const router = express.Router();
 
 const { asyncHandler } = require('./utils');
-const { Post } = db;
+const { Post, Image } = db;
 
 
 
@@ -35,13 +35,19 @@ router.get('/', asyncHandler(async (req, res) => {
             }
           }
         ]
-      }
+      },
+          include: 
+            Image
     })
-    
-    res.render('search', {
+    console.log(posts)
+    res.render('search-result', {
         title: "Search Results",
         posts
     })
 }));
+
+// router.get("?searchedInput=", asyncHandler(async (req, res) => {
+
+// }));
 
 module.exports = router;
