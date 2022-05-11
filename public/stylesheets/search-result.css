@@ -1,0 +1,44 @@
+.heading-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 600px;
+    height: 200px;
+    padding-left: 100px;
+}
+
+h1 {
+    color: white;
+    font-size: 48px;
+    border-bottom: 1px solid white;
+}
+
+.post-images {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-left: 75px;
+    width: 800px;
+    height: auto;
+ }
+
+.column {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.car_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 5em;
+    width: 300px;
+    height: 300px;
+}

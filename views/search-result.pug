@@ -1,14 +1,20 @@
 extends layout.pug
 
+append head
+    link(rel='stylesheet' href='/stylesheets/search-result.css')
+
 block content
-    div(class='row')
-        div(class='column')
-            if posts
+    div(class='heading-container')
+        h1 #{posts.length} Results:
+    div(class='post-images')
+        if posts
+            div(class='row')
                 each post in posts
                     each image in post.Images
-                        a(href="/posts/" + post.id)
-                            img(class='car_img' src=image.path)
-            else
-                div
-                    h3 You have no posts
-                    p Why don't you go and #[a(href="/posts/new") make one]!
+                        div(class='column')
+                            a(href="/posts/" + post.id)
+                                img(class='car_img' src=image.path)
+        else
+            div
+                h3 You have no posts
+                p Why don't you go and #[a(href="/posts/new") make one]!
