@@ -1,0 +1,16 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    +validationErrorSummary(errors)
+    form(action='/posts/add' method='post')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        +field('Name', 'name', post.name)
+        +field('Make', 'make', post.make)
+        +field('Model', 'model', post.model)
+        +field('Year', 'year', post.year)
+        +field('Color', 'color', post.color)
+        +field('Accidents', 'accidents', post.accidents)
+        +field('Features', 'features', post.features)
+        +field('Description', 'description', post.description)
