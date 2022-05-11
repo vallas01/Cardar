@@ -10,6 +10,9 @@ html
       span(class='left-nav-bar')
         a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' )
         a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
+        form(action="/search")
+          input(type="search" name="searchedInput" placeholder="Search" required)
+          button(type="submit") Find your car
         div
         div
       if locals.authenticated

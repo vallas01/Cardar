@@ -10,7 +10,7 @@ div.container1 {
 }
 div.container1 button {
     position:absolute;
-    top: 18rem;
+    top: 20rem;
     height:  3rem;
     font-weight: bold;
     border-radius: 2rem;
@@ -19,19 +19,32 @@ div.container1 button {
     background-color: rgba(196, 196, 196, 1);
 
 }
-div.container2 {
-    position: relative;
-    height: 5em;
-}
-div.container3 {
-    position: relative;
-    height: 5em;
-}
 
 #chevron {
     height: 25px;
     width: 25px;
     position: relative;
+    margin-top: 26em;
     left: 50%;
     transform: translate(-50%,100%);
 }
+div.container2 {
+    position: relative;
+    height: 32em;
+}
+
+
+.row {
+    display: flex;
+    justify-content: center;
+ }
+
+.column {
+   padding: 25px;
+}
+
+.car_img {
+   border: 3px solid white;
+   border-radius: 5em;
+}
+

@@ -1,0 +1,19 @@
+#title {
+    width: 70%;
+}
+
+div.container1 {
+    height: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+form {
+    font-family: 'Karla';
+    border: 2px solid white;
+    height: 400px;
+    width: 350px;
+    border-radius: 30px;
+    background-color: rgba(196,196,196,1);
+}
