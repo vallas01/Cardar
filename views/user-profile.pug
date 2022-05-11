@@ -4,32 +4,25 @@ block content
   div.profile-wrapper  
     div.left-side
       h1 #{user.firstName} #{user.lastName}
-    div.right-side
       div.email
-        h3 Email
-        p #{user.email}
+        //- h3 Email
+        p Email: #{user.email}
       div.state
-        h3 State
-        p #{user.state}
-      div.bio
-        h3 Bio
-        p #{user.bio}
+        //- h3 State
+        p State: #{user.state}
+
       div.member
         h3 Member Since
         p #{user.createdAt}
-    div.posts-wrapper
-      h2 Your Posts 
+    div.right-side
+      div.bio
+        h3 Bio
+        p #{user.bio}
+      div.posts-wrapper
+        h2 Your Posts 
         each post in posts 
           div.post-block
-            div.make-model
-              h3 Type of Car
-              p #{post.year} #{post.make} #{post.model}
-            div.color
-              h3 Color
-              p #{post.color}
-            div.accidents
-              h3 Number of Accidents
-              p #{post.accidents}
-            div: a(href=`/posts/${post.id}`)
-      
-      
+          h4 #{post.year} #{post.make} #{post.model}
+            each image in post.Images
+              a(href=`/posts/${post.id}`)
+                img(class='car_img_user_icon' src=image.path)
