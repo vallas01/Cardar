@@ -1,0 +1,17 @@
+extends layout.pug 
+
+block content 
+  div.profile-block  
+    div.inner-block
+    article
+      h1 #{post.name}
+      p.left-align Make: #{post.make}
+      p.left-align Model: #{post.model}
+      p.right-align Year: #{post.year}
+      p.right-align Color: #{post.color}
+      p.right-align Accidents: #{post.accidents}
+      p.right-align Description: #{post.description}
+      img(src='../images/jeepWrangler.jpeg' height='50px' width='70px' class='carImage')
+      ul Comments 
+        each comment in comments 
+          li #{comment.message} 

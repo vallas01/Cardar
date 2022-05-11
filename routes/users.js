@@ -117,7 +117,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
       if (passwordMatch) {
         loginUser(req, res, user);
-        return res.redirect('/');
+        return res.redirect(`/users/${user.id}`);
       }
     }
       errors.push('Login failed for the provided email address and password.')
@@ -130,6 +130,18 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
       errors,
       csrfToken: req.csrfToken()
   })
+
+}));
+
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  const user = await db.User.findOne({where: {id: userId}});
+  const posts = await db.Post.findAll({ where: { ownerId: userId}});
+  res.render('user-profile', {
+    title: 'User Profile',
+    user,
+    posts
+  });
 
 }));
 

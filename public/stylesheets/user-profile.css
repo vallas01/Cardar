@@ -1,0 +1,71 @@
+.profile-wrapper {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-wrapper .left-side {
+    width: 35%;
+    background-color: white;
+    padding: 30px 25px;
+    color: black;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+
+.profile-wrapper .right-side {
+    width: 65%;
+    background: gray;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 30px 25px;
+}
+
+a {
+    color:aliceblue
+}
+
+.bio, .email, .state, .member {
+    margin-bottom: 25px;
+}
+
+.bio h3,
+.email h3, 
+.state h3, 
+.member h3 {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+
+.posts-wrapper {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    justify-content: baseline;
+    
+}
+
+.post-block {
+    border-radius: 5px;
+    padding: 20px;
+    
+}
