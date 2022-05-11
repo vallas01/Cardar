@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING(255)
     },
-    carId: {
+    postId: {
       allowNull: false,
       type: DataTypes.STRING,
       references: {model: "Cars"}
