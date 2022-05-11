@@ -13,6 +13,7 @@ block content
         
     form(action='/users/register' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
+        label(id="newMember") USER REGISTRATION
         +field('User Name', 'username', user.username)
         +field('First Name', 'firstName', user.firstName)
         +field('Last Name', 'lastName', user.lastName)
@@ -21,4 +22,4 @@ block content
         +field('Confirm Password', 'confirmPassword', '', 'password')
         +field('State', 'state', user.state)
         button(type='submit' class='register-form-btn' class='register-btn') Register
-        p: a(href='/users/login') Already have an account?
+        p: a(href='/users/login' id='haveAccount') Already have an account?
