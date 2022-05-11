@@ -36,7 +36,7 @@ const postValidators = [
         .exists({ checkFalsy: true })
         .withMessage('Please provide a value for Confirm Password')
   ];
-  
+
 //   const postValidators = [
 //     check('email')
 //       .exists({ checkFalsy: true })
@@ -47,6 +47,16 @@ const postValidators = [
 //   ];
 
 router.get("/new", asyncHandler(async(req, res) => {
+    const post = db.Post.build();
+
+    res.render('new-post', {
+        title: 'Add Post',
+        post,
+        csrfToken: req.csrfToken()
+    })
+}));
+
+router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res) => {
     const {
         name,
         model,
@@ -55,35 +65,37 @@ router.get("/new", asyncHandler(async(req, res) => {
         color,
         accidents,
         features,
-        description
-      } = req.body
-    
-      const user = db.Post.build({
-        name,
-        model,
-        make,
-        year,
-        color,
-        accidents,
-        features,
         description,
-        ownerId 
-      });
-    
-      const validatorErrors = validationResult(req);
-    
-      if (validatorErrors.isEmpty()) {
-        res.redirect('/');
-      } else {
-        const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('post-create', {
-            title: 'Create Post',
-            user,
-            errors,
-            csrfToken: req.csrfToken()
-        })
-      }
-}));
+        ownerId
+    } = req.body
+
+    const post = db.Post.build({
+      name,
+      model,
+      make,
+      year,
+      color,
+      accidents,
+      features,
+      description,
+      ownerId
+    });
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await post.save();
+        res.redirect('/users/:id(\\d+)');
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render('post-create', {
+          title: 'Create Post',
+          post,
+          errors,
+          csrfToken: req.csrfToken()
+      })
+    }
+}))
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const postId = parseInt(req.params.id, 10);
