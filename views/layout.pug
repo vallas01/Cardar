@@ -9,21 +9,21 @@ html
   body
   header
     nav(class='nav-bar')
-      div(class='left nav-bar')
+      div(class='left')
         a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' )
         a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
       form(action="/search" class="search-form")
         input(type="search" name="searchedInput" placeholder="Search" required)
-        button(type="submit") Find your car  
-      div(class='right nav-bar')
-      if locals.authenticated
-        a(href=`/users/${user.id}`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='50px' height='50px')
-        a(href=`/posts/new`): img(class='add-post-icon' src='../images/add-post-icon.png' width='35px' height='30px')
-        div
-          form(class='logout-btn' action='/users/logout' method='post')
-            button(class='logout-btn' href='/users/logout') Logout
-      else
-        span(class='user-auth')
-          a(class='nav-btn' href='/users/login') LOGIN
-          a(class='nav-btn' href='/users/register') REGISTER
+        button(type="submit") Find your car
+      div(class='right')
+        if locals.authenticated
+          a(href=`/users/${user.id}`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='50px' height='50px')
+          a(href=`/posts/new`): img(class='add-post-icon' src='../images/add-post-icon.png' width='35px' height='30px')
+          div
+            form(class='logout-btn' action='/users/logout' method='post')
+              button(class='logout-btn' href='/users/logout') Logout
+        else
+          span(class='user-auth')
+            a(class='nav-btn' href='/users/login') LOGIN
+            a(class='nav-btn' href='/users/register') REGISTER
     block content

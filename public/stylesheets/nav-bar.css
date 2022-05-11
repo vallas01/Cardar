@@ -1,8 +1,12 @@
 .nav-bar {
-    height: 4em;
+    height: 65px;
+    width: auto;
     display: flex;
-    line-height: 4em;
-    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    /* line-height: 4em; */
+    /* flex-grow: 1; */
+    background-color: black;
   }
 
 .left {
@@ -10,10 +14,21 @@
     overflow: hidden;
     flex-direction: row;
     justify-content: flex-start;
-    position: relative;
     left: 1.5em;
+    width: 200px;
     height: auto;
-    padding-left: 5px;
+    padding-left: 20px;
+}
+
+.cardar-logo {
+    display: flex;
+    align-items: center;
+}
+
+#cardar-logo-name {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 8px;
 }
 
 .right {
@@ -21,9 +36,7 @@
     overflow: hidden;
     flex-direction: row;
     justify-content: flex-end;
-    position: relative;
     left: 1.5em;
-    height: auto;
 }
 
 .search-form {
@@ -33,4 +46,8 @@
     position: relative;
     height: 30px;
     padding-top: 5px;
+}
+
+.user-auth {
+    padding-right: 20px;
 }
