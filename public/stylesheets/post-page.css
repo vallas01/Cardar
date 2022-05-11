@@ -1,0 +1,30 @@
+.profile-block {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border-radius: 50px;
+    background-color: #C4C4C4;
+}
+
+.inner-block-left {
+    width: 35%;
+    background-color: #C4C4C4;
+    padding: 30px 25px;
+    text-align: center;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.inner-block-right {
+    width: 65%;
+    background-color: #C4C4C4;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 30px 25px;
+}

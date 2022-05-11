@@ -2,8 +2,7 @@ extends layout.pug
 
 block content 
   div.profile-block  
-    div.inner-block
-    article
+    div.inner-block-left
       h1 #{post.name}
       p.left-align Make: #{post.make}
       p.left-align Model: #{post.model}
@@ -11,6 +10,7 @@ block content
       p.right-align Color: #{post.color}
       p.right-align Accidents: #{post.accidents}
       p.right-align Description: #{post.description}
+    div.inner-block-right
       img(src='../images/jeepWrangler.jpeg' height='50px' width='70px' class='carImage')
       ul Comments 
         each comment in comments 
