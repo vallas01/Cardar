@@ -10,20 +10,19 @@ block content
       div.state
         //- h3 State
         p State: #{user.state}
+
+      div.member
+        h3 Member Since
+        p #{user.createdAt}
     div.right-side
       div.bio
         h3 Bio
         p #{user.bio}
-      div.member
-        h3 Member Since
-        p #{user.createdAt}
       div.posts-wrapper
         h2 Your Posts 
-          each post in posts 
-            div.post-block
-              each image in post.Images
-                a(href="/posts/" + post.id)
-                  img(class='car_img_user_icon' src=image.path)
-            
-      
-      
+        each post in posts 
+          div.post-block
+          h4 #{post.year} #{post.make} #{post.model}
+            each image in post.Images
+              a(href=`/posts/${post.id}`)
+                img(class='car_img_user_icon' src=image.path)

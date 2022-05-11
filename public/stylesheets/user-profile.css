@@ -23,19 +23,19 @@
     width: 35%;
     background-color: #C4C4C4;
     padding: 30px 25px;
-    color: black;
     text-align: center;
-    /* border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px; */
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 } 
 
 
 .profile-wrapper .right-side {
     width: 65%;
     background-color: #C4C4C4;
-    /* border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px; */
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     padding: 30px 25px;
+
 }
 
 a {
@@ -59,11 +59,16 @@ a {
 
 
 .posts-wrapper {
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-gap: 10px;
+    display: flex;
+    justify-content: flex-start;
     justify-content: baseline;
+    padding-top: 30px;
     
+}
+
+.posts-wrapper h2 {
+    border-right: 1px solid white;
+    padding-right: 5px ;
 }
 
 .post-block {
@@ -73,5 +78,11 @@ a {
 }
 
 .car_img_user_icon {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 5em;
+    width: 50px;
+    height: 50px;
 }
