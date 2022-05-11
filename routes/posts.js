@@ -14,21 +14,21 @@ const postValidators = [
         .withMessage('Please provide a title for your post.')
         .isLength({ max: 30 })
         .withMessage('Title must be under 30 characters.'),
-    check('model')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid model.')
-        .isLength({ max: 20 })
-        .withMessage('Model name must be under 20 characters long.'),
     check('make')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid make.')
         .isLength({ max: 20 })
         .withMessage('Make name must be under 20 characters long.'),
+    check('model')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid model.')
+        .isLength({ max: 20 })
+        .withMessage('Model name must be under 20 characters long.'),
     check('year')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a year.')
-        .isInt({ min: 1922, max: 2022 })
-        .withMessage('Please provide a valid year between 1922 to 2022.'),
+        .isInt({ min: 1901, max: 2022 })
+        .withMessage('Please provide a valid year between 1901 to 2022.'),
     check('color')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a color.')
@@ -37,7 +37,7 @@ const postValidators = [
     check('accidents')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a value for accidents.')
-        .isLength({ min: 0 })
+        .isInt({ min: 0 })
         .withMessage('Please provide a number of 0 or above.'),
     check('description')
         .exists({ checkFalsy: true })
