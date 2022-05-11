@@ -23,7 +23,7 @@ html
             form(class='logout-btn' action='/users/logout' method='post')
               button(class='logout-btn' href='/users/logout') Logout
         else
-          span(class='user-auth')
+          div(class='user-auth')
             a(class='nav-btn' href='/users/login') LOGIN
             a(class='nav-btn' href='/users/register') REGISTER
     block content
