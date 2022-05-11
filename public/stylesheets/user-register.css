@@ -11,10 +11,25 @@
 form {
     font-family: 'Karla';
     border: 2px solid white;
-    height: 400px;
+    height: 550px;
     width: 400px;
     border-radius: 30px;
     background-color: rgba(196,196,196,1);
+
+}
+
+.form-control, .register-btn  {
+    width: 270px;
+    padding: 12px 20px;
+    margin: 5px 60px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.register-btn[type=submit] {
+    background-color: #4c4e54 ;
+    color: #fff;
 }
 
 #newMember {
