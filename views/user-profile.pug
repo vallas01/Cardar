@@ -1,13 +1,23 @@
 extends layout.pug
 
 block content 
-  div.profile-block  
-    div.inner-block
-    article
+  div.profile-wrapper  
+    div.left-side
       h1 #{user.firstName} #{user.lastName}
-      p.left-align State: #{user.state}
-      p.left-align Email: #{user.email}
-      p.right-align Bio: #{user.bio}
+    div.right-side
+      div.email
+        h3 Email
+        p #{user.email}
+      div.state
+        h3 State
+        p #{user.state}
+      div.bio
+        h3 Bio
+        p #{user.bio}
+      div.member
+        h3 Member Since
+        p #{user.createdAt}
+    div.posts
       ul Your Posts 
         each post in posts 
           div.post-block
