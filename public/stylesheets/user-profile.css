@@ -2,10 +2,10 @@
     color: white;
     font-family: 'Oswald', sans-serif;
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
-    width: 450px;
+    width: 650px;
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 }
@@ -55,6 +55,17 @@ a {
     letter-spacing: 5px;
 }
 
-.posts {
+
+.posts-wrapper {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    justify-content: baseline;
+    
+}
+
+.post-block {
+    border-radius: 5px;
+    padding: 20px;
     
 }
