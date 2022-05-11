@@ -36,7 +36,7 @@ const postValidators = [
         .exists({ checkFalsy: true })
         .withMessage('Please provide a value for Confirm Password')
   ];
-  
+
 //   const postValidators = [
 //     check('email')
 //       .exists({ checkFalsy: true })
@@ -57,7 +57,7 @@ router.get("/new", asyncHandler(async(req, res) => {
         features,
         description
       } = req.body
-    
+
       const user = db.Post.build({
         name,
         model,
@@ -67,11 +67,11 @@ router.get("/new", asyncHandler(async(req, res) => {
         accidents,
         features,
         description,
-        ownerId 
+        ownerId
       });
-    
+
       const validatorErrors = validationResult(req);
-    
+
       if (validatorErrors.isEmpty()) {
         res.redirect('/');
       } else {
@@ -95,5 +95,23 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
         comments
     })
 }));
+
+// router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
+//     const postId = parseInt(req.params.id, 10);
+//     const post = await db.Post.findOne({ where: { id: postId } });
+
+// router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
+//     const postId = parseInt(req.params.id, 10);
+//     const post = await db.Post.findOne({ where: { id: postId } });
+//     if (post) {
+//         await post.destroy()
+//         res.json({message: 'Success'})
+//     } else {
+//         res.json({message: 'Fail'})
+//     }
+// }))
+
+
+
 
 module.exports = router;
