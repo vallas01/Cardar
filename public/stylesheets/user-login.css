@@ -1,0 +1,62 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: 'Karla';
+    src: url('fonts/Karla-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+form {
+    font-family: 'Karla';
+    border: 2px solid white;
+    height: 400px;
+    width: 350px;
+    border-radius: 30px;
+    background-color: rgba(196,196,196,1);
+}
+#member {
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: 0.1em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.form-control, .login-form-btn  {
+    width: 270px;
+    padding: 12px 20px;
+    margin: 15px 38px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button[type=submit] {
+    background-color: #4c4e54 ;
+    border-color: black;
+    color: #fff;
+}
+
+a#noAccount {
+    margin-left: 77px;
+    color: white;
+    text-decoration: none;
+}
+
+#demo {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
