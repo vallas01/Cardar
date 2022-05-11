@@ -1,0 +1,36 @@
+.nav-bar {
+    height: 4em;
+    display: flex;
+    line-height: 4em;
+    flex-grow: 1;
+  }
+
+.left {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    left: 1.5em;
+    height: auto;
+    padding-left: 5px;
+}
+
+.right {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+    left: 1.5em;
+    height: auto;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    height: 30px;
+    padding-top: 5px;
+}

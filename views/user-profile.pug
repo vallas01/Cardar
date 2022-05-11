@@ -17,10 +17,19 @@ block content
       div.member
         h3 Member Since
         p #{user.createdAt}
-    div.posts
-      ul Your Posts 
+    div.posts-wrapper
+      h2 Your Posts 
         each post in posts 
           div.post-block
-            li: a(href=`/posts/${post.id}`) #{post.make} #{post.model}
+            div.make-model
+              h3 Type of Car
+              p #{post.year} #{post.make} #{post.model}
+            div.color
+              h3 Color
+              p #{post.color}
+            div.accidents
+              h3 Number of Accidents
+              p #{post.accidents}
+            div: a(href=`/posts/${post.id}`)
       
       
