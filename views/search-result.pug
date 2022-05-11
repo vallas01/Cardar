@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+    div(class='row')
+        div(class='column')
+            if posts
+                each post in posts
+                    each image in post.Images
+                        a(href="/posts/" + post.id)
+                            img(class='car_img' src=image.path)
+            else
+                div
+                    h3 You have no posts
+                    p Why don't you go and #[a(href="/posts/new") make one]!
