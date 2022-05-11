@@ -41,7 +41,12 @@ const postValidators = [
         .withMessage('Please provide a number of 0 or above.'),
     check('description')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a description.')
+        .withMessage('Please provide a description.'),
+    check('path')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a link.')
+        .isURL({ protocols: ['https'] })
+        .withMessage('Please provide a valid URL.')
   ];
 
 //   const postValidators = [
@@ -55,10 +60,15 @@ const postValidators = [
 
 router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
     const post = db.Post.build();
+    const userId = post.ownerId;
+    const user = await db.User.findByPk(userId);
+    const image = db.Image.build();
 
     res.render('new-post', {
         title: 'Add Post',
+        user,
         post,
+        image,
         csrfToken: req.csrfToken()
     })
 }));
@@ -73,7 +83,9 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
         accidents,
         features,
         description,
-        ownerId
+        ownerId,
+        path,
+        postId,
     } = req.body
 
     const post = db.Post.build({
@@ -88,16 +100,27 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
       ownerId
     });
 
+    const userId = post.ownerId;
+    const user = await db.User.findByPk(userId);
+
+    const image = db.Image.build({
+        path,
+        postId
+    })
+
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
         await post.save();
-        res.redirect('/users/:id(\\d+)');
+        await image.save();
+        res.redirect(`/users/${userId}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('new-post', {
           title: 'Create Post',
           post,
+          user,
+          image,
           errors,
           csrfToken: req.csrfToken()
       })

@@ -14,4 +14,6 @@ block content
         +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
         +field('', 'features', post.features, '', 'Features', required)
         +field('Description', 'description', post.description, 'textarea', 'Write a post', required)
+        +field('', 'path', image.path, 'text', 'Insert a link', required)
         button(type='submit') Add Post
+        a(href=`/users/${userId}` class='cancel-button') Cancel
