@@ -48,5 +48,6 @@
 a#haveAccount {
     color: black;
     text-decoration: none;
-    padding-left: 130px;
+    padding-left: 100px;
+    font-size: 14px;
 }
