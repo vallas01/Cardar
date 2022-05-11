@@ -14,7 +14,7 @@ html
         a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
       form(action="/search" class="search-form")
         input(type="search" name="searchedInput" class='input-value' placeholder="Find your car" required)
-        button(type="submit" class='search-button'): img(src='../images/magnifying-glass-solid.svg')
+        button(type="submit" class='search-button'): img(class='magnifying-search' src='../images/magnifying-glass-solid.svg')
       div(class='right')
         if locals.authenticated
           a(href=`/users/${user.id}`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='50px' height='50px')
