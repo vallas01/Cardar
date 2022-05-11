@@ -5,23 +5,26 @@
 .container1 {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    align-items:center
 }
 
-form {
+.register-form {
     font-family: 'Karla';
     border: 2px solid white;
     height: 550px;
     width: 400px;
     border-radius: 30px;
     background-color: rgba(196,196,196,1);
-
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    
 }
 
 .form-control, .register-btn  {
     width: 270px;
     padding: 12px 20px;
-    margin: 5px 60px;
+    margin: 5px 65px;
     display: inline-block;
     border: 2px solid black;
     border-radius: 10px;
@@ -43,7 +46,7 @@ form {
 }
 
 a#haveAccount {
-    margin-left: 77px;
     color: black;
     text-decoration: none;
+    padding-left: 130px;
 }
