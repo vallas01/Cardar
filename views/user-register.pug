@@ -14,12 +14,12 @@ block content
     form(action='/users/register' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         label(id="newMember") USER REGISTRATION
-        +field('User Name', 'username', user.username)
-        +field('First Name', 'firstName', user.firstName)
-        +field('Last Name', 'lastName', user.lastName)
-        +field('Email', 'email', user.email)
-        +field('Password', 'password', user.password, 'password')
-        +field('Confirm Password', 'confirmPassword', '', 'password')
-        +field('State', 'state', user.state)
+        +field('', 'username', placeholder="USERNAME", user.username)
+        +field('', 'firstName',  placeholder="FIRST NAME", user.firstName)
+        +field('', 'lastName',  placeholder="LAST NAME", user.lastName)
+        +field('', 'email',  placeholder="EMAIL ADDRESS", user.email)
+        +field('', 'password', user.password, placeholder="EMAIL ADDRESS", 'PASSWORD')
+        +field('', 'confirmPassword', '', placeholder="EMAIL ADDRESS", 'CONFIRM PASSWORD')
+        +field('', 'state', placeholder="STATE", user.state)
         button(type='submit' class='register-form-btn' class='register-btn') Register
         p: a(href='/users/login' id='haveAccount') Already have an account?
