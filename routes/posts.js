@@ -4,7 +4,7 @@ const db = require('../db/models');
 
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
-// } = require('../auth')
+const { requireAuth } = require('../auth')
 const router = express.Router();
 
 
@@ -59,9 +59,9 @@ const postValidators = [
 //   ];
 
 router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
-    const post = db.Post.build();
-    const userId = post.ownerId;
+    const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
+    const post = db.Post.build();
     const image = db.Image.build();
 
     res.render('new-post', {
@@ -74,6 +74,9 @@ router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
 }));
 
 router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId;
+    const user = await db.User.findByPk(userId);
+
     const {
         name,
         model,
@@ -83,25 +86,21 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
         accidents,
         features,
         description,
-        ownerId,
         path,
         postId,
     } = req.body
 
     const post = db.Post.build({
-      name,
-      model,
-      make,
-      year,
-      color,
-      accidents,
-      features,
-      description,
-      ownerId
+        name,
+        model,
+        make,
+        year,
+        color,
+        accidents,
+        features,
+        description,
+        ownerId: userId
     });
-
-    const userId = post.ownerId;
-    const user = await db.User.findByPk(userId);
 
     const image = db.Image.build({
         path,
