@@ -1,11 +1,10 @@
 .nav-bar {
     height: 65px;
     width: auto;
+    /* position: sticky; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* line-height: 4em; */
-    /* flex-grow: 1; */
     background-color: black;
   }
 
@@ -59,11 +58,16 @@ input {
     border-radius: 40px 0 0 40px;
 }
 
+input::placeholder {
+    padding-left: 20px;
+}
+
 .search-button {
     width: 50px;
     height: 40px;
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 0 40px 40px 0;
+    padding-right: 6px;
 }
 
 button img {
