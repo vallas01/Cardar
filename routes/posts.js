@@ -11,30 +11,37 @@ const router = express.Router();
 const postValidators = [
     check('name')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for First Name')
-        .isLength({ max: 50 })
-        .withMessage('First Name must not be more than 50 characters long'),
+        .withMessage('Please provide a title for your post.')
+        .isLength({ max: 30 })
+        .withMessage('Title must be under 30 characters.'),
     check('model')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Last Name')
-        .isLength({ max: 50 })
-        .withMessage('Last Name must not be more than 50 characters long'),
+        .withMessage('Please provide a valid model.')
+        .isLength({ max: 20 })
+        .withMessage('Model name must be under 20 characters long.'),
     check('make')
         .exists({ checkFalsy: true })
-        .isEmail()
-        .withMessage('Please provide a valid email')
-        .isLength({ max: 255 })
-        .withMessage('Email must not be more than 255 characters long'),
+        .withMessage('Please provide a valid make.')
+        .isLength({ max: 20 })
+        .withMessage('Make name must be under 20 characters long.'),
     check('year')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Password')
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/)
-        .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")')
-        .isLength({ min: 8 })
-        .withMessage('Password must be at least 8 characters long'),
+        .withMessage('Please provide a year.')
+        .isInt({ min: 1922, max: 2022 })
+        .withMessage('Please provide a valid year between 1922 to 2022.'),
     check('color')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Confirm Password')
+        .withMessage('Please provide a color.')
+        .isLength({ max: 255 })
+        .withMessage('Please provide a color that is under 255 characters.'),
+    check('accidents')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for accidents.')
+        .isLength({ min: 0 })
+        .withMessage('Please provide a number of 0 or above.'),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a description.')
   ];
 
 //   const postValidators = [
@@ -46,7 +53,7 @@ const postValidators = [
 //       .withMessage('Please provide a value for Password'),
 //   ];
 
-router.get("/new", asyncHandler(async(req, res) => {
+router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
     const post = db.Post.build();
 
     res.render('new-post', {
@@ -88,7 +95,7 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
         res.redirect('/users/:id(\\d+)');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('post-create', {
+      res.render('new-post', {
           title: 'Create Post',
           post,
           errors,

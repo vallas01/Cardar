@@ -4,13 +4,14 @@ include utils.pug
 
 block content
     +validationErrorSummary(errors)
-    form(action='/posts/add' method='post')
+    form(action='/posts/new' class='new-post-form' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Name', 'name', post.name)
-        +field('Make', 'make', post.make)
-        +field('Model', 'model', post.model)
-        +field('Year', 'year', post.year)
-        +field('Color', 'color', post.color)
-        +field('Accidents', 'accidents', post.accidents)
-        +field('Features', 'features', post.features)
-        +field('Description', 'description', post.description)
+        +field('', 'name', post.name, 'text', 'Name', required)
+        +field('', 'make', post.make, 'text', 'Make', required)
+        +field('', 'model', post.model, 'text', 'Model', required)
+        +field('', 'year', post.year, 'number', 'Year', required)
+        +field('', 'color', post.color, 'text', 'Color', required)
+        +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
+        +field('', 'features', post.features, '', 'Features', required)
+        +field('Description', 'description', post.description, 'textarea', 'Write a post', required)
+        button(type='submit') Add Post
