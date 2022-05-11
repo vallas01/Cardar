@@ -2,6 +2,12 @@
     width: 70%;
 }
 
+.container1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
 form {
     font-family: 'Karla';
     border: 2px solid white;

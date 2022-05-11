@@ -20,7 +20,5 @@ block content
         +field('Password', 'password', user.password, 'password')
         +field('Confirm Password', 'confirmPassword', '', 'password')
         +field('State', 'state', user.state)
-        div(class='register-btn')
-            button(type='submit' class='register-form-btn') Register
-    div
+        button(type='submit' class='register-form-btn' class='register-btn') Register
         p: a(href='/users/login') Already have an account?
