@@ -56,9 +56,6 @@ input {
     height: 40px;
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 40px 0 0 40px;
-}
-
-input::placeholder {
     padding-left: 20px;
 }
 
