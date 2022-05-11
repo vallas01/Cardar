@@ -13,8 +13,8 @@ html
         a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' )
         a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
       form(action="/search" class="search-form")
-        input(type="search" name="searchedInput" placeholder="Search" required)
-        button(type="submit") Find your car
+        input(type="search" name="searchedInput" class='input-value' placeholder="Find your car" required)
+        button(type="submit" class='search-button'): img(src='../images/magnifying-glass-solid.svg')
       div(class='right')
         if locals.authenticated
           a(href=`/users/${user.id}`): img(class='user-profile-icon' src='../images/user-profile-icon.png' width='50px' height='50px')
@@ -24,6 +24,6 @@ html
               button(class='logout-btn' href='/users/logout') Logout
         else
           div(class='user-auth')
-            a(class='nav-btn' href='/users/login') LOGIN
-            a(class='nav-btn' href='/users/register') REGISTER
+            a(class='nav-btn' href='/users/register'): p(class='user-auth-text') REGISTER
+            a(class='nav-btn' href='/users/login'): p(class='user-auth-text') LOGIN
     block content
