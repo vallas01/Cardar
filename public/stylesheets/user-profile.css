@@ -3,11 +3,13 @@
     font-family: 'Oswald', sans-serif;
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 650px;
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border-radius: 50px;
+    background-color: #C4C4C4;
 }
 
 * {
@@ -19,20 +21,20 @@
 
 .profile-wrapper .left-side {
     width: 35%;
-    background-color: white;
+    background-color: #C4C4C4;
     padding: 30px 25px;
     color: black;
     text-align: center;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
+    /* border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px; */
+} 
 
 
 .profile-wrapper .right-side {
     width: 65%;
-    background: gray;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    background-color: #C4C4C4;
+    /* border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; */
     padding: 30px 25px;
 }
 
@@ -41,7 +43,7 @@ a {
 }
 
 .bio, .email, .state, .member {
-    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .bio h3,
@@ -68,4 +70,8 @@ a {
     border-radius: 5px;
     padding: 20px;
     
+}
+
+.car_img_user_icon {
+
 }
