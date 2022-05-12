@@ -10,39 +10,40 @@ const router = express.Router();
 const userValidators = [
   check('firstName')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for First Name')
+      .withMessage('Please provide a value for First Name.')
       .isLength({ max: 50 })
-      .withMessage('First Name must not be more than 50 characters long'),
+      .withMessage('First Name must not be more than 50 characters long.'),
   check('lastName')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Last Name')
+      .withMessage('Please provide a value for Last Name.')
       .isLength({ max: 50 })
-      .withMessage('Last Name must not be more than 50 characters long'),
+      .withMessage('Last Name must not be more than 50 characters long.'),
   check('email')
       .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Email.')
       .isEmail()
-      .withMessage('Please provide a valid email')
+      .withMessage('Please provide a valid email.')
       .isLength({ max: 255 })
-      .withMessage('Email must not be more than 255 characters long'),
+      .withMessage('Email must not be more than 255 characters long.'),
   check('password')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password')
+      .withMessage('Please provide a value for Password.')
       .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/)
-      .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")')
+      .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*").')
       .isLength({ min: 8 })
-      .withMessage('Password must be at least 8 characters long'),
+      .withMessage('Password must be at least 8 characters long.'),
   check('confirmPassword')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Confirm Password')
+      .withMessage('Please provide a value for Confirm Password.')
 ];
 
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address'),
+    .withMessage('Please provide a value for Email Address.'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password'),
+    .withMessage('Please provide a value for Password.'),
 ];
 
 /* GET users listing. */
