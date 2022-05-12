@@ -4,7 +4,7 @@
 
   /* @font-face {
     font-family: 'Karla';
-    src: url('fonts/Karla-Regular.ttf') format('truetype'); 
+    src: url('fonts/Karla-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 } */
@@ -43,7 +43,7 @@
     border-radius: 10px;
 }
 
-button[type=submit] {
+.login-form-btn[type=submit] {
     background-color: #4c4e54 ;
     border-color: black;
     color: #fff;
@@ -51,7 +51,7 @@ button[type=submit] {
 
 a#noAccount {
     margin-left: 77px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 

@@ -1,12 +1,14 @@
 .nav-bar {
     height: 65px;
     width: auto;
+    position: sticky;
+    position: sticky;
+    top: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* line-height: 4em; */
-    /* flex-grow: 1; */
     background-color: black;
+    z-index: 3;
   }
 
 .left {
@@ -53,11 +55,12 @@
     height: auto;
 }
 
-input {
+.input-value {
     width: 200px;
     height: 40px;
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 40px 0 0 40px;
+    padding-left: 20px;
 }
 
 .search-button {
@@ -65,7 +68,12 @@ input {
     height: 40px;
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 0 40px 40px 0;
+    padding-right: 6px;
 }
+
+/* .magnifying-search {
+
+} */
 
 button img {
     width: 21px;

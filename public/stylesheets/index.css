@@ -3,7 +3,7 @@
 }
 
 div.container1 {
-    height: 25em;
+    height: 450px;
     display: flex;
     align-items: center;
     justify-content: center
@@ -22,13 +22,14 @@ div.container1 button {
 }
 
 #chevron {
-    height: 25px;
-    width: 25px;
+    height: 100px;
+    width: 100px;
     position: relative;
-    margin-top: 26em;
+    margin-top: 0px;
     left: 50%;
     transform: translate(-50%,100%);
 }
+
 div.container2 {
     position: relative;
     height: 32em;
