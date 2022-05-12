@@ -53,29 +53,37 @@ div.lower-block {
     text-align: center;
 }
 
-.inner-block-left {
-    width: 35%;
-    background-color: #C4C4C4;
-    padding: 30px 25px;
+.accidents {
     text-align: center;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
+    font-size:medium;
+    padding-top: 1.5em;
+    color: black;
+}
+.number {
+    color: red;
 }
 
-.inner-block-right {
-    width: 65%;
-    background-color: #C4C4C4;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 30px 25px;
+div.comment_box {
+    border: 1px solid black;
+    margin: 10px;
+}
+.comment_label {
+    color: black;
+
+}
+.comments {
+    text-decoration: none;
+    margin: 10px;;
+    color: white;
+    border: 1px solid grey;
+    background-color: rgba(0,0,0,0.19);
 }
 
 .buttons{
     display: flex;
-    justify-content: space-between;
-
-    margin: 5em;
+    justify-content: space-around;
 }
+
 .edit-btn, .delete-btn {
     border-radius: 30px;
     text-decoration: none;

@@ -26,10 +26,13 @@ block content
         p.right-align #{post.description}
       //- p.right-align Color: #{post.color}
       div.accidents
-        p.right-align This car has been in #{post.accidents} accidents.
-      ul Comments:
-        each comment in comments
-          li - #{comment.message}
+        p.right-align This car has been in!{' '}
+          span.number #{post.accidents}
+          span !{' '}accidents!
+      div.comment_box
+        ul.comment_label Comments:
+          each comment in comments
+            li.comments  #{comment.message}
 
 
     div.buttons
