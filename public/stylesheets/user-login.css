@@ -11,6 +11,8 @@
 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 100px;
 }
 
@@ -32,6 +34,30 @@
     display: flex;
     justify-content: center;
     padding-top: 10px;
+}
+
+.error-messages {
+    background-color: rgb(229, 135, 135);
+    margin: 40px 0 60px 0;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.error-messages > p,
+.error-messages > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.error-messages > p {
+    padding: 20px 0 0 40px;
+
+}
+
+.error-messages > ul {
+    padding: 20px 0 20px 40px;
+
 }
 
 .form-control, .login-form-btn  {
