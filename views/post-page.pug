@@ -9,6 +9,7 @@ append head
 block content
   div.profile-block
     p(style="display:none" id='hiddenId') #{post.id}
+    p(style="display:none" id='hiddenUserId') #{post.ownerId}
     div.inner-block
     article
       h1 #{post.name}

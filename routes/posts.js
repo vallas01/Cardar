@@ -149,13 +149,13 @@ console.log(`***** postId: ${postId}`)
 console.log(`***********got here - post: ${post}`)
         await post.destroy()
         res.status(201)
-console.log(`*********** BUT NOT here`)
+        console.log(`*********** BUT NOT here`)
         res.json({message:'Delete SUCCESS'})
+
     } else {
         res.json({message:'Delete FAIL'})
     }
 
-console.log('did not get here???')
 
 }));
 
