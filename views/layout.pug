@@ -18,8 +18,8 @@ html
         button(type="submit" class='search-button'): img(class='magnifying-search' src='../images/magnifying-glass-icon-simple-grey-search-icon-icons-logos-emojis-search.png')
       div(class='right')
         if locals.authenticated
-          a(href=`/users/${user.id}` class='user-profile-icon'): img( src='../images/user-profile-icon.png' width='50px' height='50px')
-          a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png' width='30px' height='25px')
+          a(href=`/users/${user.id}` class='user-profile-icon'): img( src='../images/user-profile-icon.png')
+          a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png')
           div.logout-div
             form(class='logout-btn' action='/users/logout' method='post')
               button(class='logout-btn' href='/users/logout') LOGOUT
