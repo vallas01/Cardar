@@ -10,33 +10,33 @@ const { Post, Image } = db;
 
 
 router.get('/', asyncHandler(async (req, res) => {
-    const posts = await Post.findAll({
-      where: {
-        [Op.or]: [
-          {
-            model: {
-              [Op.iLike]: `%${req.query.searchedInput}%`
-            }
-          },
-          {
-            make: {
-              [Op.iLike]: `%${req.query.searchedInput}%`
-            }
-          },
-          {
-            color: {
-              [Op.iLike]: `%${req.query.searchedInput}%`
-            }
+  const posts = await Post.findAll({
+    where: {
+      [Op.or]: [
+        {
+          model: {
+            [Op.iLike]: `%${req.query.searchedInput}%`
           }
-        ]
-      },
-      include: Image
-    })
+        },
+        {
+          make: {
+            [Op.iLike]: `%${req.query.searchedInput}%`
+          }
+        },
+        {
+          color: {
+            [Op.iLike]: `%${req.query.searchedInput}%`
+          }
+        }
+      ]
+    },
+    include: Image
+  })
 
-    res.render('search-result', {
-        title: "Search Results",
-        posts
-    })
+  res.render('search-result', {
+      title: "Search Results",
+      posts
+  })
 }));
 
 // router.get("?req.query.searchedInput=", asyncHandler(async (req, res) => {
