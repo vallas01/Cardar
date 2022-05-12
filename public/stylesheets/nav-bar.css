@@ -39,6 +39,7 @@
     overflow: hidden;
     flex-direction: row;
     justify-content: flex-end;
+    gap: 20px;
     width: auto;
     padding: 20px;
 }
@@ -97,4 +98,12 @@ button img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.add-post-icon {
+    padding-top: 12px;
+}
+
+.logout-div {
+    padding-top: 15px;
 }
