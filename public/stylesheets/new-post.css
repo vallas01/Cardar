@@ -8,7 +8,7 @@
 
 #add-post-ctn,
 .new-post-form,
-.add-post-errors {
+.error-messages {
     display: flex;
     align-items: center;
     width: auto;
@@ -16,14 +16,14 @@
 }
 
 .new-post-form,
-.add-post-errors {
+.error-messages {
     background-color: #C4C4C4;
     width: 700px;
     padding: 10px 0;
     border-radius: 30px;
 }
 
-.add-post-errors {
+.error-messages {
     background-color: rgb(229, 135, 135);
 }
 

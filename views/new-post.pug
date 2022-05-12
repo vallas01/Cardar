@@ -7,8 +7,7 @@ include utils.pug
 
 block content
     div(id='add-post-ctn')
-        div(class='add-post-errors')
-            +validationErrorSummary(errors)
+        +validationErrorSummary(errors)
         form(action='/posts/new' class='new-post-form' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             +field('', 'name', post.name, 'text', 'Name', required)
