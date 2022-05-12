@@ -5,7 +5,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px;
+    width: 50%;
+    height: 35%;
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
     border-radius: 50px;
@@ -22,6 +23,9 @@
 .profile-wrapper .left-side {
     width: 35%;
     background-color: #C4C4C4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 30px 25px;
     text-align: center;
     border-bottom-left-radius: 15px;
@@ -32,6 +36,9 @@
 .profile-wrapper .right-side {
     width: 65%;
     background-color: #C4C4C4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     padding: 30px 25px;
@@ -85,4 +92,12 @@ a {
     border-radius: 5em;
     width: 50px;
     height: 50px;
+}
+
+.profile-wrapper h1 {
+    padding-bottom: 25px;
+}
+
+.edit-user {
+    margin-top: 25px;
 }
