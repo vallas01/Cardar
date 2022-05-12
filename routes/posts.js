@@ -59,7 +59,6 @@ const postValidators = [
 //   ];
 
 router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
-    console.log('hereee')
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
     const post = db.Post.build();
@@ -87,7 +86,6 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
         accidents,
         features,
         description,
-        ownerId,
         path,
         postId,
     } = req.body
