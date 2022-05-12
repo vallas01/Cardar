@@ -179,7 +179,6 @@ router.put(
 
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/users/login');
 })
 
 module.exports = router;
