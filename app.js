@@ -63,4 +63,16 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+// Error handler for 404 errors.
+app.use((err, req, res, next) => {
+  if (err.status === 404) {
+    res.status(404);
+    res.render('page-not-found', {
+      title: 'Page Not Found',
+    });
+  } else {
+    next(err);
+  }
+});
+
 module.exports = app;
