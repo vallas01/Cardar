@@ -6,7 +6,7 @@ const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
 // } = require('../auth')
 const router = express.Router();
-
+const cors = require("cors");
 
 const postValidators = [
     check('name')
@@ -96,7 +96,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
 }));
 
-router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.delete('/:id(\\d+)', cors(), asyncHandler(async(req, res) => {
 
     const postId = parseInt(req.params.id, 10);
 console.log(`***** postId: ${postId}`)
@@ -114,7 +114,6 @@ console.log(`*********** BUT NOT here`)
     }
 
 console.log('did not get here???')
-    res.redirect('/')
 
 }));
 
