@@ -58,15 +58,22 @@
     width: 600px;
 }
 
-.form-group > .flow-control {
+.form-group > .form-control {
     width: 600px;
+    height: 50px;
+    border: 2px solid gray;
+    border-radius: 40px;
 }
 
 .form-group > #description {
     width: 600px;
     height: 200px;
+    padding: 20px 30px 0 30px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+input.form-control {
+    padding: 0 20px 0 20px;
 }
 
 .bottom-div {
@@ -100,10 +107,25 @@
     color: black;
     text-decoration: none;
     border: 1px solid rgb(229, 135, 135);
+    transition: all 0.2s ease-in;
+}
 
+.cancel-button:hover {
+    background-color: rgb(229, 0, 0);
+    border: 1px solid rgb(229, 0, 0);
+    color: white;
 }
 
 .add-post-btn {
     border: 1px solid rgb(137, 248, 137);
     background-color: rgb(137, 248, 137);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+}
+
+.add-post-btn:hover {
+    background-color: rgb(0, 123, 0);
+    border: 1px solid rgb(0, 123, 0);
+    color: white;
 }

@@ -6,12 +6,12 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { restoreUser } = require('./auth');
+const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const searchRouter = require('./routes/search');
-const { sessionSecret } = require('./config');
-const { restoreUser } = require('./auth');
 
 
 const app = express();
@@ -21,8 +21,8 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -31,7 +31,7 @@ const store = new SequelizeStore({ db: sequelize });
 app.use(
   session({
     name: 'cardar.sid',
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
