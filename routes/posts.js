@@ -59,6 +59,7 @@ const postValidators = [
 //   ];
 
 router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
+    console.log('hereee')
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
     const post = db.Post.build();
@@ -86,6 +87,7 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
         accidents,
         features,
         description,
+        ownerId,
         path,
         postId,
     } = req.body
@@ -112,7 +114,7 @@ router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res
     if (validatorErrors.isEmpty()) {
         await post.save();
         await image.save();
-        res.redirect(`/users/${userId}`);
+        return res.redirect(`/users/${userId}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('new-post', {
