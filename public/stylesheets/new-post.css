@@ -1,0 +1,28 @@
+#add-post-ctn,
+.new-post-form,
+.add-post-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: stretch;
+    flex-direction: column;
+    height: auto;
+}
+
+.new-post-form,
+.add-post-errors {
+    background-color: #C4C4C4;
+    width: 700px;
+    padding: 10px 0;
+}
+
+.new-post-form > .form-group {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    width: 400px;
+}
+
+.form-group > .flow-control {
+    width: 400px;
+}

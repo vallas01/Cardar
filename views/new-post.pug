@@ -6,17 +6,19 @@ append head
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/posts/new' class='new-post-form' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('', 'name', post.name, 'text', 'Name', required)
-        +field('', 'make', post.make, 'text', 'Make', required)
-        +field('', 'model', post.model, 'text', 'Model', required)
-        +field('', 'year', post.year, 'number', 'Year', required)
-        +field('', 'color', post.color, 'text', 'Color', required)
-        +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
-        +field('', 'features', post.features, '', 'Features', required)
-        +field('Description', 'description', post.description, 'textarea', 'Write a post', required)
-        +field('', 'path', image.path, 'text', 'Insert a link', required)
-        button(type='submit') Add Post
-        a(href=`/users/${userId}` class='cancel-button') Cancel
+    div(id='add-post-ctn')
+        div(class='add-post-errors')
+            +validationErrorSummary(errors)
+        form(action='/posts/new' class='new-post-form' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('', 'name', post.name, 'text', 'Name', required)
+            +field('', 'make', post.make, 'text', 'Make', required)
+            +field('', 'model', post.model, 'text', 'Model', required)
+            +field('', 'year', post.year, 'number', 'Year', required)
+            +field('', 'color', post.color, 'text', 'Color', required)
+            +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
+            +field('', 'features', post.features, '', 'Features', required)
+            +field('', 'description', post.description, 'textarea', 'Description', required)
+            +field('', 'path', image.path, 'text', 'Insert a link', required)
+            button(type='submit') Add Post
+            a(href=`/users/${userId}` class='cancel-button') Cancel
