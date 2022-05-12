@@ -1,23 +1,52 @@
 
-.container1 {
-    display: flex;
-    justify-content: center;
-    align-items:center
-}
-
 
 .profile-block {
     color: white;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Karla', sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px;
-    display: flex;
-    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    width: 580px;
+    height:540px;
+    display: block;
+    border: 1px solid #C4C4C4;
     border-radius: 50px;
     background-color: #C4C4C4;
+}
+div.upper-block{
+    display: flex;
+    align-items: flex-start;
+
+}
+.carImage {
+    margin: 3px;
+    height: 250px;
+    width: 250px;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+
+.make_mod_yr {
+    height: 200px;
+    width: 200px;
+    font-size: x-large;
+    color: black;
+    font-weight: bold;
+    padding-left: 30px;
+}
+.left-align {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+div.lower-block {
+    display: block;
+}
+
+.description {
+    display: block;
 }
 
 .inner-block-left {
@@ -35,4 +64,40 @@
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     padding: 30px 25px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+
+    margin: 5em;
+}
+.edit-btn, .delete-btn {
+    border-radius: 30px;
+    text-decoration: none;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 100px;
+    border: 2px solid rgba(196, 196, 196, 1);
+    transition-duration: 0.4s;
+}
+
+.edit-btn {
+    background-color: rgba(160, 158, 158, 1);
+    color: black;
+}
+.edit-btn:hover {
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    color: red;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+.delete-btn:hover {
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    color: black;
 }
