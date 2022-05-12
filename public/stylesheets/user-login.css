@@ -73,6 +73,7 @@
     background-color: #4c4e54 ;
     border-color: black;
     color: #fff;
+    cursor: pointer;
 }
 
 a#noAccount {
