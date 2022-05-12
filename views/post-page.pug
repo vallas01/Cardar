@@ -1,7 +1,14 @@
 extends layout.pug
 
+append head
+
+  //- add page specific js
+  script(src="/javascripts/postDelete.js" type="module" defer)
+
+
 block content
   div.profile-block
+    p( type='hidden' id='hiddenId') #{post.id}
     div.inner-block
     article
       h1 #{post.name}
@@ -17,7 +24,9 @@ block content
         each comment in comments
           li #{comment.message}
 
+
     div
-      button(onclick="window.location='/users/login'") EDIT
+      button.edit-btn EDIT
+
     div
-      button DELETE
+      button.delete-btn DELETE

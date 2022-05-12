@@ -96,7 +96,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
 }));
 
-router.post('/delete/:id(\\d+)', asyncHandler(async(req, res) => {
+router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findOne({ where: { id: postId } });
 
