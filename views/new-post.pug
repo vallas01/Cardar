@@ -18,7 +18,8 @@ block content
             +field('', 'color', post.color, 'text', 'Color', required)
             +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
             +field('', 'features', post.features, '', 'Features', required)
-            +field('', 'description', post.description, 'textarea', 'Description', required)
             +field('', 'path', image.path, 'text', 'Insert a link', required)
-            button(type='submit') Add Post
-            a(href=`/users/${userId}` class='cancel-button') Cancel
+            +field('', 'description', post.description, 'textarea', 'Description', required)
+            .bottom-div
+                a(href=`/users/${userId}` class='cancel-button') Cancel
+                button(type='submit' class='add-post-btn') Add Post

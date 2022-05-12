@@ -1,12 +1,18 @@
+#add-post-ctn {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px 0;
+    height: 1000px;
+}
+
 #add-post-ctn,
 .new-post-form,
 .add-post-errors {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: stretch;
+    width: auto;
     flex-direction: column;
-    height: auto;
 }
 
 .new-post-form,
@@ -14,6 +20,11 @@
     background-color: #C4C4C4;
     width: 700px;
     padding: 10px 0;
+    border-radius: 30px;
+}
+
+.add-post-errors {
+    background-color: rgb(229, 135, 135);
 }
 
 .new-post-form > .form-group {
@@ -25,4 +36,32 @@
 
 .form-group > .flow-control {
     width: 400px;
+}
+
+.form-group > #description {
+    width: 400px;
+    height: 200px;
+}
+
+.bottom-div {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.cancel-button,
+.add-post-btn {
+    padding: 10px;
+}
+
+.cancel-button {
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    background-color: rgb(229, 135, 135);
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
 }
