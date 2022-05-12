@@ -5,21 +5,22 @@
 // remove post from page with successful response
 
 const deleteBtn = document.querySelector('.delete-btn')
-const id = document.getElementById('hiddenId').innerText
+const idText = document.getElementById('hiddenId').innerText
+const id = parseInt(idText)
 
+console.log(`idText to delete is: ${idText}`)
 console.log(`id to delete is: ${id}`)
 
 deleteBtn.addEventListener('click', async(e) => {
-
-
     e.preventDefault()
-    const postId = e.target.id.split('-')[2]
-    console.log(post.id)
-        const res = await fetch(`/posts/${postId}`, {
+  console.log(`attempting delete /posts/${id}`)
+  
+    const res = await fetch(`/posts/${id}`, {
             method: 'DELETE'
         })
+    const data = await res.json()
+  console.log(res.data)
 
-        const data = await res.json()
         if (data.message === 'Success') {
             const container = document.getElementById(`post-container-${postId}`)
             container.remove()
