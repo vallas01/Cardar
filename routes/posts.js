@@ -4,39 +4,51 @@ const db = require('../db/models');
 
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
-// } = require('../auth')
+const { requireAuth } = require('../auth')
 const router = express.Router();
 
 
 const postValidators = [
     check('name')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for First Name')
-        .isLength({ max: 50 })
-        .withMessage('First Name must not be more than 50 characters long'),
-    check('model')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Last Name')
-        .isLength({ max: 50 })
-        .withMessage('Last Name must not be more than 50 characters long'),
+        .withMessage('Please provide a title for your post.')
+        .isLength({ max: 30 })
+        .withMessage('Title must be under 30 characters.'),
     check('make')
         .exists({ checkFalsy: true })
-        .isEmail()
-        .withMessage('Please provide a valid email')
-        .isLength({ max: 255 })
-        .withMessage('Email must not be more than 255 characters long'),
+        .withMessage('Please provide a valid make.')
+        .isLength({ max: 20 })
+        .withMessage('Make name must be under 20 characters long.'),
+    check('model')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid model.')
+        .isLength({ max: 20 })
+        .withMessage('Model name must be under 20 characters long.'),
     check('year')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Password')
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/)
-        .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")')
-        .isLength({ min: 8 })
-        .withMessage('Password must be at least 8 characters long'),
+        .withMessage('Please provide a year.')
+        .isInt({ min: 1901, max: 2022 })
+        .withMessage('Please provide a valid year between 1901 to 2022.'),
     check('color')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a value for Confirm Password')
+        .withMessage('Please provide a color.')
+        .isLength({ max: 255 })
+        .withMessage('Please provide a color that is under 255 characters.'),
+    check('accidents')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for accidents.')
+        .isInt({ min: 0 })
+        .withMessage('Please provide a number of 0 or above.'),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a description.'),
+    check('path')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a link.')
+        .isURL({ protocols: ['https'] })
+        .withMessage('Please provide a valid URL.')
   ];
-  
+
 //   const postValidators = [
 //     check('email')
 //       .exists({ checkFalsy: true })
@@ -46,7 +58,25 @@ const postValidators = [
 //       .withMessage('Please provide a value for Password'),
 //   ];
 
-router.get("/new", asyncHandler(async(req, res) => {
+router.get("/new", csrfProtection, requireAuth, asyncHandler(async(req, res) => {
+    const userId = req.session.auth.userId;
+    const user = await db.User.findByPk(userId);
+    const post = db.Post.build();
+    const image = db.Image.build();
+
+    res.render('new-post', {
+        title: 'Add Post',
+        user,
+        post,
+        image,
+        csrfToken: req.csrfToken()
+    })
+}));
+
+router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId;
+    const user = await db.User.findByPk(userId);
+
     const {
         name,
         model,
@@ -55,10 +85,12 @@ router.get("/new", asyncHandler(async(req, res) => {
         color,
         accidents,
         features,
-        description
-      } = req.body
-    
-      const user = db.Post.build({
+        description,
+        path,
+        postId,
+    } = req.body
+
+    const post = db.Post.build({
         name,
         model,
         make,
@@ -67,23 +99,32 @@ router.get("/new", asyncHandler(async(req, res) => {
         accidents,
         features,
         description,
-        ownerId 
-      });
-    
-      const validatorErrors = validationResult(req);
-    
-      if (validatorErrors.isEmpty()) {
-        res.redirect('/');
-      } else {
-        const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('post-create', {
-            title: 'Create Post',
-            user,
-            errors,
-            csrfToken: req.csrfToken()
-        })
-      }
-}));
+        ownerId: userId
+    });
+
+    const image = db.Image.build({
+        path,
+        postId
+    })
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await post.save();
+        await image.save();
+        return res.redirect(`/users/${userId}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render('new-post', {
+          title: 'Create Post',
+          post,
+          user,
+          image,
+          errors,
+          csrfToken: req.csrfToken()
+      })
+    }
+}))
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const postId = parseInt(req.params.id, 10);
