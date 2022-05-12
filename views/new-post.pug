@@ -20,5 +20,7 @@ block content
             +field('', 'path', image.path, 'text', 'Insert a link', required)
             +field('', 'description', post.description, 'textarea', 'Description', required)
             .bottom-div
-                a(href=`/users/${userId}` class='cancel-button') Cancel
-                button(type='submit' class='add-post-btn') Post
+                div.cancel-div
+                    a(href=`/users/${userId}` class='cancel-button') Cancel
+                div.add-post-div
+                    button(type='submit' class='add-post-btn') Post

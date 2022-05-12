@@ -73,6 +73,11 @@
     padding: 0 20px;
 }
 
+.cancel-div,
+.add-post-div {
+    padding: 0 40px;
+}
+
 .cancel-button {
     background-color: rgb(229, 135, 135);
     color: black;
