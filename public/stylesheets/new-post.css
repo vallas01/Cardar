@@ -1,13 +1,12 @@
 #add-post-ctn {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     padding: 20px 0;
-    height: 1000px;
+    height: auto;
 }
 
-#add-post-ctn,
-.error-messages {
+#add-post-ctn {
     display: flex;
     align-items: center;
     width: auto;
@@ -32,6 +31,24 @@
 
 .error-messages {
     background-color: rgb(229, 135, 135);
+    margin: 40px 0 60px 0;
+}
+
+.error-messages > p,
+.error-messages > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.error-messages > p {
+    padding: 20px 0 0 40px;
+
+}
+
+.error-messages > ul {
+    padding: 20px 0 20px 40px;
+
 }
 
 .new-post-form > .form-group {
