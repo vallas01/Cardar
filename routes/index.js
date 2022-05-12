@@ -7,28 +7,11 @@ let { Post, Image } = db;
 
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
-  const posts = await Post.findAll({
-    // where: {
-    //   [Op.or]: [
-    //     {
-    //       model: {
-    //         [Op.iLike]: `%${req.query.searchedInput}%`
-    //       }
-    //     },
-    //     {
-    //       make: {
-    //         [Op.iLike]: `%${req.query.searchedInput}%`
-    //       }
-    //     },
-    //     {
-    //       color: {
-    //         [Op.iLike]: `%${req.query.searchedInput}%`
-    //       }
-    //     }
-    //   ]
-    // },
+  const allPosts = await Post.findAll({
     include: Image
   })
+
+  const posts = allPosts.slice(allPosts.length - 10, 10);
 
   res.render('index', {
     title: 'Home',
