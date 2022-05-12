@@ -16,7 +16,7 @@ deleteBtn.addEventListener('click', async(e) => {
             method: 'DELETE'
         })
     const data = await res.json()
-    console.log(`res.data????:  ${data}`)
+    console.log("res.data????", data)
 
         if (data.message === 'Success') {
             const container = document.getElementById(`post-container-${postId}`)
