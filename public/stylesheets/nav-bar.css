@@ -103,10 +103,17 @@ button img {
     width: 115px;
 }
 
-form.logout-btn {
+.logout-btn {
     height: 30px;
     display: flex;
     align-items: center;
+    transition: all 0.2s ease-in;
+}
+
+.logout-btn:hover {
+    background-color: rgb(147, 147, 147);
+    border: 1px solid rgb(147, 147, 147);
+    color: white;
 }
 
 .user-auth {
@@ -134,4 +141,5 @@ form.logout-btn {
     background-color: rgba(196, 196, 196, 1);
     border: 1px solid rgba(196, 196, 196, 1);
     color: black;
+
 }
