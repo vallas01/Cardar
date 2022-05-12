@@ -23,13 +23,13 @@ block content
     div.lower-block
       div.owner
       div.description
-        p.right-align Description: #{post.description}
+        p.right-align #{post.description}
       //- p.right-align Color: #{post.color}
       div.accidents
-        p.right-align Accidents: #{post.accidents}
-      ul Comments
+        p.right-align This car has been in #{post.accidents} accidents.
+      ul Comments:
         each comment in comments
-          li #{comment.message}
+          li - #{comment.message}
 
 
     div.buttons
