@@ -84,7 +84,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
     user.hashedPassword = hashedPassword;
     await user.save();
     loginUser(req, res, user);
-    res.redirect('/');
+    // return res.redirect('/')
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('user-register', {
@@ -118,19 +118,19 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
       if (passwordMatch) {
         loginUser(req, res, user);
-        return res.redirect('/');
+        // return res.redirect('/');
       }
     }
       errors.push('Login failed for the provided email address and password.')
   } else {
       errors = validatorErrors.array().map((error) => error.msg);
+      res.render('user-login', {
+          title: 'Login',
+          email,
+          errors,
+          csrfToken: req.csrfToken()
+      })
   }
-  res.render('user-login', {
-      title: 'Login',
-      email,
-      errors,
-      csrfToken: req.csrfToken()
-  })
 
 }));
 
