@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content: flex-start;
     left: 1.5em;
-    width: 325px;
+    width: 260px;
     height: auto;
     padding-left: 20px;
 }
@@ -65,11 +65,41 @@ input {
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 0 40px 40px 0;
     padding-right: 6px;
+    cursor: pointer;
 }
 
 button img {
     width: 21px;
     height: 21px;
+}
+
+.user-profile-icon,
+.add-post-icon,
+.logout-div {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-icon > img {
+    width: 35px;
+    height: 35px;
+}
+
+.add-post-icon > img {
+    /* padding-top: 12px; */
+    width: 25px;
+    height: 25px;
+}
+
+.logout-div {
+    /* padding-top: 15px; */
+    width: 115px;
+}
+
+form.logout-btn {
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .user-auth {
@@ -80,13 +110,16 @@ button img {
     padding: 5px 10px;
 }
 
-.nav-btn {
+.nav-btn,
+.logout-btn {
     border-radius: 30px;
     display: inline-flex;
     text-decoration: none;
     justify-content: center;
     text-align: center;
     font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
     padding: 5px 10px;
     width: 100px;
     background-color: rgba(196, 196, 196, 1);
