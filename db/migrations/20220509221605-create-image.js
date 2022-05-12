@@ -13,10 +13,6 @@ module.exports = {
         unique: true,
         allowNull: false
       },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       postId: {
         type: Sequelize.INTEGER,
         references: {model: "Posts"}

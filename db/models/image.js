@@ -6,10 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     postId: {
       type: DataTypes.INTEGER,
       references: {model: "Posts"}
