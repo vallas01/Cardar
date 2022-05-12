@@ -118,7 +118,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
       if (passwordMatch) {
         loginUser(req, res, user);
-        return res.redirect(`/users/${user.id}`);
+        return res.redirect('/');
       }
     }
       errors.push('Login failed for the provided email address and password.')
@@ -161,7 +161,7 @@ router.put(
       state
     } = req.body;
 
-    await user.update({ 
+    await user.update({
     username,
     firstName,
     lastName,
@@ -173,7 +173,7 @@ router.put(
       user,
       posts
     });
-    
+
   })
 );
 

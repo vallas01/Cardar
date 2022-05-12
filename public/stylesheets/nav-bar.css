@@ -16,7 +16,7 @@
     flex-direction: row;
     justify-content: flex-start;
     left: 1.5em;
-    width: 260px;
+    width: 255px;
     height: auto;
     padding-left: 20px;
 }
@@ -111,8 +111,8 @@ form.logout-btn {
 
 .user-auth {
     display: flex;
-    justify-content: space-around;
-    width: 250px;
+    justify-content: space-between;
+    width: 215px;
     height: 40px;
     padding: 5px 10px;
 }
@@ -123,19 +123,15 @@ form.logout-btn {
     display: inline-flex;
     text-decoration: none;
     justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     padding: 5px 10px;
-    width: 100px;
+    width: 90px;
+    height: 30px;
     background-color: rgba(196, 196, 196, 1);
     border: 1px solid rgba(196, 196, 196, 1);
     color: black;
-}
-
-.nav-btn p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

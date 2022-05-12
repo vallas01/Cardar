@@ -22,9 +22,11 @@ html
           a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png')
           div.logout-div
             form(class='logout-btn' action='/users/logout' method='post')
-              button(class='logout-btn' href='/users/logout') LOGOUT
+              button(class='logout-btn' href='/users/logout'): p(class='user-auth-text') LOGOUT
         else
           div(class='user-auth')
-            a(class='nav-btn' href='/users/register'): p(class='user-auth-text') REGISTER
-            a(class='nav-btn' href='/users/login'): p(class='user-auth-text') LOGIN
+            div.register-div
+              a(class='nav-btn' href='/users/register'): p(class='user-auth-text') REGISTER
+            div.login-div
+              a(class='nav-btn' href='/users/login'): p(class='user-auth-text') LOGIN
     block content
