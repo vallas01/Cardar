@@ -54,7 +54,7 @@
 
 .bottom-div {
     width: 600px;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -65,9 +65,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    width: 90px;
-    height: 40px;
+    border-radius: 40px;
+    width: 150px;
+    height: 50px;
     font-size: 16px;
     font-weight: bold;
     padding: 0 20px;
