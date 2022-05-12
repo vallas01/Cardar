@@ -14,7 +14,7 @@ console.log(`id to delete is: ${id}`)
 deleteBtn.addEventListener('click', async(e) => {
     e.preventDefault()
   console.log(`attempting delete /posts/${id}`)
-  
+
     const res = await fetch(`/posts/${id}`, {
             method: 'DELETE'
         })
