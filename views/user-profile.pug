@@ -10,7 +10,6 @@ block content
       div.state
         //- h3 State
         p State: #{user.state}
-
       div.member
         h3 Member Since
         p #{user.createdAt}
@@ -26,3 +25,4 @@ block content
             each image in post.Images
               a(href=`/posts/${post.id}`)
                 img(class='car_img_user_icon' src=image.path)
+      button.edit-user Edit  
