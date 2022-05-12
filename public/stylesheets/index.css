@@ -9,18 +9,6 @@ div.container1 {
     justify-content: center
 }
 
-div.container1 button {
-    position:absolute;
-    top: 20rem;
-    height:  3rem;
-    font-weight: bold;
-    border-radius: 2rem;
-    font-size: large;
-    border: 1px solid rgba(196, 196, 196, 1);
-    background-color: rgba(196, 196, 196, 1);
-
-}
-
 #chevron {
     height: 100px;
     width: 100px;
