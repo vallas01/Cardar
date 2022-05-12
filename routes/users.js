@@ -146,9 +146,40 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 
 }));
 
+router.put(
+  "/:id(\\d+)",
+  userValidators,
+  validationResult,
+  asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const user = await db.User.findByPk(userId);
+    const {
+      username,
+      firstName,
+      lastName,
+      email,
+      state
+    } = req.body;
+
+    await user.update({ 
+    username,
+    firstName,
+    lastName,
+    email,
+    state
+     });
+     res.render('user-profile', {
+      title: 'User Profile',
+      user,
+      posts
+    });
+    
+  })
+);
+
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/user/login');
+  res.redirect('/users/login');
 })
 
 module.exports = router;
