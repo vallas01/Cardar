@@ -99,18 +99,21 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
 
     const postId = parseInt(req.params.id, 10);
-    console.log(`postId: ${postId}`)
+console.log(`***** postId: ${postId}`)
 
     const post = await db.Post.findOne({ where: { id: postId } });
 
     if (post) {
-        console.log(`***********got here - post: ${post}`)
+
+console.log(`***********got here - post: ${post}`)
         await post.destroy()
+console.log(`*********** BUT NOT here`)
         res.json({message:'Delete SUCCESS'})
     } else {
         res.json({message:'Delete FAIL'})
     }
-    console.log('did not get here???')
+
+console.log('did not get here???')
     res.redirect('/')
 
 }));
