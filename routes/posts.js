@@ -58,7 +58,7 @@ const postValidators = [
 //       .withMessage('Please provide a value for Password'),
 //   ];
 
-router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
+router.get("/new", csrfProtection, requireAuth, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
     const post = db.Post.build();
@@ -73,7 +73,7 @@ router.get("/new", csrfProtection, asyncHandler(async(req, res) => {
     })
 }));
 
-router.post('/new', csrfProtection, postValidators, asyncHandler(async (req, res) => {
+router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
 
