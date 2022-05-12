@@ -103,17 +103,15 @@ button img {
     width: 115px;
 }
 
-.logout-btn {
+button.logout-btn,
+form.logout-btn {
     height: 30px;
     display: flex;
     align-items: center;
-    transition: all 0.2s ease-in;
 }
 
-.logout-btn:hover {
-    background-color: rgb(147, 147, 147);
-    border: 1px solid rgb(147, 147, 147);
-    color: white;
+button > .logout-btn {
+    width: 90px;
 }
 
 .user-auth {
@@ -141,5 +139,12 @@ button img {
     background-color: rgba(196, 196, 196, 1);
     border: 1px solid rgba(196, 196, 196, 1);
     color: black;
+}
+
+.logout-btn:hover,
+.nav-btn:hover {
+    background-color: rgb(127, 127, 127);
+    border: 1px solid rgb(127, 127, 127);
+    color: white;
 
 }

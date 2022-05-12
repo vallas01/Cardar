@@ -21,7 +21,8 @@ html
           a(href=`/users/${user.id}` class='user-profile-icon'): img( src='../images/user-profile-icon.png')
           a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png')
           div.logout-div
-            button(class='logout-btn' href='/users/logout'): p(class='user-auth-text') LOGOUT
+            form(class='logout-btn-form' action='/users/logout' method='post')
+              button(class='logout-btn'): p(class='user-auth-text') LOGOUT
         else
           div(class='user-auth')
             div.register-div
