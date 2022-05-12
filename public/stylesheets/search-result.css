@@ -12,24 +12,10 @@ h1 {
     border-bottom: 1px solid white;
 }
 
-.post-images {
-    display: flex;
-    justify-content: center;
-    height: auto;
-}
 
-.row {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding-left: 75px;
-    padding-right: 75px;
-    height: auto;
- }
 
 .column {
-    display: flex;
-    justify-content: center;
+    display: inline flex;
     padding: 25px;
 }
 
@@ -41,6 +27,5 @@ h1 {
     border-radius: 5em;
     width: 500px;
     height: 300px;
-    margin-right: 100px;
     margin-left: 100px;
 }
