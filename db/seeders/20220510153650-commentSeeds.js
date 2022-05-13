@@ -213,16 +213,16 @@ module.exports = {
         updatedAt: new Date()
     },
     {
-        message: "^What they said.",
+        message: "Awesome carrrr!!!!!",
         postId: 12,
-        ownerId: 4,
+        ownerId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
     },
     {
-        message: "Awesome carrrr!!!!!",
+        message: "^What they said.",
         postId: 12,
-        ownerId: 3,
+        ownerId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
     },

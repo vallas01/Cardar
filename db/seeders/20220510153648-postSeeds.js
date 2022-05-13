@@ -36,19 +36,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Should I?',
-      model: '718 Boxster',
-      make: 'Porsche',
-      year: '2017',
-      color: 'orange',
-      accidents: '0',
-      features: '',
-      description: 'Might pull the trigger on this... Should I?',
-      ownerId: 1,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
       name: 'Old but Gold!',
       model: 'Wrangler',
       make: 'Jeep',
@@ -88,19 +75,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Should I Sell?',
-      model: 'Ioniq 5',
-      make: 'Hyundai',
-      year: '2022',
-      color: 'white',
-      accidents: '0',
-      features: '',
-      description: 'Interior view.',
-      ownerId: 3,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
       name: 'New Family Member',
       model: 'X',
       make: 'Tesla',
@@ -127,6 +101,19 @@ module.exports = {
       updatedAt: new Date()
     },
     {
+      name: 'Should I Sell?',
+      model: 'Ioniq 5',
+      make: 'Hyundai',
+      year: '2022',
+      color: 'white',
+      accidents: '0',
+      features: '',
+      description: 'Interior view.',
+      ownerId: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
       name: 'New Splashes',
       model: 'Continental',
       make: 'Bentley',
@@ -140,19 +127,6 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Rolling in Vacation',
-      model: 'Ghost',
-      make: 'Rolls Royce',
-      year: '2020',
-      color: 'white',
-      accidents: '0',
-      features: 'Champagne Cooler',
-      description: 'Traveling in luxury. Yes, it was nice. You don\'t have to tell me twice.',
-      ownerId: 1,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
       name: 'My First Car',
       model: '250 GTO',
       make: 'Ferrari',
@@ -162,6 +136,32 @@ module.exports = {
       features: '',
       description: 'One of a kind.',
       ownerId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Should I?',
+      model: '718 Boxster',
+      make: 'Porsche',
+      year: '2017',
+      color: 'orange',
+      accidents: '0',
+      features: '',
+      description: 'Might pull the trigger on this... Should I?',
+      ownerId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Rolling in Vacation',
+      model: 'Ghost',
+      make: 'Rolls Royce',
+      year: '2020',
+      color: 'white',
+      accidents: '0',
+      features: 'Champagne Cooler',
+      description: 'Traveling in luxury. Yes, it was nice. You don\'t have to tell me twice.',
+      ownerId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     },
