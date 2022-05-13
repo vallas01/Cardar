@@ -12,10 +12,15 @@ h1 {
     border-bottom: 1px solid white;
 }
 
-.column {
-    display: inline flex;
+.row {
+    display: flex;
     flex-direction: row;
-    padding: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.column {
+    padding: 50px;
 }
 
 .car_img {
@@ -26,5 +31,4 @@ h1 {
     border-radius: 5em;
     width: 500px;
     height: 300px;
-    margin-left: 165px
 }
