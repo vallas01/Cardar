@@ -203,7 +203,59 @@ module.exports = {
       ownerId: 4,
       createdAt: new Date(),
       updatedAt: new Date()
-  }
+    },
+    {
+      name: 'Infinite Loop',
+      model: 'QX50',
+      make: 'Infiniti',
+      year: '2019',
+      color: 'Gray',
+      accidents: '1',
+      features: '',
+      description: 'This car takes me to an infinite multiverse.',
+      ownerId: 5,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Audi to Aldi',
+      model: 'R8',
+      make: 'Audi',
+      year: '2020',
+      color: 'Blue',
+      accidents: '0',
+      features: '',
+      description: 'Taking the baby out for some grocery shopping.',
+      ownerId: 5,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'Daily Dose',
+      model: '300',
+      make: 'Chrysler',
+      year: '2021',
+      color: 'Red',
+      accidents: '0',
+      features: '',
+      description: 'Took the red pill out.',
+      ownerId: 5,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      name: 'The Blue Tho..',
+      model: 'Legacy',
+      make: 'Subaru',
+      year: '2021',
+      color: 'Blue',
+      accidents: '0',
+      features: '',
+      description: 'This pic does not do the car any justice whatsoever!',
+      ownerId: 5,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
    ], {});
   },
 

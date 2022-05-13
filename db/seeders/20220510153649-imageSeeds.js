@@ -98,7 +98,31 @@ module.exports = {
         postId: 15,
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        path: 'https://images.hgmsites.net/hug/2019-infiniti-qx50_100641986_h.jpg',
+        postId: 16,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        path: 'https://cdn.motor1.com/images/mgl/JvOe4/s1/2020-audi-r8-performance-review.jpg',
+        postId: 17,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        path: 'https://images.hgmsites.net/lrg/2021-chrysler-300_100759077_l.jpg',
+        postId: 18,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        path: 'https://www.kbb.com/wp-content/uploads/2020/08/2021-subaru-legacy-front-3qtr.jpg?w=763',
+        postId: 19,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
   ], {});
   },
 

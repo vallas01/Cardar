@@ -344,7 +344,84 @@ module.exports = {
         ownerId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
-    }
+    },
+    {
+        message: "This is dope!",
+        postId: 1,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Cool!",
+        postId: 2,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Nice!",
+        postId: 3,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Love it!",
+        postId: 4,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Possibly interested...",
+        postId: 5,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Wowww!",
+        postId: 6,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Cleaannn.",
+        postId: 7,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "This is a great car!",
+        postId: 8,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Luxurious!",
+        postId: 9,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Best sounding car without a doubt!",
+        postId: 10,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "One of my favorites!",
+        postId: 11,
+        ownerId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
     ], {});
   },
 
