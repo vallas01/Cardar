@@ -147,33 +147,37 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 
 }));
 
-router.put(
-  "/:id(\\d+)",
-  userValidators,
-  validationResult,
+router.put('/:id(\\d+)',
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
     const {
-      username,
-      firstName,
-      lastName,
-      email,
-      state
+      fname,
+      lname,
+      newState,
+      newEmail,
+      newBio
     } = req.body;
 
-    await user.update({
-    username,
-    firstName,
-    lastName,
-    email,
-    state
-     });
+    const firstName = fname;
+   
+
+    await user.update({ 
+    firstName: fname,
+    lastName: lname,
+    email: newEmail,
+    state: newState,
+    bio: newBio
+    });
+    
+     await user.save()
      res.render('user-profile', {
       title: 'User Profile',
       user,
       posts
     });
+    return
+    
 
   })
 );
