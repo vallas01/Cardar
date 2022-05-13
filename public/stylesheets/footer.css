@@ -4,7 +4,7 @@ footer {
     text-align: center;
     position: relative;
     bottom: 0px;
-    grid-template-rows: 1fr 50px;
+    grid-template-rows: 1fr 50px 50px;
 }
 
 .foot {
@@ -12,7 +12,7 @@ footer {
     font-family: 'Karla';
     color: black;
     font-size: 20px;
-    grid-row: 2;
+    grid-row: 3;
     border-top: 2px solid white;
 }
 
