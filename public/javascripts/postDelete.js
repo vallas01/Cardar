@@ -1,28 +1,17 @@
-console.log('Hello from your script')
+//delete the postId and redirect to the userId
 
-// Find all delete buttons
-// add event listener to each button
-// send a fetch request to delete the correct post
-// remove post from page with successful response
+const deleteBtn = document.querySelector('.delete-btn')
+const idText = document.getElementById('hiddenId').innerText
+const id = parseInt(idText)
+const ownerIdText = document.getElementById('hiddenUserId').innerText
+const ownerId = parseInt(ownerIdText)
 
-const deleteBtns = document.querySelectorAll('.delete-btn')
-
-for (let i = 0; i < deleteBtns.length; i++) {
-    const btn = deleteBtns[i];
-    btn.addEventListener('click', async(e) => {
-        e.preventDefault()
-        const postId = e.target.id.split('-')[2]
-        const res = await fetch(`/posts/${postId}`, {
+deleteBtn.addEventListener('click', async(e) => {
+    e.preventDefault()
+    const res = await fetch(`/posts/${id}`, {
             method: 'DELETE'
         })
+    const data = await res.json()
 
-        const data = await res.json()
-        if (data.message === 'Success') {
-            const container = document.getElementById(`post-container-${postId}`)
-            container.remove()
-        } else {
-
-        }
-    })
-}
-
+    if (data.message === 'Delete SUCCESS') window.location.href=`/users/${ownerId}`;
+})

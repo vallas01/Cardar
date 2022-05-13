@@ -1,30 +1,144 @@
+
+
 .profile-block {
     color: white;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Karla', sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px;
-    display: flex;
-    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    width: 580px;
+    height:540px;
+    display: block;
+    border: 1px solid #C4C4C4;
     border-radius: 50px;
     background-color: #C4C4C4;
 }
+div.upper-block{
+    display: flex;
+    align-items: flex-start;
 
-.inner-block-left {
-    width: 35%;
-    background-color: #C4C4C4;
-    padding: 30px 25px;
-    text-align: center;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
+}
+.carImage {
+    margin: 3px;
+    height: 250px;
+    width: 250px;
+    border: 2px solid white;
+    border-radius: 50px;
 }
 
-.inner-block-right {
-    width: 65%;
+.make_mod_yr {
+    height: 200px;
+    width: 200px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.left-align {
+    font-size:xx-large;
+    padding-top: 5px;
+    margin-top: 20px;
+    width: 240px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.0);
+}
+.left-align:hover {
+    color: grey;
+}
+
+
+
+div.lower-block {
+    display: block;
+}
+
+.description {
+    text-align: center;
+}
+.desc_box {
+    font-size: x-large;
+    font-weight: 500;
+    color: black;
+    text-align: center;
     background-color: #C4C4C4;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 30px 25px;
+    border: 1px solid #C4C4C4;
+
+}
+
+.desc_box:hover {
+    width: 550px;
+    height: 60px;
+    position:static;
+    background-color: white;
+    font-size: medium;
+    text-align: center;
+}
+
+.accidents {
+    text-align: center;
+    font-size:medium;
+    padding-top: 1.5em;
+    color: black;
+}
+.number {
+    color: red;
+    width:20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+div.comment_box {
+    border: 1px solid black;
+    margin: 10px;
+    overflow-y: scroll;
+}
+
+.comment_label {
+    color: black;
+
+}
+.comments {
+    text-decoration: none;
+    margin: 10px;;
+    color: white;
+    border: 1px solid grey;
+    background-color: rgba(0,0,0,0.19);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-btn, .delete-btn {
+    border-radius: 30px;
+    text-decoration: none;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 100px;
+    border: 2px solid rgba(196, 196, 196, 1);
+    transition-duration: 0.4s;
+}
+
+.edit-btn {
+    background-color: rgba(160, 158, 158, 1);
+    color: black;
+}
+.edit-btn:hover {
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    color: red;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+.delete-btn:hover {
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    color: black;
 }
