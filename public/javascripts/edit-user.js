@@ -36,7 +36,6 @@ editButton.addEventListener("click", async (e) => {
 
     updateButton.addEventListener("click", async (e) => {
         e.preventDefault();
-        console.log('YEAAAAAAAAAAAA');
         const editForm = document.querySelector('.form-edit-user');
         const formData = new FormData(editForm);
         const fname = formData.get("fname");
@@ -66,4 +65,4 @@ editButton.addEventListener("click", async (e) => {
     
 })
  
-})
+});

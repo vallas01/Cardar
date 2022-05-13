@@ -159,8 +159,8 @@ router.put('/:id(\\d+)',
       newBio
     } = req.body;
 
-    console.log(fname, lname, newState, newEmail, newBio);
-    console.log(user)
+    const firstName = fname;
+   
 
     await user.update({ 
     firstName: fname,
