@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require("bcryptjs");
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -11,7 +12,7 @@ module.exports = {
    return queryInterface.bulkInsert('Users', [
      {
       username: 'demoUser',
-      hashedPassword: 'strongPassword1Demo',
+      hashedPassword: bcrypt.hashSync('strongPassword!Demo', 12),
       firstName: 'Demo',
       lastName: 'User',
       email: 'demouser@test.com',
@@ -22,7 +23,7 @@ module.exports = {
      },
     {
       username: 'iFlexCars',
-      hashedPassword: 'strongPassword1!',
+      hashedPassword: bcrypt.hashSync('strongPassword1!', 12),
       firstName: 'Anthony',
       lastName: 'Taylor',
       email: 'iflexcars@test.com',
@@ -33,7 +34,7 @@ module.exports = {
     },
     {
       username: 'ZoomZoom',
-      hashedPassword: 'strongPassword2!',
+      hashedPassword: bcrypt.hashSync('strongPassword2!', 12),
       firstName: 'Andy',
       lastName: 'Vallas',
       email: 'zoomzoom@test.com',
@@ -44,7 +45,7 @@ module.exports = {
     },
     {
       username: 'iSellCars',
-      hashedPassword: 'strongPassword3!',
+      hashedPassword: bcrypt.hashSync('strongPassword3!', 12),
       firstName: 'Joshua',
       lastName: 'Keim',
       email: 'isellcarsm@test.com',
@@ -55,7 +56,7 @@ module.exports = {
     },
     {
       username: 'EBraker',
-      hashedPassword: 'strongPassword4!',
+      hashedPassword: bcrypt.hashSync('strongPassword3!', 12),
       firstName: 'Chris',
       lastName: 'Chueng',
       email: 'ebraker@test.com',
