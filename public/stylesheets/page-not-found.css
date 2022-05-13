@@ -1,0 +1,40 @@
+.error-content,
+.content-ctn,
+a.error-redirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-content {
+    width: auto;
+    height: auto;
+}
+
+.content-ctn {
+    flex-direction: column;
+    background-color: rgba(196,196,196,1);
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+h1 {
+    /* padding: 20px 0; */
+}
+
+.error-subheading {
+    padding: 40px 0;
+}
+
+.error-redirect {
+    border: 1px solid black;
+}
+
+a.error-redirect {
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    color: black;
+    text-decoration: none;
+}

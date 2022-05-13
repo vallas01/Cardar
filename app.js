@@ -47,9 +47,23 @@ app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/search', searchRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
+// Error handler for 404 errors.
+app.use((req, res, next) => {
+  const err = new Error;
+  err.status = 404
+  res.status(404);
+  res.render('page-not-found', {
+    title: 'Page Not Found',
+  });
+
+  if (err.status !== 404) {
+    next(err);
+  }
 });
 
 // error handler
@@ -63,16 +77,6 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-// Error handler for 404 errors.
-app.use((err, req, res, next) => {
-  if (err.status === 404) {
-    res.status(404);
-    res.render('page-not-found', {
-      title: 'Page Not Found',
-    });
-  } else {
-    next(err);
-  }
-});
+
 
 module.exports = app;
