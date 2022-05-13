@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     ownerId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: { model: "Users"}
     }
   }, {});
