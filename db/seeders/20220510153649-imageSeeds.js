@@ -64,13 +64,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        path: 'https://cimg1.ibsrv.net/ibimg/hgm/1920x1080-1/100/548/2017-porsche-718-boxster-s-2016-geneva-motor-show_100548253.jpg',
+        path: 'https://img.hmn.com/900x0/stories/2018/06/1962-Ferrari-250-GTO-by-Scaglietti_33.jpg',
         postId: 10,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        path: 'https://img.hmn.com/900x0/stories/2018/06/1962-Ferrari-250-GTO-by-Scaglietti_33.jpg',
+        path: 'https://cimg1.ibsrv.net/ibimg/hgm/1920x1080-1/100/548/2017-porsche-718-boxster-s-2016-geneva-motor-show_100548253.jpg',
         postId: 11,
         createdAt: new Date(),
         updatedAt: new Date()
