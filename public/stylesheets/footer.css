@@ -3,7 +3,7 @@ footer {
     text-align: center;
     position: relative;
     bottom: 0px;
-    grid-template-rows: 10vh;
+    grid-template-rows: 20vh;
 }
 
 .foot {
@@ -14,6 +14,7 @@ footer {
     grid-row: 1;
     min-height: 75px;
     border-top: 2px solid white;
+
 }
 
 .foot > a {
@@ -21,16 +22,40 @@ footer {
     color: black;
     text-decoration: none;
     font-size: 18px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    font-weight: bold;
 }
 
 .foot > p {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 header{
-    min-height: 90vh;
+    min-height: 80vh;
+}
+
+.github-btn {
+    border-radius: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: space-evenly;
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 90px;
+    height: 60px;
+    background-color: rgba(196, 196, 196, 1);
+    border: 1px solid rgba(196, 196, 196, 1);
+    color: black;
+}
+
+.github-btn:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: rgba(196,196,196,1);
+
 }
 
