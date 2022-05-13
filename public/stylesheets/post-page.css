@@ -30,14 +30,23 @@ div.upper-block{
 .make_mod_yr {
     height: 200px;
     width: 200px;
-    font-size:xx-large;
-    color: black;
-    font-weight: bold;
     padding-left: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 20px;
+}
+.left-align {
+    font-size:xx-large;
+    padding-top: 5px;
+    margin-top: 20px;
+    width: 240px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.0);
+}
+.left-align:hover {
+    color: grey;
 }
 
 
@@ -47,9 +56,24 @@ div.lower-block {
 }
 
 .description {
+    text-align: center;
+}
+.desc_box {
     font-size: x-large;
-    color: black;
     font-weight: 500;
+    color: black;
+    text-align: center;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+
+}
+
+.desc_box:hover {
+    width: 550px;
+    height: 60px;
+    position:static;
+    background-color: white;
+    font-size: medium;
     text-align: center;
 }
 
@@ -61,12 +85,17 @@ div.lower-block {
 }
 .number {
     color: red;
+    width:20px;
+    text-align: center;
+    font-weight: 500;
 }
 
 div.comment_box {
     border: 1px solid black;
     margin: 10px;
+    overflow-y: scroll;
 }
+
 .comment_label {
     color: black;
 
