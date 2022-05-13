@@ -16,7 +16,7 @@
     flex-direction: row;
     justify-content: flex-start;
     left: 1.5em;
-    width: 325px;
+    width: 255px;
     height: auto;
     padding-left: 20px;
 }
@@ -68,6 +68,7 @@
     border: 1px solid rgba(196, 196, 196, 1);
     border-radius: 0 40px 40px 0;
     padding-right: 6px;
+    cursor: pointer;
 }
 
 /* .magnifying-search {
@@ -79,38 +80,71 @@ button img {
     height: 21px;
 }
 
+.user-profile-icon,
+.add-post-icon,
+.logout-div {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-icon > img {
+    width: 35px;
+    height: 35px;
+}
+
+.add-post-icon > img {
+    /* padding-top: 12px; */
+    width: 25px;
+    height: 25px;
+}
+
+.logout-div {
+    /* padding-top: 15px; */
+    width: 115px;
+}
+
+button.logout-btn,
+form.logout-btn {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+button > .logout-btn {
+    width: 90px;
+}
+
 .user-auth {
     display: flex;
-    justify-content: space-around;
-    width: 250px;
+    justify-content: space-between;
+    width: 215px;
     height: 40px;
     padding: 5px 10px;
 }
 
-.nav-btn {
+.nav-btn,
+.logout-btn {
     border-radius: 30px;
     display: inline-flex;
     text-decoration: none;
     justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
     padding: 5px 10px;
-    width: 100px;
+    width: 90px;
+    height: 30px;
     background-color: rgba(196, 196, 196, 1);
     border: 1px solid rgba(196, 196, 196, 1);
     color: black;
 }
 
-.nav-btn p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.logout-btn:hover,
+.nav-btn:hover {
+    background-color: rgb(127, 127, 127);
+    border: 1px solid rgb(127, 127, 127);
+    color: white;
 
-.add-post-icon {
-    padding-top: 12px;
-}
-
-.logout-div {
-    padding-top: 15px;
 }

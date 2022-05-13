@@ -7,20 +7,23 @@ include utils.pug
 
 block content
     div(id='add-post-ctn')
-        +validationErrorSummary(errors)
-        form(action='/posts/new' class='new-post-form' method='post')
-            input(type='hidden' name='_csrf' value=csrfToken)
-            +field('', 'name', post.name, 'text', 'Name', required)
-            +field('', 'make', post.make, 'text', 'Make', required)
-            +field('', 'model', post.model, 'text', 'Model', required)
-            +field('', 'year', post.year, 'number', 'Year', required)
-            +field('', 'color', post.color, 'text', 'Color', required)
-            +field('', 'accidents', post.accidents, 'number', 'Accidents', required)
-            +field('', 'features', post.features, '', 'Features', required)
-            +field('', 'path', image.path, 'text', 'Insert a link', required)
-            +field('', 'description', post.description, 'textarea', 'Description', required)
-            .bottom-div
-                div.cancel-div
-                    a(href=`/users/${userId}` class='cancel-button') Cancel
-                div.add-post-div
-                    button(type='submit' class='add-post-btn') Post
+        .new-post-errors
+            +validationErrorSummary(errors)
+        .add-post-content
+            h1 New Post
+            form(action='/posts/new' class='new-post-form' method='post')
+                input(type='hidden' name='_csrf' value=csrfToken)
+                +field('', 'name', post.name, 'text', 'NAME', required)
+                +field('', 'make', post.make, 'text', 'MAKE', required)
+                +field('', 'model', post.model, 'text', 'MODEL', required)
+                +field('', 'year', post.year, 'number', 'YEAR', required)
+                +field('', 'color', post.color, 'text', 'COLOR', required)
+                +field('', 'accidents', post.accidents, 'number', 'ACCIDENTS', required)
+                +field('', 'features', post.features, '', 'FEATURES', required)
+                +field('', 'path', image.path, 'text', 'INSERT AN HTTP LINK', required)
+                +field('', 'description', post.description, 'textarea', 'DESCRIPTION', required)
+                .bottom-div
+                    div.cancel-div
+                        a(href=`/users/${userId}` class='cancel-button') CANCEL
+                    div.add-post-div
+                        button(type='submit' class='add-post-btn') POST

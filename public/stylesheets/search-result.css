@@ -12,24 +12,9 @@ h1 {
     border-bottom: 1px solid white;
 }
 
-.post-images {
-    display: flex;
-    justify-content: center;
-    height: auto;
-}
-
-.row {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding-left: 75px;
-    width: 800px;
-    height: auto;
- }
-
 .column {
-    display: flex;
-    justify-content: center;
+    display: inline flex;
+    flex-direction: row;
     padding: 25px;
 }
 
@@ -39,6 +24,7 @@ h1 {
     align-items: center;
     border: 3px solid white;
     border-radius: 5em;
-    width: 300px;
+    width: 500px;
     height: 300px;
+    margin-left: 165px
 }

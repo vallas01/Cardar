@@ -6,12 +6,12 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { restoreUser } = require('./auth');
+const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const searchRouter = require('./routes/search');
-const { sessionSecret } = require('./config');
-const { restoreUser } = require('./auth');
 
 
 const app = express();
@@ -21,8 +21,8 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -31,7 +31,7 @@ const store = new SequelizeStore({ db: sequelize });
 app.use(
   session({
     name: 'cardar.sid',
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
@@ -47,9 +47,28 @@ app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/search', searchRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
+// Catch unhandled requests and forward to error handler.
+app.use((req, res, next) => {
+  const err = new Error('The requested page couldn\'t be found.');
+  err.status = 404;
+  next(err);
+});
+
+// Error handler for 404 errors.
+app.use((err, req, res, next) => {
+  if (err.status === 404) {
+    res.status(404);
+    res.render('page-not-found', {
+      title: 'Page Not Found',
+    });
+  } else {
+    next(err);
+  }
 });
 
 // error handler
@@ -62,5 +81,16 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// // Generic error handler.
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   const isProduction = environment === 'production';
+//   res.render('error', {
+//     title: 'Server Error',
+//     message: isProduction ? null : err.message,
+//     stack: isProduction ? null : err.stack,
+//   });
+// });
 
 module.exports = app;

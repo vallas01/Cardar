@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content 
+  div(display='none' class='user-id') #{user.id}
   div.profile-wrapper  
     div.left-side
       h1 #{user.firstName} #{user.lastName}
@@ -25,4 +26,6 @@ block content
             each image in post.Images
               a(href=`/posts/${post.id}`)
                 img(class='car_img_user_icon' src=image.path)
-      button.edit-user Edit  
+      form
+        button.edit-user Edit
+        script(type="module" src='/javascripts/edit-user.js')
