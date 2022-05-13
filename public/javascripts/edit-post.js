@@ -12,7 +12,7 @@ editButton.addEventListener("click", async (e) => {
     let description = document.getElementById("descr").innerText
     let accidents = document.getElementById("number").innerText
 
-console.log(`year is => ${year}`)
+console.log(`year is => ${description}`)
 
     const profileBlock = document.querySelector('.profile-block');
 
@@ -31,7 +31,7 @@ console.log(`year is => ${year}`)
         </div>
         <div class="lower-block">
             <div class="description">
-                <textarea class="desc_box" rows="5" cols="50" name="description">${description}</textarea><br>
+                <textarea class="desc_box" rows="5" cols="50" id="description" name="description">${description}</textarea></br>
             </div>
             <div class="accidents">
                 <p class="right-align">This car has been in
@@ -63,8 +63,9 @@ console.log(`year is => ${year}`)
         const year = formData.get("year");
         const description = formData.get("description");
         const accidents = formData.get("accidents");
-        const body = {make, model, year, description, accidents}
-console.log(`year is => ${year}`)
+        const body = {make, model, year}
+console.log(`year is => ${description}`)
+
         try{
             const res = await fetch(`/posts/${PostId}`, {
                 method: 'PUT',
@@ -75,9 +76,7 @@ console.log(`year is => ${year}`)
             });
 
 
-            window.location.href = `/`
-
-            // window.location.href = `/users/${UserId}`
+            window.location.href = `/users/${UserId}`
         }catch(err){
             if (err.status >= 400 && err.status < 600) {
                 const errorJSON = await err.json();
