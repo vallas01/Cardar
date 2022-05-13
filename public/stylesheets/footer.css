@@ -4,7 +4,7 @@ footer {
     text-align: center;
     position: relative;
     bottom: 0px;
-    grid-template-rows: 1fr 50px 50px;
+    grid-template-rows: 1fr 50px 75px;
 }
 
 .foot {
