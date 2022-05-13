@@ -4,32 +4,31 @@ append head
 
   //- add page specific js
   script(src="/javascripts/postDelete.js" type="module" defer)
+  script(src='/javascripts/edit-post.js' type="module" defer)
 
 
 block content
   div.profile-block
-    p(style="display:none" id='hiddenId') #{post.id}
-    p(style="display:none" id='hiddenUserId') #{post.ownerId}
+    div(style="display:none" id='hiddenId') #{post.id}
+    div(style="display:none" id='hiddenUserId') #{post.ownerId}
     div.upper-block
       div.img_container
         img(src='../images/jeepWrangler.jpeg' height='50px' width='70px' class='carImage')
 
       //- h1 #{post.name}
       div.make_mod_yr
-        form(id="myForm" class='hidden')
-          //- input(type='hidden' name='_csrf' value=csrfToken)
-          input(type="text" class='left-align' value=post.make name=make)
-          input(type="text" class='left-align' value=post.model name=model)
-          input(class='left-align' value=post.year name=year)
+          p.left-align #{post.make}
+          p.left-align #{post.model}
+          p.left-align #{post.year}
 
     div.lower-block
       div.owner
       div.description
         //- p.right-align #{post.description}
-        input(type="textarea" class='desc_box' value=post.description name=description)
+        p.desc_box #{post.description}
       div.accidents
         p.right-align This car has been in!{' '}
-          input(class='number' value=post.accidents name=accidents)
+          span(id='number') #{post.accidents}
           span !{' '}accidents!
       div.comment_box
         ul.comment_label Comments:
@@ -38,5 +37,5 @@ block content
 
 
     div.buttons
-      button(form="myForm" type='submit' class='edit-btn') EDIT
-      button.delete-btn DELETE
+      button.edit-btnX EDIT
+      button.delete-btnX DELETE

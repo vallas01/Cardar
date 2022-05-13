@@ -1,6 +1,6 @@
 //delete the postId and redirect to the userId
 
-const deleteBtn = document.querySelector('.delete-btn')
+const deleteBtn = document.querySelector('.delete-btnX')
 const idText = document.getElementById('hiddenId').innerText
 const id = parseInt(idText)
 const ownerIdText = document.getElementById('hiddenUserId').innerText
