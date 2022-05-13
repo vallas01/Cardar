@@ -47,9 +47,28 @@ app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/search', searchRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
+// Catch unhandled requests and forward to error handler.
+app.use((req, res, next) => {
+  const err = new Error('The requested page couldn\'t be found.');
+  err.status = 404;
+  next(err);
+});
+
+// Error handler for 404 errors.
+app.use((err, req, res, next) => {
+  if (err.status === 404) {
+    res.status(404);
+    res.render('page-not-found', {
+      title: 'Page Not Found',
+    });
+  } else {
+    next(err);
+  }
 });
 
 // error handler
@@ -62,5 +81,16 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// // Generic error handler.
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   const isProduction = environment === 'production';
+//   res.render('error', {
+//     title: 'Server Error',
+//     message: isProduction ? null : err.message,
+//     stack: isProduction ? null : err.stack,
+//   });
+// });
 
 module.exports = app;
