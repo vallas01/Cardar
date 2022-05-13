@@ -25,8 +25,9 @@ footer {
     padding-right: 50px;
 }
 
-.foot > a {
-    
+.foot > p {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 header{
