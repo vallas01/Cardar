@@ -23,10 +23,15 @@ div.container2 {
     height: 32em;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .column {
-    display: inline flex;
-    padding: 25px;
+    padding: 50px;
 }
 
 .car_img {
@@ -37,5 +42,4 @@ div.container2 {
     border-radius: 5em;
     width: 500px;
     height: 300px;
-    margin-left: 165px;
 }
