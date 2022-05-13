@@ -16,8 +16,8 @@ block content
 
       //- h1 #{post.name}
       div.make_mod_yr
-        form(action=`/edit/${post.id}`  method='post')
-          input(type='hidden' name='_csrf' value=csrfToken)
+        form(id="myForm" class='hidden')
+          //- input(type='hidden' name='_csrf' value=csrfToken)
           input(type="text" class='left-align' value=post.make name=make)
           input(type="text" class='left-align' value=post.model name=model)
           input(class='left-align' value=post.year name=year)
@@ -38,5 +38,5 @@ block content
 
 
     div.buttons
-      button.edit-btn EDIT
+      button(form="myForm" type='submit' class='edit-btn') EDIT
       button.delete-btn DELETE
