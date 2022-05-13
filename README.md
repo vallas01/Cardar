@@ -1,26 +1,11 @@
 # Cardar
 
-Group project - an app that displays cars and their owners
+Cardar is an app that allow users to interact with the website by creating, searching, editing, and deleting a post. The app gives users the opportunity to edit their own profile such as their bio, location, etc. Additionally, users are able to interact with other users in the community by creating and reading comments, as well as edit and delete their own personal comments. The home page allows users to see some of the most recent posts that were uploaded to the website.
 
-In order to install the dependencies, run npm install
 
-List of sequelize commands to initialize
 
-----Create the database-----
-npx dotenv sequelize-cli db:create
-
-----Make the models----------
-npx sequelize model:generate --name User --attributes "username:string,hashedPassword:string,firstName:string,lastName:string,email:string,bio:string,state:string"
-npx sequelize model:generate --name Post --attributes "name:string,model:string,make:string,year:integer,color:string,accidents:integer,features:string,description:string,ownerId:integer"
-npx sequelize model:generate --name Image --attributes "path:string,name:string,postId:integer,userId:integer"
-npx sequelize model:generate --name Comment --attributes "message:string,postId:integer,ownerId:integer"
-
----Create the tables----
-npx dotenv sequelize db:migrate
-
----Create seed files and seed database-----
-npx sequelize seed:generate --name test-data
-
-\*insert seed data to file
-
-npx dotenv sequelize db:seed:all
+## Technologies Used
+Cardar was built using the following technologies:
+- Javascript
+- Pug
+- CSS
