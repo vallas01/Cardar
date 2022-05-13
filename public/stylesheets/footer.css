@@ -1,0 +1,33 @@
+footer {
+    display: grid;
+    flex: 1;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    grid-template-rows: 1fr 50px 50px;
+}
+
+.foot {
+    background-color: rgba(196,196,196,1);
+    font-family: 'Karla';
+    color: black;
+    font-size: 20px;
+    grid-row: 3;
+    border-top: 2px solid white;
+}
+
+.foot > a {
+    font-family: 'Karla';
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+

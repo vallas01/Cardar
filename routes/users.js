@@ -10,45 +10,46 @@ const router = express.Router();
 const userValidators = [
   check('firstName')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for First Name')
+      .withMessage('Please provide a value for First Name.')
       .isLength({ max: 50 })
-      .withMessage('First Name must not be more than 50 characters long'),
+      .withMessage('First Name must not be more than 50 characters long.'),
   check('lastName')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Last Name')
+      .withMessage('Please provide a value for Last Name.')
       .isLength({ max: 50 })
-      .withMessage('Last Name must not be more than 50 characters long'),
+      .withMessage('Last Name must not be more than 50 characters long.'),
   check('email')
       .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Email.')
       .isEmail()
-      .withMessage('Please provide a valid email')
+      .withMessage('Please provide a valid email.')
       .isLength({ max: 255 })
-      .withMessage('Email must not be more than 255 characters long'),
+      .withMessage('Email must not be more than 255 characters long.'),
   check('password')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password')
+      .withMessage('Please provide a value for Password.')
       .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/)
-      .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")')
+      .withMessage('Password should contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*").')
       .isLength({ min: 8 })
-      .withMessage('Password must be at least 8 characters long'),
+      .withMessage('Password must be at least 8 characters long.'),
   check('confirmPassword')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Confirm Password')
+      .withMessage('Please provide a value for Confirm Password.')
 ];
 
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address'),
+    .withMessage('Please provide a value for Email Address.'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password'),
+    .withMessage('Please provide a value for Password.'),
 ];
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build({});
@@ -84,7 +85,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
     user.hashedPassword = hashedPassword;
     await user.save();
     loginUser(req, res, user);
-    res.redirect('/');
+    // return res.redirect('/')
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('user-register', {
@@ -118,19 +119,19 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
       if (passwordMatch) {
         loginUser(req, res, user);
-        return res.redirect(`/users/${user.id}`);
+        // return res.redirect('/');
       }
     }
       errors.push('Login failed for the provided email address and password.')
   } else {
       errors = validatorErrors.array().map((error) => error.msg);
+      res.render('user-login', {
+          title: 'Login',
+          email,
+          errors,
+          csrfToken: req.csrfToken()
+      })
   }
-  res.render('user-login', {
-      title: 'Login',
-      email,
-      errors,
-      csrfToken: req.csrfToken()
-  })
 
 }));
 
@@ -148,7 +149,6 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 
 router.put('/:id(\\d+)',
   asyncHandler(async (req, res) => {
-    console.log("HELLOOOOOOOOOOOO")
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
     const {
@@ -168,8 +168,8 @@ router.put('/:id(\\d+)',
     email: newEmail,
     state: newState,
     bio: newBio
-     });
-
+    });
+    
      await user.save()
      res.render('user-profile', {
       title: 'User Profile',
@@ -178,12 +178,12 @@ router.put('/:id(\\d+)',
     });
     return
     
+
   })
 );
 
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/users/login');
 })
 
 module.exports = router;

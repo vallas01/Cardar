@@ -10,8 +10,8 @@ append head
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
     div(class="container")
+        +validationErrorSummary(errors)
         form(action='/users/login' method='post' class='login-form')
             input(type='hidden' name='_csrf' value=csrfToken)
             label(id="member") MEMBER LOGIN

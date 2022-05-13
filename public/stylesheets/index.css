@@ -9,18 +9,6 @@ div.container1 {
     justify-content: center
 }
 
-div.container1 button {
-    position:absolute;
-    top: 20rem;
-    height:  3rem;
-    font-weight: bold;
-    border-radius: 2rem;
-    font-size: large;
-    border: 1px solid rgba(196, 196, 196, 1);
-    background-color: rgba(196, 196, 196, 1);
-
-}
-
 #chevron {
     height: 100px;
     width: 100px;
@@ -36,16 +24,18 @@ div.container2 {
 }
 
 
-.row {
-    display: flex;
-    justify-content: center;
- }
-
 .column {
-   padding: 25px;
+    display: inline flex;
+    padding: 25px;
 }
 
 .car_img {
-   border: 3px solid white;
-   border-radius: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 5em;
+    width: 500px;
+    height: 300px;
+    margin-left: 165px;
 }

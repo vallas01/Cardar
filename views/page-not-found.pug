@@ -1,0 +1,14 @@
+extends layout.pug
+
+append head
+    link(rel='stylesheet' href='/stylesheets/page-not-found.css')
+
+
+block content
+    div(class='error-content')
+        div(class='content-ctn')
+            img(src='../images/broken-car-error.png')
+            h1(class='error-header') Page Not Found
+            div(class='error-subheading') Sorry we couldn't find what you were looking for.
+            div(class='cardar-home-div')
+                a(class='error-redirect' href='/') CARDAR HOME

@@ -7,6 +7,7 @@ html
         link(rel='stylesheet' href='/stylesheets/user-profile.css')
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
         link(rel='stylesheet' href='/stylesheets/post-page.css')
+        link(rel='stylesheet' href='/stylesheets/footer.css')
   body
   header
     nav(class='nav-bar')
@@ -14,17 +15,26 @@ html
         a(href='/'): img(class='cardar-logo' src='../images/Cardar_white.png' )
         a(href='/'): img(id='cardar-logo-name' src='../images/CARDAR_small.png' )
       form(action="/search" class="search-form")
-        input(type="search" name="searchedInput" class='input-value' placeholder="Find your car" required)
+        input(type="search" name="searchedInput" class='input-value' placeholder="FIND YOUR CAR" required)
         button(type="submit" class='search-button'): img(class='magnifying-search' src='../images/magnifying-glass-icon-simple-grey-search-icon-icons-logos-emojis-search.png')
       div(class='right')
         if locals.authenticated
-          a(href=`/users/${user.id}` class='user-profile-icon'): img( src='../images/user-profile-icon.png' width='50px' height='50px')
-          a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png' width='30px' height='25px')
+          a(href=`/users/${user.id}` class='user-profile-icon'): img( src='../images/user-profile-icon.png')
+          a(href=`/posts/new` class='add-post-icon'): img( src='../images/add-post-icon.png')
           div.logout-div
-            form(class='logout-btn' action='/users/logout' method='post')
-              button(class='logout-btn' href='/users/logout') Logout
+            form(class='logout-btn-form' action='/users/logout' method='post')
+              button(class='logout-btn'): p(class='user-auth-text') LOGOUT
         else
           div(class='user-auth')
-            a(class='nav-btn' href='/users/register'): p(class='user-auth-text') REGISTER
-            a(class='nav-btn' href='/users/login'): p(class='user-auth-text') LOGIN
+            div.register-div
+              a(class='nav-btn' href='/users/register'): p(class='user-auth-text') REGISTER
+            div.login-div
+              a(class='nav-btn' href='/users/login'): p(class='user-auth-text') LOGIN
     block content
+  footer
+    div(class='foot')
+      p Want to see more of our work?
+      a(href='https://github.com/antt3') Anthony T.'s Github
+      a(href='https://github.com/vallas01') Andy V.'s Github
+      a(href='https://github.com/christopherchueng') Chris C.'s Github
+      a(href='https://github.com/keimjm') Josh K.'s Github
