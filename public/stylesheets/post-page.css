@@ -82,11 +82,26 @@ div.lower-block {
     font-weight: 500;
 }
 
+#numbEd {
+    color: red;
+    width:35px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+
 div.comment_box {
     border: 1px solid black;
     margin: 10px;
     overflow-y: scroll;
 }
+div.comment_boxAfter {
+    border: 0px solid black;
+    margin: 10px;
+    overflow-y: scroll;
+}
+
 
 .comment_label {
     color: black;
@@ -105,7 +120,7 @@ div.comment_box {
     justify-content: space-around;
 }
 
-.edit-btnX, .delete-btnX {
+.edit-btnX, .delete-btnX, .update-btnX {
     border-radius: 30px;
     text-decoration: none;
     justify-content: center;
@@ -117,11 +132,11 @@ div.comment_box {
     transition-duration: 0.4s;
 }
 
-.edit-btnX {
+.edit-btnX, .update-btnX {
     background-color: rgba(160, 158, 158, 1);
     color: black;
 }
-.edit-btnX:hover {
+.edit-btnX:hover, .update-btnX:hover {
     box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
     color: red;
 }
