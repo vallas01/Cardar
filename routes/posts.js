@@ -137,4 +137,42 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
 }));
 
+router.put('/edit/:id(\\d+)', postValidators, requireAuth, asyncHandler(async (req, res) => {
+    console.log("**********got here*****", req.body)
+    // const postIdEdit = parseInt(req.params.id, 10);
+    const postEdit = await db.Post.findByPk(req.params.id);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await post.save();
+        return res.redirect(`/users/${userId}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.json({
+          message: `Post Edit Failed`
+      })
+    }
+}))
+
+
+
+router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
+
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.Post.findOne({ where: { id: postId } });
+
+    if (post) {
+        await post.destroy()
+        res.status(201)
+        res.json({message:'Delete SUCCESS'})
+    } else {
+        res.json({message:'Delete FAIL'})
+    }
+
+}));
+
+
+
+
 module.exports = router;
