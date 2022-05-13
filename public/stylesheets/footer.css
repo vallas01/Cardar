@@ -1,10 +1,9 @@
 footer {
     display: grid;
-    flex: 1;
     text-align: center;
     position: relative;
     bottom: 0px;
-    grid-template-rows: 1fr 50px 50px;
+    grid-template-rows: 10vh;
 }
 
 .foot {
@@ -12,7 +11,8 @@ footer {
     font-family: 'Karla';
     color: black;
     font-size: 20px;
-    grid-row: 3;
+    grid-row: 1;
+    min-height: 75px;
     border-top: 2px solid white;
 }
 
@@ -25,8 +25,11 @@ footer {
     padding-right: 50px;
 }
 
-/* body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-} */
+.foot > p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+header{
+    min-height: 90vh;
+}
