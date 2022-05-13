@@ -422,6 +422,76 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
     },
+    {
+        message: "This is dope!",
+        postId: 16,
+        ownerId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Cool!",
+        postId: 17,
+        ownerId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Nice!",
+        postId: 18,
+        ownerId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Love it!",
+        postId: 19,
+        ownerId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Possibly interested...",
+        postId: 16,
+        ownerId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Wowww!",
+        postId: 16,
+        ownerId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Cleaannn.",
+        postId: 17,
+        ownerId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "This is a great car!",
+        postId: 18,
+        ownerId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "Luxurious!",
+        postId: 19,
+        ownerId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        message: "One of my favorites!",
+        postId: 19,
+        ownerId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
     ], {});
   },
 

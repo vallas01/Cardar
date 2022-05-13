@@ -1,18 +1,18 @@
 # Cardar
 
-Cardar is an app that allow users to interact with the website by creating, searching, editing, and deleting a post. The app gives users the opportunity to edit their own profile such as their bio, location, etc. Additionally, users are able to interact with other users in the community by creating and reading comments, as well as edit and delete their own personal comments. The home page allows users to see some of the most recent posts that were uploaded to the website.
+Cardar at a high level is an app that allow users to interact with other users by creating, searching, updating, and deleting car posts. The app gives users the opportunity to edit their own profile such as their bio, location, etc. Additionally, users are able to interact with other users in the community by creating and reading comments, as well as editing and deleting their own personal comments. The home page allows users to see some of the most recent posts that were uploaded to the website.
 
 # Features
 ## User Profile
-Users are able to view and customize their profile dynamically if they decide the information they provided in the registration does not match with their current status (location, bio, etc).
+Users are able to view and customize their profile dynamically if they decide the information they provided in the registration does not match with their current status (location, bio, etc). It is advantageous for a user to go to their profile in order to see all the cars they have posted to the community.
 
 **Insert GIF and code with explanation**
 
 ## Car Posts
-The Cardar experience permits users to Create, Read, Update, or Delete their posts.
+The Cardar experience permits users to Create, Read, Update, or Delete their car posts.
 
 ### Create
-To create a post, a user can simply click on the 'plus' icon in the navigation bar no matter what route they are in while navigating through the app. Once the icon is clicked, it will take the user to a form that will ask them for specific information about the post. Once the form is correctly filled out, they will be redirected to their profile with the newly added post.
+To create a post, a user can simply click on the 'plus' icon in the navigation bar no matter what route they are in while navigating through the app. Once the icon is clicked, it will take the user to a form that will ask them for specific information in order to post. Once the form is correctly filled out, they will be redirected to their profile with the newly added post.
 
 **Insert GIF**
 
@@ -71,8 +71,7 @@ res.render('search-result', {
 **Insert GIF**
 
 ## Home Page
-As mentioned above, a user will have access to the most recent posts. When a user clicks on the post, they will be redirected to the specified post route where they can interact with the community and make a comment on the post.
-
+As mentioned above, a user will have access to the most recent posts. When a user clicks on the post, they will be redirected to the specified post route where they can interact with the community and make a comment on the post. Make a new post as a demo user and be able to see your post on the home page!
 
 # Technologies Used
 Cardar was built using the following technologies:
@@ -85,3 +84,4 @@ Cardar was built using the following technologies:
 - Allow users to upload photos from their own local machine instead of providing an HTTP link.
 - Signed in users can upvote on posts and comments
 - Posts will blow up and users will be able to access a post dynamically so that they do not lose their spot in their search.
+- Users can buy and sell cars on the platform.
