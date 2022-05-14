@@ -35,6 +35,12 @@ const userValidators = [
   check('confirmPassword')
       .exists({ checkFalsy: true })
       .withMessage('Please provide a value for Confirm Password.')
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error('Confirm Password does not match Password');
+        }
+        return true;
+      }),
 ];
 
 const loginValidators = [
@@ -161,7 +167,7 @@ userValidators,
     bio
     } = req.body;
 
-    await user.update({ 
+    await user.update({
     firstName,
     lastName,
     email,
@@ -174,9 +180,9 @@ userValidators,
     console.log('ERRORS: ',validatorErrors)
 
     if (validatorErrors.isEmpty()) {
-    
-  
-    
+
+
+
      await user.save()
      res.render('user-profile', {
       title: 'User Profile',
@@ -196,7 +202,7 @@ userValidators,
     //res.json({message: "failure", errors: errors})
     return
   }
-    
+
 
   })
 );
