@@ -10,7 +10,7 @@
     width: 580px;
     height:540px;
     display: block;
-    border: 1px solid #C4C4C4;
+    border: 2px solid white;
     border-radius: 50px;
     background-color: #C4C4C4;
 }
@@ -35,7 +35,7 @@ div.upper-block{
     flex-direction: column;
     justify-content: space-between;
 }
-.left-align {
+.left-align, .left-alignPre {
     font-size:xx-large;
     padding-top: 5px;
     margin-top: 20px;
@@ -93,14 +93,16 @@ div.lower-block {
 
 div.comment_box {
     border: 1px solid black;
+    border-radius: 20px;
     margin: 10px;
     overflow-y: scroll;
+    padding: 10px;
 }
-div.comment_boxAfter {
+/* div.comment_boxAfter {
     border: 0px solid black;
     margin: 10px;
     overflow-y: scroll;
-}
+} */
 
 
 .comment_label {
@@ -109,32 +111,40 @@ div.comment_boxAfter {
 }
 .comments {
     text-decoration: none;
-    margin: 10px;;
+    margin: 5px;;
     color: white;
     border: 1px solid grey;
     background-color: rgba(0,0,0,0.19);
 }
 
-.buttons{
+.buttons, buttonsAfter{
+    height: 60px;
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
 }
 
+
+
+
 .edit-btnX, .delete-btnX, .update-btnX {
-    border-radius: 30px;
+    font: "Karla";
+    cursor: pointer;
+    border-radius: 10px;
+    height:40px;
+    width: 150px;
     text-decoration: none;
     justify-content: center;
     text-align: center;
     font-size: 12px;
     padding: 5px 10px;
-    width: 100px;
-    border: 2px solid rgba(196, 196, 196, 1);
+    border: 2px solid black;
     transition-duration: 0.4s;
 }
 
 .edit-btnX, .update-btnX {
-    background-color: rgba(160, 158, 158, 1);
-    color: black;
+    background-color: #4c4e54;
+    color: white;
 }
 .edit-btnX:hover, .update-btnX:hover {
     box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
