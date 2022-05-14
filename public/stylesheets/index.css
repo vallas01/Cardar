@@ -42,4 +42,9 @@ div.container2 {
     border-radius: 5em;
     width: 500px;
     height: 300px;
+    transition-duration: 0.4s;
+}
+
+.car_img:hover {
+    box-shadow: 0 0 7px 7px rgba(0,0,0,0.5),0 17px 50px 0 rgba(0,0,0,0.19);
 }

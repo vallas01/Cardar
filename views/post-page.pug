@@ -13,7 +13,8 @@ block content
     div(style="display:none" id='hiddenUserId') #{post.ownerId}
     div.upper-block
       div.img_container
-        img(src='../images/jeepWrangler.jpeg' height='50px' width='70px' class='carImage')
+        each image in post.Images
+          img(src=image.path class='carImage')
 
       //- h1 #{post.name}
       div.make_mod_yr

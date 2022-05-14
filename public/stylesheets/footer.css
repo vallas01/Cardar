@@ -3,7 +3,7 @@ footer {
     text-align: center;
     position: relative;
     bottom: 0px;
-    grid-template-rows: 10vh;
+    grid-template-rows: 20vh;
 }
 
 .foot {
@@ -12,7 +12,7 @@ footer {
     color: black;
     font-size: 20px;
     grid-row: 1;
-    min-height: 75px;
+    min-height: 150px;
     border-top: 2px solid white;
 }
 
@@ -21,15 +21,48 @@ footer {
     color: black;
     text-decoration: none;
     font-size: 18px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: bold;
 }
 
 .foot > p {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 header{
-    min-height: 90vh;
+    min-height: 80vh;
+}
+
+.github-btn {
+    border-radius: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: space-evenly;
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 90px;
+    height: 60px;
+    background-color: rgba(196, 196, 196, 1);
+    border: 1px solid rgba(196, 196, 196, 1);
+    color: black;
+    transition: all 0.2s ease-in;
+}
+
+.github-btn:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: rgba(196,196,196,1);
+
+}
+
+@media screen and (max-width: 1150px) {
+    .foot {
+        min-height: 250px;
+    }
 }

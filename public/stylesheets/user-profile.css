@@ -1,16 +1,31 @@
 .profile-wrapper {
-    color: white;
+    /* color: white;
     font-family: 'Oswald', sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    
     transform: translate(-50%, -50%);
     width: 70%;
     height: 50%;
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
     border-radius: 50px;
-    background-color: #C4C4C4;
+    background-color: #C4C4C4; */
+    color: black;
+    font-family: 'Karla';
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: rgba(196,196,196,1);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px;
+}
+
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 * {
@@ -20,7 +35,7 @@
     padding: 0;
 }
 
-.profile-wrapper .left-side {
+/* .profile-wrapper .left-side {
     width: 35%;
     background-color: #C4C4C4;
     display: flex;
@@ -44,7 +59,7 @@
     border-top-right-radius: 15px;
     padding: 30px 25px;
 
-}
+} */
 
 a {
     color:aliceblue
@@ -65,6 +80,12 @@ a {
     letter-spacing: 5px;
 }
 
+.bio p,
+.email p,
+.state p,
+.member p {
+    padding: 10px;
+}
 
 .posts-wrapper {
     display: flex;
@@ -93,15 +114,32 @@ a {
     border-radius: 5em;
     width: 50px;
     height: 50px;
+    margin-top: 5px;
 }
 
 .profile-wrapper h1 {
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
-.edit-user {
+.edit-user, 
+.cancel-edit, 
+.update-user {
     margin-top: 25px;
-    width: 100%;
+    width: 20%;
+    /* width: 270px; */
+    padding: 12px;
+    /* display: flex; */
+    /* margin: auto; */
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.button-form-edit {
+    display: flex;
+    margin: auto;
+    justify-content: center;  
+    align-items: center;  
 }
 
 .error-messages {
@@ -127,3 +165,28 @@ a {
     padding: 20px 0 20px 40px;
 
 }
+
+.form-edit-user {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center; 
+}
+
+.form-edit-user label {
+    font-size: larger;
+}
+
+/* .edit-user-form {
+    font-family: 'Karla';
+    border: 2px solid white;
+    height: 550px;
+    width: 400px;
+    border-radius: 30px;
+    background-color: rgba(196,196,196,1);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+} */
