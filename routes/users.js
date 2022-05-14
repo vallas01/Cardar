@@ -135,7 +135,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
   const userId = parseInt(req.params.id, 10);
   const user = await db.User.findOne({where: {id: userId}});
   const posts = await db.Post.findAll({ where: { ownerId: userId}, include: db.Image});
@@ -148,27 +148,34 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id(\\d+)',
+userValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
+    const posts = await db.Post.findAll({ where: { ownerId: userId}, include: db.Image});
     const {
-      fname,
-      lname,
-      newState,
-      newEmail,
-      newBio
+    firstName,
+    lastName,
+    email,
+    state,
+    bio
     } = req.body;
 
-    const firstName = fname;
-   
-
     await user.update({ 
-    firstName: fname,
-    lastName: lname,
-    email: newEmail,
-    state: newState,
-    bio: newBio
+    firstName,
+    lastName,
+    email,
+    state,
+    bio
     });
+
+    let errors = [];
+    const validatorErrors = validationResult(req);
+    console.log('ERRORS: ',validatorErrors)
+
+    if (validatorErrors.isEmpty()) {
+    
+  
     
      await user.save()
      res.render('user-profile', {
@@ -177,6 +184,18 @@ router.put('/:id(\\d+)',
       posts
     });
     return
+  }
+  else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('user-profile', {
+        title: 'User Profile',
+        user,
+        posts,
+        errors
+    })
+    //res.json({message: "failure", errors: errors})
+    return
+  }
     
 
   })

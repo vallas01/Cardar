@@ -1,31 +1,35 @@
 extends layout.pug
 
-block content 
+include utils.pug
+block content
+  div(class='register-error-div')
+   +validationErrorSummary(errors)
   div(display='none' class='user-id') #{user.id}
-  div.profile-wrapper  
-    div.left-side
-      h1 #{user.firstName} #{user.lastName}
-      div.email
-        //- h3 Email
-        p Email: #{user.email}
-      div.state
-        //- h3 State
-        p State: #{user.state}
-      div.member
-        h3 Member Since
-        p #{user.createdAt}
-    div.right-side
-      div.bio
-        h3 Bio
-        p #{user.bio}
-      div.posts-wrapper
-        h2 Your Posts 
-        each post in posts 
-          div.post-block
-          h4 #{post.year} #{post.make} #{post.model}
-            each image in post.Images
-              a(href=`/posts/${post.id}`)
-                img(class='car_img_user_icon' src=image.path)
-      form
-        button.edit-user Edit
-        script(type="module" src='/javascripts/edit-user.js')
+  div.profile-page
+    div.profile-wrapper  
+      div.left-side
+        h1 #{user.firstName} #{user.lastName}
+        div.email
+          h3 Email
+          p #{user.email}
+        div.state
+          h3 State
+          p #{user.state}
+        div.member
+          h3 Member Since
+          p #{user.createdAt}
+      div.right-side
+        div.bio
+          h3 Bio
+          p #{user.bio}
+        div.posts-wrapper
+          h2 Your Posts 
+          each post in posts 
+            div.post-block
+            h4 #{post.year} #{post.make} #{post.model}
+              each image in post.Images
+                a(href=`/posts/${post.id}`)
+                  img(class='car_img_user_icon' src=image.path)
+        form.button-form-edit
+          button.edit-user Edit
+          script(type="module" src='/javascripts/edit-user.js')
