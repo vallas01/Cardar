@@ -1,3 +1,13 @@
 extends layout.pug
 
+append head
+    link(rel='stylesheet' href='/stylesheets/about.css')
+
 block content
+    div(id='about-content')
+        div(class='about-ctn')
+            .about-header
+                h1 Welcome to Cardar!
+            .about-subheading
+                p Cardar at a high level is an app that allows users to interact with other users by creating, searching, updating, and deleting car posts. The app gives users the opportunity to edit their own profile such as their bio, location, etc. Additionally, users are able to interact with other users in the community by creating and reading comments, as well as editing and deleting their own personal comments. The home page allows users to see some of the most recent posts that were uploaded to the website. For more information about Cardar, click #[a(href='https://github.com/vallas01/Cardar') here].
+                p Enjoy the Cardar experience and thank you for visiting our app!
