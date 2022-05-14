@@ -137,22 +137,35 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
 }));
 
-router.put('/edit/:id(\\d+)', postValidators, requireAuth, asyncHandler(async (req, res) => {
+router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
     console.log("**********got here*****", req.body)
-    // const postIdEdit = parseInt(req.params.id, 10);
-    const postEdit = await db.Post.findByPk(req.params.id);
+    const post = await db.Post.findByPk(req.params.id);
+    const {
+        make,
+        model,
+        year
+    } = req.body
+
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await post.save();
-        return res.redirect(`/users/${userId}`);
+        await post.update({
+            make,
+            model,
+            year
+        });
+        await post.save()
+        res.render('user-profile', {user});
+
+
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.json({
           message: `Post Edit Failed`
       })
     }
+    return
 }))
 
 
