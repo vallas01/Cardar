@@ -5,9 +5,9 @@ editButton.addEventListener("click", async (e) => {
 
     const id = document.querySelector('.user-id').innerText;
     const userName = document.querySelector('.profile-wrapper h1').innerText;
-    const userFields = document.querySelectorAll('p');
-    let email = userFields[0].innerText.split(": ")[1];
-    let state = userFields[1].innerText.split(": ")[1];
+    const userFields = document.querySelectorAll('.profile-wrapper p');
+    let email = userFields[0].innerText;
+    let state = userFields[1].innerText;
     let bio = userFields[3].innerText
     let firstName = userName.split(" ")[0];
     let lastName = userName.split(" ")[1];
@@ -28,6 +28,7 @@ editButton.addEventListener("click", async (e) => {
         <label for="bio">Bio:</label><br>
         <textarea rows="5" cols="50" id="bio" name="bio">${bio}</textarea><br>
         <button type="submit" class='update-user'>Submit</button>
+        <button class='cancel-edit'>Cancel</button>
     </div>
     </div>
     </form>`;
@@ -38,12 +39,12 @@ editButton.addEventListener("click", async (e) => {
         e.preventDefault();
         const editForm = document.querySelector('.form-edit-user');
         const formData = new FormData(editForm);
-        const fname = formData.get("fname");
-        const lname = formData.get("lname");
-        const newState = formData.get("state");
-        const newEmail = formData.get("email");
-        const newBio = formData.get("bio");
-        const body = {fname, lname, newState, newEmail, newBio}
+        const firstName = formData.get("fname");
+        const lastName = formData.get("lname");
+        const state = formData.get("state");
+        const email = formData.get("email");
+        const bio = formData.get("bio");
+        const body = {firstName, lastName, state, email, bio}
         
         try{
         const res = await fetch(`/users/${id}`, {
@@ -53,16 +54,22 @@ editButton.addEventListener("click", async (e) => {
             },
             body: JSON.stringify(body)
         });
+
+        //if(res.json.message === 'failure') {console.log(errors)}
         
         window.location.href = `/users/${id}`
     }
     catch(err) {
         if (err.status >= 400 && err.status < 600) {
             const errorJSON = await err.json();
-            console.log(errorJSON);
     }
-}
-    
+}  
 })
+
+    const cancelEdit = document.querySelector('.cancel-edit');
+
+    cancelEdit.addEventListener("click", async (e) => {
+        window.location.href = `/users/${id}`
+    })
  
 });
