@@ -112,7 +112,7 @@ router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(as
     if (validatorErrors.isEmpty()) {
         await post.save();
         await image.save();
-        return res.redirect(`/users/${userId}`);
+        return res.redirect(`/posts/${post.id}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('new-post', {
