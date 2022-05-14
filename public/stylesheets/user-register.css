@@ -12,21 +12,20 @@
 .register-form {
     font-family: 'Karla';
     border: 2px solid white;
-    height: 550px;
+    height: 600px;
     width: 400px;
     border-radius: 30px;
     background-color: rgba(196,196,196,1);
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
 }
 
 .form-control, .register-btn  {
     width: 270px;
     padding: 12px 20px;
-    margin: 5px 65px;
+    margin: 10px 65px;
     display: inline-block;
     border: 2px solid black;
     border-radius: 10px;
@@ -52,6 +51,7 @@ a#haveAccount {
     text-decoration: none;
     padding-left: 100px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .register-error-div {

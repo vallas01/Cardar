@@ -139,6 +139,7 @@ button > .logout-btn {
     background-color: rgba(196, 196, 196, 1);
     border: 1px solid rgba(196, 196, 196, 1);
     color: black;
+    transition: all 0.2s ease-in;
 }
 
 .logout-btn:hover,
