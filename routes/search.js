@@ -35,7 +35,8 @@ router.get('/', asyncHandler(async (req, res) => {
 
   res.render('search-result', {
       title: "Search Results",
-      posts
+      posts,
+      req
   })
 }));
 
