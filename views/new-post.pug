@@ -24,6 +24,6 @@ block content
                 +field('', 'description', post.description, 'textarea', 'DESCRIPTION', required)
                 .bottom-div
                     div.cancel-div
-                        a(href=`/users/${userId}` class='cancel-button') CANCEL
+                        a(href=`/users/${user.id}` class='cancel-button') CANCEL
                     div.add-post-div
                         button(type='submit' class='add-post-btn') POST
