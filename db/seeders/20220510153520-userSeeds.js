@@ -10,17 +10,6 @@ module.exports = {
       Example:
       */
    return queryInterface.bulkInsert('Users', [
-     {
-      username: 'demoUser',
-      hashedPassword: bcrypt.hashSync('strongPassword!Demo', 12),
-      firstName: 'Demo',
-      lastName: 'User',
-      email: 'demouser@test.com',
-      bio: 'I am a test user, I just love cars so much',
-      state: 'Vermont',
-      createdAt: new Date(),
-      updatedAt: new Date()
-     },
     {
       username: 'iFlexCars',
       hashedPassword: bcrypt.hashSync('strongPassword1!', 12),
@@ -64,7 +53,18 @@ module.exports = {
       state: 'New Jersey',
       createdAt: new Date(),
       updatedAt: new Date()
-    }
+    },
+    {
+      username: 'demoUser',
+      hashedPassword: bcrypt.hashSync('strongPassword!Demo', 12),
+      firstName: 'Demo',
+      lastName: 'User',
+      email: 'demouser@test.com',
+      bio: 'I am a test user, I just love cars so much',
+      state: 'Vermont',
+      createdAt: new Date(),
+      updatedAt: new Date()
+     }
    ], {});
   },
 
