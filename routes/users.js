@@ -116,33 +116,81 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
   let errors = [];
   const validatorErrors = validationResult(req);
 
-  if (validatorErrors.isEmpty()) {
-    const user = await db.User.findOne({where: { email }})
+  if (!validatorErrors.isEmpty()) {
+    errors = validatorErrors.array().map((error) => error.msg);
+    res.render('user-login', {
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+    return;
+  }
+  const user = await db.User.findOne({where: { email }})
 
-    if (user !== null) {
-      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-
-      if (passwordMatch) {
-        loginUser(req, res, user);
-        // return res.redirect('/');
-      }
-    }
+  if (user === null) {
     errors.push('Invalid email address and/or password provided. Please try again.')
     res.render('user-login', {
-      title: 'Login',
-      email,
-      errors,
-      csrfToken: req.csrfToken(),
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
     })
-  } else {
-      errors = validatorErrors.array().map((error) => error.msg);
-      res.render('user-login', {
-          title: 'Login',
-          email,
-          errors,
-          csrfToken: req.csrfToken()
-      })
+    return;
   }
+
+  const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+  if (!passwordMatch) {
+    errors.push('Invalid email address and/or password provided. Please try again.')
+    res.render('user-login', {
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+    return;
+  }
+
+  loginUser(req, res, user);
+
+
+  // if (validatorErrors.isEmpty()) {
+  //   const user = await db.User.findOne({where: { email }})
+
+  //   if (user !== null) {
+  //     const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+  //     if (passwordMatch) {
+  //       loginUser(req, res, user);
+  //       // return res.redirect('/');
+  //     } else {
+  //       errors.push('Invalid email address and/or password provided. Please try again.')
+  //       res.render('user-login', {
+  //         title: 'Login',
+  //         email,
+  //         errors,
+  //         csrfToken: req.csrfToken(),
+  //       })
+  //     }
+  //   } else {
+  //     errors.push('Invalid email address and/or password provided. Please try again.')
+  //     res.render('user-login', {
+  //       title: 'Login',
+  //       email,
+  //       errors,
+  //       csrfToken: req.csrfToken(),
+  //     })
+  //   }
+  // } else {
+  //     errors = validatorErrors.array().map((error) => error.msg);
+  //     res.render('user-login', {
+  //         title: 'Login',
+  //         email,
+  //         errors,
+  //         csrfToken: req.csrfToken()
+  //     })
+  // }
 
 }));
 
