@@ -143,7 +143,11 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
     const {
         make,
         model,
-        year
+        year,
+        user,
+        postId,
+        description,
+        accidents
     } = req.body
 
 
@@ -153,7 +157,9 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
         await post.update({
             make,
             model,
-            year
+            year,
+            description,
+            accidents
         });
         await post.save()
         res.render('user-profile', {user});

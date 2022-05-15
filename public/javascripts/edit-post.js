@@ -19,12 +19,12 @@ console.log(`description is => ${description}`)
 
     profileBlock.innerHTML = `
     <div class="profile-block">
+    <form method="PUT" href="/posts/${postId}" class='form-edit-user'>
         <div class="upper-block">
             <div class="img_container">
                 <img src='${image}' height='50px' width='70px' class='carImage'>
             </div>
             <div class="make_mod_yr">
-                <form method="PUT" href="/posts/${postId}" class='form-edit-user'>
                 <input class="left-align" type="text" id="make" name="make" value="${make}" placeholder="${make}"></br>
                 <input class="left-align" type="text" id="model" name="model" value="${model}" placeholder=${model}></br>
                 <input class="left-align" type="number" id="year" name="year" value="${year}" ></br>
@@ -37,7 +37,7 @@ console.log(`description is => ${description}`)
             <div class="accidents">
                 <p class="right-align">This car has been in
                     <span id="number">
-                    <input type="number" id="numbEd" name="accidents" value="${accidents}" >
+                    <input type="number" id="numbEd" name="accidents" value="${accidents}" >${accidents}
                     </span>
                     <span> accidents!</span>
                 </p>
@@ -48,9 +48,10 @@ console.log(`description is => ${description}`)
         </div>
         <div class="buttons">
             <button type="submit" class='update-btnX'>SUBMIT</button>
+            <div class="spacer"> </div>
             <button class='delete-btnX'>DELETE</button>
         </div>
-        </form>
+    </form>
     </div>`
 
     const updateButton = document.querySelector('.update-btnX');
@@ -64,8 +65,9 @@ console.log(`description is => ${description}`)
         const year = formData.get("year");
         const description = formData.get("description");
         const accidents = formData.get("accidents");
-        const body = {make, model, year}
-console.log(`year is => ${description}`)
+        const user = userId;
+        const body = {make, model, year, user, postId, description, accidents}
+
 
         try{
             const res = await fetch(`/posts/${postId}`, {

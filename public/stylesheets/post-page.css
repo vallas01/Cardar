@@ -55,17 +55,14 @@ div.lower-block {
     display: block;
 }
 
-.description {
-    text-align: center;
-}
-.desc_box {
+
+.desc_box, .description {
     font-size: x-large;
     font-weight: 500;
     color: black;
     text-align: center;
     background-color: #C4C4C4;
     border: 1px solid #C4C4C4;
-
 }
 
 
@@ -75,20 +72,12 @@ div.lower-block {
     padding-top: 1.5em;
     color: black;
 }
-#number {
-    color: red;
-    width:20px;
-    text-align: center;
-    font-weight: 500;
-}
-
-#numbEd {
+#number, #numbEd {
     color: red;
     width:35px;
     text-align: center;
     font-weight: 500;
 }
-
 
 
 div.comment_box {
@@ -98,16 +87,11 @@ div.comment_box {
     overflow-y: scroll;
     padding: 10px;
 }
-/* div.comment_boxAfter {
-    border: 0px solid black;
-    margin: 10px;
-    overflow-y: scroll;
-} */
+
 
 
 .comment_label {
     color: black;
-
 }
 .comments {
     text-decoration: none;
@@ -117,14 +101,16 @@ div.comment_box {
     background-color: rgba(0,0,0,0.19);
 }
 
-.buttons, buttonsAfter{
+.buttons {
     height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
 }
 
-
+.spacer {
+    width: 50px;
+}
 
 
 .edit-btnX, .delete-btnX, .update-btnX {
@@ -134,8 +120,6 @@ div.comment_box {
     height:40px;
     width: 150px;
     text-decoration: none;
-    justify-content: center;
-    text-align: center;
     font-size: 12px;
     padding: 5px 10px;
     border: 2px solid black;
