@@ -32,14 +32,14 @@ console.log(`description is => ${description}`)
         </div>
         <div class="lower-block">
             <div class="description">
-                <textarea class="desc_box" rows="5" cols="50" id="description" name="description">${description}</textarea></br>
+                <textarea class="desc_boxAfter" rows="5" cols="50" id="description" name="description">${description}</textarea></br>
             </div>
             <div class="accidents">
-                <p class="right-align">This car has been in
+                <p class="right-align">Number of accidents to report:
                     <span id="number">
-                    <input type="number" id="numbEd" name="accidents" value="${accidents}" >${accidents}
+                    <input type="number" id="numbEd" name="accidents" value="${accidents}" > Currently ${accidents}
                     </span>
-                    <span> accidents!</span>
+                    <span> accidents reported!</span>
                 </p>
             </div>
             <div class="comment_boxAfter">

@@ -39,11 +39,12 @@ div.upper-block{
     font-size:xx-large;
     padding-top: 5px;
     margin-top: 20px;
-    width: 240px;
+    width: 220px;
     font-weight: bold;
     color: black;
     background-color: rgba(0,0,0,0.0);
     border: 1px solid rgba(0,0,0,0.0);
+    cursor: pointer;
 }
 .left-align:hover {
     color: grey;
@@ -56,13 +57,20 @@ div.lower-block {
 }
 
 
-.desc_box, .description {
+.desc_box, .description, .desc_boxAfter {
+    cursor: pointer;
     font-size: x-large;
     font-weight: 500;
     color: black;
     text-align: center;
     background-color: #C4C4C4;
     border: 1px solid #C4C4C4;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+}
+
+.desc_boxAfter:hover{
+    background-color: rgba(0,0,0,0.24);
 }
 
 
@@ -73,10 +81,12 @@ div.lower-block {
     color: black;
 }
 #number, #numbEd {
-    color: red;
+    color: black;
     width:35px;
     text-align: center;
     font-weight: 500;
+    cursor: pointer;
+
 }
 
 
