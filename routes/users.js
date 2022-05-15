@@ -127,7 +127,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
         // return res.redirect('/');
       }
     }
-      errors.push('Login failed for the provided email address and password.')
+    errors.push('Login failed for the provided email address and password.')
   } else {
       errors = validatorErrors.array().map((error) => error.msg);
       res.render('user-login', {
@@ -136,7 +136,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
           errors,
           csrfToken: req.csrfToken()
       })
-  }
+    }
 
 }));
 
