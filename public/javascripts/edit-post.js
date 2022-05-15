@@ -2,9 +2,10 @@ const editButton = document.querySelector('.edit-btnX');
 
 editButton.addEventListener("click", async (e) => {
 
-    const PostId = document.querySelector('#hiddenId').innerText;
-    const UserId = document.querySelector('#hiddenUserId').innerText;
-    const userFields = document.querySelectorAll('p');
+    const postId = document.querySelector('#hiddenId').innerText;
+    const userId = document.querySelector('#hiddenUserId').innerText;
+    const image = document.querySelector('#hiddenImg').innerText
+
     let make = document.getElementById("makeEd").innerText
     let model = document.getElementById("modelEd").innerText
     let year = document.getElementById("yearEd").innerText
@@ -12,18 +13,16 @@ editButton.addEventListener("click", async (e) => {
     let description = document.getElementById("descr").innerText
     let accidents = document.getElementById("number").innerText
 
-console.log(`year is => ${description}`)
-
     const profileBlock = document.querySelector('.profile-block');
 
     profileBlock.innerHTML = `
     <div class="profile-block">
+    <form method="PUT" href="/posts/${postId}" class='form-edit-user'>
         <div class="upper-block">
             <div class="img_container">
-                <img src='../images/jeepWrangler.jpeg' height='50px' width='70px' class='carImage'>
+                <img src='${image}' height='50px' width='70px' class='carImage'>
             </div>
             <div class="make_mod_yr">
-                <form method="PUT" href="/posts/${PostId}" class='form-edit-user'>
                 <input class="left-align" type="text" id="make" name="make" value="${make}" placeholder="${make}"></br>
                 <input class="left-align" type="text" id="model" name="model" value="${model}" placeholder=${model}></br>
                 <input class="left-align" type="number" id="year" name="year" value="${year}" ></br>
@@ -31,14 +30,14 @@ console.log(`year is => ${description}`)
         </div>
         <div class="lower-block">
             <div class="description">
-                <textarea class="desc_box" rows="5" cols="50" id="description" name="description">${description}</textarea></br>
+                <textarea class="desc_boxAfter" rows="5" cols="50" id="description" name="description">${description}</textarea></br>
             </div>
             <div class="accidents">
-                <p class="right-align">This car has been in
+                <p class="right-align">Number of accidents to report:
                     <span id="number">
-                    <input type="number" id="numbEd" name="accidents" value="${accidents}" >
+                    <input type="number" id="numbEd" name="accidents" value="${accidents}" > Currently ${accidents}
                     </span>
-                    <span> accidents!</span>
+                    <span> accidents reported!</span>
                 </p>
             </div>
             <div class="comment_boxAfter">
@@ -46,10 +45,11 @@ console.log(`year is => ${description}`)
 
         </div>
         <div class="buttons">
-            <button type="submit" class='update-btnX'>Submit</button>
+            <button type="submit" class='update-btnX'>SUBMIT</button>
+            <div class="spacer"> </div>
             <button class='delete-btnX'>DELETE</button>
         </div>
-        </form>
+    </form>
     </div>`
 
     const updateButton = document.querySelector('.update-btnX');
@@ -63,11 +63,12 @@ console.log(`year is => ${description}`)
         const year = formData.get("year");
         const description = formData.get("description");
         const accidents = formData.get("accidents");
-        const body = {make, model, year}
-console.log(`year is => ${description}`)
+        const user = userId;
+        const body = {make, model, year, user, postId, description, accidents}
+
 
         try{
-            const res = await fetch(`/posts/${PostId}`, {
+            const res = await fetch(`/posts/${postId}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",
@@ -76,7 +77,7 @@ console.log(`year is => ${description}`)
             });
 
 
-            window.location.href = `/users/${UserId}`
+            window.location.href = `/users/${userId}`
         }catch(err){
             if (err.status >= 400 && err.status < 600) {
                 const errorJSON = await err.json();
@@ -85,5 +86,17 @@ console.log(`year is => ${description}`)
         }
 
     });
+
+    const deleteBtn = document.querySelector('.delete-btnX')
+
+    deleteBtn.addEventListener('click', async(e) => {
+        e.preventDefault()
+        const res = await fetch(`/posts/${postId}`, {
+            method: 'DELETE'
+        })
+        const data = await res.json()
+
+        if (data.message === 'Delete SUCCESS') window.location.href=`/users/${userId}`;
+    })
 
 });
