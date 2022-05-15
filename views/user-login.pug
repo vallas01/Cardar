@@ -15,7 +15,7 @@ block content
         form(action='/users/login' method='post' class='login-form')
             input(type='hidden' name='_csrf' value=csrfToken)
             label(id="member") MEMBER LOGIN
-            input(type='email' name='email' placeholder="EMAIL ADDRESS" class='form-control')
+            input(type='email' name='email' placeholder="EMAIL ADDRESS" class='form-control' value=email)
             input(type='password' name='password' placeholder="PASSWORD" class='form-control')
             button(type='submit' class='login-form-btn' id="signIn") SIGN-IN
             a(href='/users/1' class='login-form-btn' id="demo") DEMO USER
