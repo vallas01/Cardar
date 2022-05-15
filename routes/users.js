@@ -136,7 +136,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
           errors,
           csrfToken: req.csrfToken()
       })
-    }
+  }
 
 }));
 
