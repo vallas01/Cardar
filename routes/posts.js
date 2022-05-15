@@ -138,7 +138,6 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
-    console.log("**********got here*****", req.body)
     const post = await db.Post.findByPk(req.params.id);
     const {
         make,
