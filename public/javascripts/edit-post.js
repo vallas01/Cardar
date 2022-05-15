@@ -13,8 +13,6 @@ editButton.addEventListener("click", async (e) => {
     let description = document.getElementById("descr").innerText
     let accidents = document.getElementById("number").innerText
 
-console.log(`description is => ${description}`)
-
     const profileBlock = document.querySelector('.profile-block');
 
     profileBlock.innerHTML = `
@@ -88,5 +86,17 @@ console.log(`description is => ${description}`)
         }
 
     });
+
+    const deleteBtn = document.querySelector('.delete-btnX')
+
+    deleteBtn.addEventListener('click', async(e) => {
+        e.preventDefault()
+        const res = await fetch(`/posts/${postId}`, {
+            method: 'DELETE'
+        })
+        const data = await res.json()
+
+        if (data.message === 'Delete SUCCESS') window.location.href=`/users/${userId}`;
+    })
 
 });
