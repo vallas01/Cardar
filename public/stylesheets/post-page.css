@@ -10,7 +10,7 @@
     width: 580px;
     height:540px;
     display: block;
-    border: 1px solid #C4C4C4;
+    border: 2px solid white;
     border-radius: 50px;
     background-color: #C4C4C4;
 }
@@ -35,15 +35,16 @@ div.upper-block{
     flex-direction: column;
     justify-content: space-between;
 }
-.left-align {
+.left-align, .left-alignPre {
     font-size:xx-large;
     padding-top: 5px;
     margin-top: 20px;
-    width: 240px;
+    width: 220px;
     font-weight: bold;
     color: black;
     background-color: rgba(0,0,0,0.0);
     border: 1px solid rgba(0,0,0,0.0);
+    cursor: pointer;
 }
 .left-align:hover {
     color: grey;
@@ -55,17 +56,21 @@ div.lower-block {
     display: block;
 }
 
-.description {
-    text-align: center;
-}
-.desc_box {
+
+.desc_box, .description, .desc_boxAfter {
+    cursor: pointer;
     font-size: x-large;
     font-weight: 500;
     color: black;
     text-align: center;
     background-color: #C4C4C4;
     border: 1px solid #C4C4C4;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+}
 
+.desc_boxAfter:hover{
+    background-color: rgba(0,0,0,0.24);
 }
 
 
@@ -75,66 +80,65 @@ div.lower-block {
     padding-top: 1.5em;
     color: black;
 }
-#number {
-    color: red;
-    width:20px;
-    text-align: center;
-    font-weight: 500;
-}
-
-#numbEd {
-    color: red;
+#number, #numbEd {
+    color: black;
     width:35px;
     text-align: center;
     font-weight: 500;
-}
+    cursor: pointer;
 
+}
 
 
 div.comment_box {
     border: 1px solid black;
+    border-radius: 20px;
     margin: 10px;
     overflow-y: scroll;
+    padding: 10px;
 }
-div.comment_boxAfter {
-    border: 0px solid black;
-    margin: 10px;
-    overflow-y: scroll;
-}
+
 
 
 .comment_label {
     color: black;
-
 }
 .comments {
     text-decoration: none;
-    margin: 10px;;
+    margin: 5px;;
     color: white;
     border: 1px solid grey;
     background-color: rgba(0,0,0,0.19);
 }
 
-.buttons{
+.buttons {
+    height: 60px;
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
 }
 
+.spacer {
+    width: 50px;
+}
+
+
 .edit-btnX, .delete-btnX, .update-btnX {
-    border-radius: 30px;
+    font: "Karla";
+    cursor: pointer;
+    border-radius: 10px;
+    height:40px;
+    width: 150px;
     text-decoration: none;
-    justify-content: center;
-    text-align: center;
     font-size: 12px;
     padding: 5px 10px;
-    width: 100px;
-    border: 2px solid rgba(196, 196, 196, 1);
+    border: 2px solid black;
     transition-duration: 0.4s;
 }
 
 .edit-btnX, .update-btnX {
-    background-color: rgba(160, 158, 158, 1);
-    color: black;
+    background-color: #4c4e54;
+    color: white;
 }
 .edit-btnX:hover, .update-btnX:hover {
     box-shadow: 0 0 4px 4px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
