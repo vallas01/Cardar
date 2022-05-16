@@ -3,6 +3,7 @@ extends layout.pug
 include utils.pug
 block content
   div(display='none' class='user-id') #{user.id}
+  div(display='none' class='user-signed') #{signedIn}
   div(class='register-error-div')
   //-  +validationErrorSummary(errors) 
   -
@@ -36,6 +37,7 @@ block content
               each image in post.Images
                 a(href=`/posts/${post.id}`)
                   img(class='car_img_user_icon' src=image.path)
-        form.button-form-edit
-          button.edit-user Edit
-          script(type="module" src='/javascripts/edit-user.js')
+        if locals.authenticated
+          form.button-form-edit
+            button.edit-user Edit
+            script(type="module" src='/javascripts/edit-user.js')

@@ -16,7 +16,7 @@
 .add-post-content,
 .error-messages {
     background-color: rgba(196,196,196,1);
-    width: 900px;
+    width: 500px;
     border-radius: 30px;
 }
 
@@ -27,7 +27,7 @@
 .new-post-form {
     border-left: 2px solid white;
     border-right: 2px solid white;
-    width: 900px;
+    width: 500px;
     background-color: rgba(196,196,196,1);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;

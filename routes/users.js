@@ -88,7 +88,9 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  
+
+
+  // let signedIn = req.session.auth.userId;
 
   let errors = [];
   const validatorErrors = validationResult(req);
@@ -194,10 +196,13 @@ router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
   const userId = parseInt(req.params.id, 10);
   const user = await db.User.findOne({where: {id: userId}});
   const posts = await db.Post.findAll({ where: { ownerId: userId}, include: db.Image});
+
+  let signedIn = req.session.auth.userId;
   res.render('user-profile', {
     title: 'User Profile',
     user,
-    posts
+    posts,
+    signedIn
   });
 
 }));
@@ -210,12 +215,15 @@ userEditValidators,
     const user = await db.User.findByPk(userId);
     const posts = await db.Post.findAll({ where: { ownerId: userId}, include: db.Image});
     const {
+    id,
     firstName,
     lastName,
     email,
     state,
     bio
     } = req.body;
+
+    let errors = [];
 
     await user.update({
     firstName,
@@ -225,7 +233,7 @@ userEditValidators,
     bio
     });
 
-    let errors = [];
+    
     const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {

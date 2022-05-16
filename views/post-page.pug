@@ -37,8 +37,8 @@ block content
           each comment in comments
             li.comments  #{comment.message}
 
-
-    div.buttons
-      button.edit-btnX EDIT
-    div(style="display:none")
-      button.delete-btnX DELETE
+    if locals.authenticated
+      div.buttons
+        button.edit-btnX EDIT
+      div(style="display:none")
+        button.delete-btnX DELETE

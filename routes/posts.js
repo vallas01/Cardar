@@ -4,7 +4,7 @@ const db = require('../db/models');
 
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
-const { requireAuth } = require('../auth')
+const { requireAuth, restoreUser } = require('../auth')
 const router = express.Router();
 
 
@@ -56,12 +56,14 @@ router.get("/new", csrfProtection, requireAuth, asyncHandler(async(req, res) => 
     const user = await db.User.findByPk(userId);
     const post = db.Post.build();
     const image = db.Image.build();
+    let signedIn = req.session.auth.userId;
 
     res.render('new-post', {
         title: 'Add Post',
         user,
         post,
         image,
+        signedIn,
         csrfToken: req.csrfToken()
     })
 }));
@@ -69,6 +71,7 @@ router.get("/new", csrfProtection, requireAuth, asyncHandler(async(req, res) => 
 router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
+    let signedIn = req.session.auth.userId;
 
 
     const {
@@ -126,10 +129,11 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findOne({ where: { id: postId }, include: db.Image });
     const comments = await db.Comment.findAll({ where: { postId: postId }});
+    
     res.render('post-page', {
         title: 'Post',
         post,
-        comments
+        comments,
     })
 }));
 
