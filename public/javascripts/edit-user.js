@@ -4,6 +4,19 @@ const editButton = document.querySelector('.edit-user');
 editButton.addEventListener("click", async (e) => {
 
     const id = document.querySelector('.user-id').innerText;
+    const signedIn = document.querySelector('.user-signed').innerText;
+    if(id !== signedIn) {
+        const registerDiv = document.querySelector('.register-error-div');
+        registerDiv.innerHTML= `
+        <div class='error-messages'>
+          <p> The following error(s) occurred: </p>
+          <ul class='add-list-error'>
+            <li>You cannot edit another User's profile</li>
+          </ul>
+        </div>`;
+
+        return await new Promise(resolve => setTimeout(resolve, 10000));
+    }
     const userName = document.querySelector('.profile-wrapper h1').innerText;
     const userFields = document.querySelectorAll('.profile-wrapper p');
     let email = userFields[0].innerText;
@@ -43,7 +56,7 @@ editButton.addEventListener("click", async (e) => {
         const state = formData.get("state");
         const email = formData.get("email");
         const bio = formData.get("bio");
-        const body = {firstName, lastName, state, email, bio}
+        const body = {id, firstName, lastName, state, email, bio}
         
         try{
         const res = await fetch(`/users/${id}`, {
