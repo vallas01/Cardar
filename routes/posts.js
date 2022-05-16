@@ -8,7 +8,6 @@ const { requireAuth } = require('../auth')
 const router = express.Router();
 
 
-router.use(requireAuth);
 
 const postValidators = [
     check('name')
@@ -51,14 +50,6 @@ const postValidators = [
         .withMessage('Please provide a valid URL.')
   ];
 
-//   const postValidators = [
-//     check('email')
-//       .exists({ checkFalsy: true })
-//       .withMessage('Please provide a value for Email Address'),
-//     check('password')
-//       .exists({ checkFalsy: true })
-//       .withMessage('Please provide a value for Password'),
-//   ];
 
 router.get("/new", csrfProtection, requireAuth, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId;
@@ -142,7 +133,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
 }));
 
-router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const post = await db.Post.findByPk(req.params.id);
     const {
         make,
@@ -180,7 +171,7 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 
 
-router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
 
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findOne({ where: { id: postId } });
