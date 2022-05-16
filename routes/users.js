@@ -35,6 +35,12 @@ const userValidators = [
   check('confirmPassword')
       .exists({ checkFalsy: true })
       .withMessage('Please provide a value for Confirm Password.')
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error('Confirm Password does not match Password');
+        }
+        return true;
+      }),
 ];
 
 const loginValidators = [
@@ -106,32 +112,85 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
 
   let errors = [];
   const validatorErrors = validationResult(req);
 
-  if (validatorErrors.isEmpty()) {
-    const user = await db.User.findOne({where: { email }})
-
-    if (user !== null) {
-      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-
-      if (passwordMatch) {
-        loginUser(req, res, user);
-        // return res.redirect('/');
-      }
-    }
-      errors.push('Login failed for the provided email address and password.')
-  } else {
-      errors = validatorErrors.array().map((error) => error.msg);
-      res.render('user-login', {
-          title: 'Login',
-          email,
-          errors,
-          csrfToken: req.csrfToken()
-      })
+  if (!validatorErrors.isEmpty()) {
+    errors = validatorErrors.array().map((error) => error.msg);
+    res.render('user-login', {
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+    return;
   }
+  const user = await db.User.findOne({where: { email }})
+
+  if (user === null) {
+    errors.push('Invalid email address and/or password provided. Please try again.')
+    res.render('user-login', {
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+    return;
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+  if (!passwordMatch) {
+    errors.push('Invalid email address and/or password provided. Please try again.')
+    res.render('user-login', {
+        title: 'Login',
+        email,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+    return;
+  }
+
+  loginUser(req, res, user);
+
+
+  // if (validatorErrors.isEmpty()) {
+  //   const user = await db.User.findOne({where: { email }})
+
+  //   if (user !== null) {
+  //     const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+  //     if (passwordMatch) {
+  //       loginUser(req, res, user);
+  //       // return res.redirect('/');
+  //     } else {
+  //       errors.push('Invalid email address and/or password provided. Please try again.')
+  //       res.render('user-login', {
+  //         title: 'Login',
+  //         email,
+  //         errors,
+  //         csrfToken: req.csrfToken(),
+  //       })
+  //     }
+  //   } else {
+  //     errors.push('Invalid email address and/or password provided. Please try again.')
+  //     res.render('user-login', {
+  //       title: 'Login',
+  //       email,
+  //       errors,
+  //       csrfToken: req.csrfToken(),
+  //     })
+  //   }
+  // } else {
+  //     errors = validatorErrors.array().map((error) => error.msg);
+  //     res.render('user-login', {
+  //         title: 'Login',
+  //         email,
+  //         errors,
+  //         csrfToken: req.csrfToken()
+  //     })
+  // }
 
 }));
 
@@ -161,7 +220,7 @@ userValidators,
     bio
     } = req.body;
 
-    await user.update({ 
+    await user.update({
     firstName,
     lastName,
     email,
@@ -174,9 +233,9 @@ userValidators,
     console.log('ERRORS: ',validatorErrors)
 
     if (validatorErrors.isEmpty()) {
-    
-  
-    
+
+
+
      await user.save()
      res.render('user-profile', {
       title: 'User Profile',
@@ -196,7 +255,7 @@ userValidators,
     //res.json({message: "failure", errors: errors})
     return
   }
-    
+
 
   })
 );

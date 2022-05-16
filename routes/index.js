@@ -11,7 +11,7 @@ router.get('/', asyncHandler(async (req, res, next) => {
     include: Image
   })
 
-  const posts = allPosts.slice(allPosts.length - 10, 10);
+  const posts = allPosts.slice(allPosts.length - 19, 10);
 
   res.render('index', {
     title: 'Home',

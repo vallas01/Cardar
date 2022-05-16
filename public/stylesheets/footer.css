@@ -35,7 +35,7 @@ footer {
 }
 
 header{
-    min-height: 80vh;
+    min-height: 90vh;
 }
 
 .github-btn {
@@ -63,6 +63,6 @@ header{
 
 @media screen and (max-width: 1150px) {
     .foot {
-        min-height: 250px; 
+        min-height: 250px;
     }
 }
