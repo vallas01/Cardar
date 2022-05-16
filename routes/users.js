@@ -88,6 +88,7 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  
 
   let errors = [];
   const validatorErrors = validationResult(req);
@@ -178,7 +179,6 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
   }
 }))
 
-router.use(requireAuth);
 
 
 /* GET users listing. */
@@ -203,6 +203,7 @@ router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id(\\d+)',
+requireAuth,
 userEditValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
