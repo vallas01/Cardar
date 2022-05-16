@@ -19,8 +19,8 @@ block content
             +field('', 'firstName', user.firstName, '', 'FIRST NAME')
             +field('', 'lastName', user.lastName, '', 'LAST NAME')
             +field('', 'email', user.email, '', 'EMAIL')
-            +field('', 'password', user.password, '', 'PASSWORD')
-            +field('', 'confirmPassword', '', '', 'CONFIRM PASSWORD')
+            +field('', 'password', user.password, 'password', 'PASSWORD')
+            +field('', 'confirmPassword', '', 'password', 'CONFIRM PASSWORD')
             +field('', 'state', user.state, '', 'STATE')
             button(type='submit' class='register-btn') REGISTER
             a(href='/users/login' id='haveAccount') ALREADY HAVE AN ACCOUNT?

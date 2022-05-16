@@ -4,10 +4,10 @@ append head
     link(rel='stylesheet' href='/stylesheets/search-result.css')
 
 block content
-    div(class='heading-container')
-        h1 #{posts.length} Results:
     div(class='post-images')
-        if posts
+        if posts.length !== 0
+            div(class='heading-container')
+                h1 #{posts.length} Results:
             div(class='row')
                 each post in posts
                     each image in post.Images
@@ -15,6 +15,8 @@ block content
                             a(href="/posts/" + post.id)
                                 img(class='car_img' src=image.path)
         else
-            div
-                h3 You have no posts
-                p Why don't you go and #[a(href="/posts/new") make one]!
+            .zero-results
+                h1 0 results found for '#{req.query.searchedInput}'
+            .zero-results-subhead
+                p(class='zero-subhead') Sorry we couldn't find what you were looking for.
+                p(class='zero-subhead') Please try searching for another car.
