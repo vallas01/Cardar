@@ -16,17 +16,17 @@ editButton.addEventListener("click", async (e) => {
     profileWrapper.innerHTML = `
     <div class="left-side">   
     <form method="PUT" href="/users/${id}" class='form-edit-user'>  
-        <label for="fname">First name:</label></br>
-        <input type="text" id="fname" name="fname" value="${firstName}"></br>
-        <label for="lname">Last name:</label></br>
-        <input type="text" id="lname" name="lname" value="${lastName}"></br>
-        <label for="email">Email:</label></br>
-        <input type="email" id="email" name="email" value='${email}'></br>
-        <label for="state">State:</label></br>
-        <input type="text" id="state" name="state" value="${state}"></br>
+        <label class="form-control" for="fname">First name:</label></br>
+        <input class="form-control" type="text" id="fname" name="fname" value="${firstName}"></br>
+        <label class="form-control" for="lname">Last name:</label></br>
+        <input class="form-control" type="text" id="lname" name="lname" value="${lastName}"></br>
+        <label class="form-control" for="email">Email:</label></br>
+        <input class="form-control" type="email" id="email" name="email" value='${email}'></br>
+        <label class="form-control" for="state">State:</label></br>
+        <input class="form-control" type="text" id="state" name="state" value="${state}"></br>
     <div class="right-side
-        <label for="bio">Bio:</label><br>
-        <textarea rows="5" cols="50" id="bio" name="bio">${bio}</textarea><br>
+        <label class="form-control" for="bio">Bio:</label><br>
+        <textarea class="form-control" rows="5" cols="50" id="bio" name="bio">${bio}</textarea><br>
         <button type="submit" class='update-user'>Submit</button>
         <button class='cancel-edit'>Cancel</button>
     </div>

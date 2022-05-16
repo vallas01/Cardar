@@ -5,23 +5,30 @@
 const demoButton = document.querySelector("#demo");
 
 demoButton.addEventListener("click", async (e) => {
-    const loginForm = document.getElementById('#loginForm');
-    const formData = new FormData(loginForm);
-    const email = document.querySelector('#email')
-    const password = document.querySelector('#password')
+    // const loginForm = document.getElementById('#loginForm');
+    // const formData = new FormData(loginForm);
+    // const email = document.querySelector('#email')
+    // const password = document.querySelector('#password')
 
-    email.value = "demouser@test.com"
-    password.value = "strongPassword!Demo"
+    const email = "demouser@test.com"
+    const password = "strongPassword!Demo"
 
+    const body = {email, password};
 
-    // formData.set("email", "demouser@test.com");
-    // formData.set("password", "strongPassword!Demo");
+    try{
+        const res = await fetch(`/users/login`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        });
 
-    setTimeout(() => {
-        let wait = "just wait a second"
-    }, 2000);
-    
-    // const submit = document.querySelector("#signIn");
+    }
+    catch(err) {
+        if (err.status >= 400 && err.status < 600) {
+            const errorJSON = await err.json();
+    }
+}  
 
-    loginForm.submit();
 })
