@@ -76,6 +76,7 @@ Cardar was built using the following technologies:
 - Javascript
 - Pug
 - CSS
+- Sequelize
 
 # Upcoming Features
 
