@@ -15,14 +15,12 @@ router.get('/', asyncHandler(async (req, res, next) => {
     ],
     include: Image
   })
-  let signedIn = req.session.auth.userId;
 
   const posts = allPosts.slice(allPosts.length - 19, 10);
 
   res.render('index', {
     title: 'Home',
     posts, 
-    signedIn
   })
 }));
 
