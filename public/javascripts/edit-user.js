@@ -12,7 +12,6 @@ editButton.addEventListener("click", async (e) => {
     let firstName = userName.split(" ")[0];
     let lastName = userName.split(" ")[1];
     const profileWrapper = document.querySelector('.profile-wrapper');
-    
     profileWrapper.innerHTML = `
     <div class="left-side">   
     <form method="PUT" href="/users/${id}" class='form-edit-user'>  
@@ -55,16 +54,34 @@ editButton.addEventListener("click", async (e) => {
             body: JSON.stringify(body)
         });
 
-        //if(res.json.message === 'failure') {console.log(errors)}
+        if(!res.ok){
+        throw res;
+        }
+      window.location.href = `/users/${id}`
         
-        window.location.href = `/users/${id}`
+          
     }
     catch(err) {
         if (err.status >= 400 && err.status < 600) {
-            const errorJSON = await err.json();
+        const { errors } = await err.json();
+
+        if(errors.length > 0) {
+            const registerDiv = document.querySelector('.register-error-div');
+            registerDiv.innerHTML= `
+            <div class='error-messages'>
+              <p> The following error(s) occurred: </p>
+              <ul class='add-list-error'></ul>
+            </div>`;
+           
+            const list = document.querySelector('.add-list-error');
+            errors.forEach(error => {
+                let li = document.createElement('li')
+                li.innerHTML = `${error}` 
+                list.append(li)
+            });
     }
+}
 }  
-})
 
     const cancelEdit = document.querySelector('.cancel-edit');
 
@@ -72,4 +89,6 @@ editButton.addEventListener("click", async (e) => {
         window.location.href = `/users/${id}`
     })
  
-});
+})
+
+    });

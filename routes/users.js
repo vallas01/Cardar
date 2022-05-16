@@ -4,7 +4,7 @@ const db = require('../db/models');
 
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
-const { loginUser, logoutUser, requireAuth } = require('../auth')
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 const router = express.Router();
 
 const userValidators = [
@@ -41,6 +41,31 @@ const userValidators = [
         }
         return true;
       }),
+];
+
+const userEditValidators = [
+  check('firstName')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for First Name.')
+      .isLength({ max: 50 })
+      .withMessage('First Name must not be more than 50 characters long.'),
+  check('lastName')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Last Name.')
+      .isLength({ max: 50 })
+      .withMessage('Last Name must not be more than 50 characters long.'),
+  check('email')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Email.')
+      .isEmail()
+      .withMessage('Please provide a valid email.')
+      .isLength({ max: 255 })
+      .withMessage('Email must not be more than 255 characters long.'),
+  check('state')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for State.')
+      .isLength({ max: 20 })
+      .withMessage('State must not be more than 20 characters long.'),
 ];
 
 const loginValidators = [
@@ -135,7 +160,6 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async (req
   });
 
   const validatorErrors = validationResult(req);
-  console.log(validatorErrors)
 
   if (validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 12)
@@ -166,8 +190,6 @@ router.get('/', function(req, res, next) {
 
 
 
-
-
 router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
   const userId = parseInt(req.params.id, 10);
   const user = await db.User.findOne({where: {id: userId}});
@@ -181,7 +203,7 @@ router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id(\\d+)',
-userValidators,
+userEditValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
@@ -203,13 +225,9 @@ userValidators,
     });
 
     let errors = [];
-    const validatorErrors = validationResult(req);
-    console.log('ERRORS: ',validatorErrors)
+    const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {
-
-
-
      await user.save()
      res.render('user-profile', {
       title: 'User Profile',
@@ -220,13 +238,7 @@ userValidators,
   }
   else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('user-profile', {
-        title: 'User Profile',
-        user,
-        posts,
-        errors
-    })
-    //res.json({message: "failure", errors: errors})
+    res.status(400).json({errors})
     return
   }
 

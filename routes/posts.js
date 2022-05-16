@@ -134,7 +134,6 @@ router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(as
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findOne({ where: { id: postId }, include: db.Image });
-    console.log(post.Images)
     const comments = await db.Comment.findAll({ where: { postId: postId }});
     res.render('post-page', {
         title: 'Post',

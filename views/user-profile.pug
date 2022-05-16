@@ -2,9 +2,9 @@ extends layout.pug
 
 include utils.pug
 block content
-  div(class='register-error-div')
-   +validationErrorSummary(errors)
   div(display='none' class='user-id') #{user.id}
+  div(class='register-error-div')
+  //-  +validationErrorSummary(errors) 
   -
     var member = new Date(user.createdAt)
     var date = member.getDate();
