@@ -77,6 +77,7 @@ router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(as
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
 
+
     const {
         name,
         model,
@@ -87,7 +88,6 @@ router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(as
         features,
         description,
         path,
-        postId,
     } = req.body
 
     const post = db.Post.build({
@@ -100,17 +100,20 @@ router.post('/new', csrfProtection, postValidators, requireAuth, asyncHandler(as
         features,
         description,
         ownerId: userId
-    });
-
-    const image = db.Image.build({
-        path,
-        postId
     })
+
+
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
         await post.save();
+        const postId = post.id;
+    
+        const image = db.Image.build({
+            path,
+            postId
+        })
         await image.save();
         return res.redirect(`/users/${userId}`);
     } else {
