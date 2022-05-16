@@ -1,14 +1,4 @@
 .profile-wrapper {
-    /* color: white;
-    font-family: 'Oswald', sans-serif;
-    
-    transform: translate(-50%, -50%);
-    width: 70%;
-    height: 50%;
-    display: flex;
-    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
-    border-radius: 50px;
-    background-color: #C4C4C4; */
     color: black;
     font-family: 'Karla';
     border: 2px solid white;
@@ -34,32 +24,6 @@
     margin: 0;
     padding: 0;
 }
-
-/* .profile-wrapper .left-side {
-    width: 35%;
-    background-color: #C4C4C4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px 25px;
-    text-align: center;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-}
-
-
-.profile-wrapper .right-side {
-    width: 65%;
-    background-color: #C4C4C4;
-    display: flex;
-    gap: 25px;
-    flex-direction: column;
-    justify-content: center;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 30px 25px;
-
-} */
 
 a {
     color:aliceblue
@@ -122,6 +86,7 @@ a {
     text-align: center;
 }
 
+
 .edit-user, 
 .cancel-edit, 
 .update-user {
@@ -133,6 +98,8 @@ a {
     /* margin: auto; */
     border: 2px solid black;
     border-radius: 10px;
+    background-color: #4c4e54 ;
+    color: #fff;
 }
 
 .button-form-edit {
@@ -172,21 +139,25 @@ a {
     flex-direction: column;
     justify-content: center;  
     align-items: center; 
+
 }
 
 .form-edit-user label {
     font-size: larger;
 }
 
-/* .edit-user-form {
-    font-family: 'Karla';
-    border: 2px solid white;
-    height: 550px;
-    width: 400px;
-    border-radius: 30px;
-    background-color: rgba(196,196,196,1);
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-} */
+.form-control {
+    width: 270px;
+    padding: 12px 20px;
+    margin: 10px 65px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+
+.cancel-edit, 
+.update-user {
+    display: inline-block;
+    margin: 0 auto;
+}

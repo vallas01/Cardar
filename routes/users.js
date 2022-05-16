@@ -4,7 +4,7 @@ const db = require('../db/models');
 
 const { check, validationResult } = require('express-validator');
 const { csrfProtection, asyncHandler } = require('./utils.js');
-const { loginUser, logoutUser } = require('../auth')
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 const router = express.Router();
 
 const userValidators = [
@@ -43,6 +43,31 @@ const userValidators = [
       }),
 ];
 
+const userEditValidators = [
+  check('firstName')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for First Name.')
+      .isLength({ max: 50 })
+      .withMessage('First Name must not be more than 50 characters long.'),
+  check('lastName')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Last Name.')
+      .isLength({ max: 50 })
+      .withMessage('Last Name must not be more than 50 characters long.'),
+  check('email')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Email.')
+      .isEmail()
+      .withMessage('Please provide a valid email.')
+      .isLength({ max: 255 })
+      .withMessage('Email must not be more than 255 characters long.'),
+  check('state')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for State.')
+      .isLength({ max: 20 })
+      .withMessage('State must not be more than 20 characters long.'),
+];
+
 const loginValidators = [
   check('email')
     .exists({ checkFalsy: true })
@@ -52,56 +77,7 @@ const loginValidators = [
     .withMessage('Please provide a value for Password.'),
 ];
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
 
-router.get('/register', csrfProtection, (req, res) => {
-  const user = db.User.build({});
-  res.render('user-register', {
-    user,
-    title: 'Register',
-    csrfToken: req.csrfToken()
-  })
-})
-
-router.post('/register', csrfProtection, userValidators, asyncHandler(async (req, res) => {
-  const {
-    username,
-    password,
-    firstName,
-    lastName,
-    email,
-    state
-  } = req.body
-
-  const user = db.User.build({
-    username,
-    firstName,
-    lastName,
-    email,
-    state
-  });
-
-  const validatorErrors = validationResult(req);
-
-  if (validatorErrors.isEmpty()) {
-    const hashedPassword = await bcrypt.hash(password, 12)
-    user.hashedPassword = hashedPassword;
-    await user.save();
-    loginUser(req, res, user);
-    // return res.redirect('/')
-  } else {
-    const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('user-register', {
-        title: 'Register',
-        user,
-        errors,
-        csrfToken: req.csrfToken()
-    })
-  }
-}))
 
 router.get('/login', csrfProtection, (req, res) => {
   res.render('user-login', {
@@ -154,45 +130,65 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
   loginUser(req, res, user);
 
-
-  // if (validatorErrors.isEmpty()) {
-  //   const user = await db.User.findOne({where: { email }})
-
-  //   if (user !== null) {
-  //     const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-
-  //     if (passwordMatch) {
-  //       loginUser(req, res, user);
-  //       // return res.redirect('/');
-  //     } else {
-  //       errors.push('Invalid email address and/or password provided. Please try again.')
-  //       res.render('user-login', {
-  //         title: 'Login',
-  //         email,
-  //         errors,
-  //         csrfToken: req.csrfToken(),
-  //       })
-  //     }
-  //   } else {
-  //     errors.push('Invalid email address and/or password provided. Please try again.')
-  //     res.render('user-login', {
-  //       title: 'Login',
-  //       email,
-  //       errors,
-  //       csrfToken: req.csrfToken(),
-  //     })
-  //   }
-  // } else {
-  //     errors = validatorErrors.array().map((error) => error.msg);
-  //     res.render('user-login', {
-  //         title: 'Login',
-  //         email,
-  //         errors,
-  //         csrfToken: req.csrfToken()
-  //     })
-  // }
-
 }));
+
+router.get('/register', csrfProtection, (req, res) => {
+  const user = db.User.build({});
+  res.render('user-register', {
+    user,
+    title: 'Register',
+    csrfToken: req.csrfToken()
+  })
+})
+
+router.post('/register', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+  const {
+    username,
+    password,
+    firstName,
+    lastName,
+    email,
+    state
+  } = req.body
+
+  const user = db.User.build({
+    username,
+    firstName,
+    lastName,
+    email,
+    state
+  });
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 12)
+    user.hashedPassword = hashedPassword;
+    await user.save();
+    loginUser(req, res, user);
+    // return res.redirect('/')
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('user-register', {
+        title: 'Register',
+        user,
+        errors,
+        csrfToken: req.csrfToken()
+    })
+  }
+}))
+
+router.use(requireAuth);
+
+
+/* GET users listing. */
+
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+
+
 
 router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
   const userId = parseInt(req.params.id, 10);
@@ -207,7 +203,7 @@ router.get('/:id(\\d+)', userValidators, asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id(\\d+)',
-userValidators,
+userEditValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await db.User.findByPk(userId);
@@ -229,13 +225,9 @@ userValidators,
     });
 
     let errors = [];
-    const validatorErrors = validationResult(req);
-    console.log('ERRORS: ',validatorErrors)
+    const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {
-
-
-
      await user.save()
      res.render('user-profile', {
       title: 'User Profile',
@@ -246,13 +238,7 @@ userValidators,
   }
   else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('user-profile', {
-        title: 'User Profile',
-        user,
-        posts,
-        errors
-    })
-    //res.json({message: "failure", errors: errors})
+    res.status(400).json({errors})
     return
   }
 

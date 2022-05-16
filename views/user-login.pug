@@ -5,18 +5,18 @@ append head
   link(rel="stylesheet" href="/stylesheets/user-login.css")
 
   //- add page specific js
-//-   script(src="/javascripts/index.js" type="module" defer)
+  script(src="/javascripts/index.js" type="module" defer)
 
 include utils.pug
 
 block content
     div(class="container")
         +validationErrorSummary(errors)
-        form(action='/users/login' method='post' class='login-form')
+        form(action='/users/login' method='post' class='login-form' id='loginForm' name='loginForm')
             input(type='hidden' name='_csrf' value=csrfToken)
             label(id="member") MEMBER LOGIN
-            input(type='email' name='email' placeholder="EMAIL ADDRESS" class='form-control' value=email)
-            input(type='password' name='password' placeholder="PASSWORD" class='form-control')
+            input(type='email' name='email' placeholder="EMAIL ADDRESS" class='form-control' id='email')
+            input(type='password' name='password' placeholder="PASSWORD" class='form-control' id='password')
             button(type='submit' class='login-form-btn' id="signIn") SIGN-IN
-            a(href='/users/1' class='login-form-btn' id="demo") DEMO USER
+            button(class='login-form-btn' id="demo") DEMO USER
             a(href='/users/register' id="noAccount") DON'T HAVE AN ACCOUNT?

@@ -81,7 +81,6 @@ editButton.addEventListener("click", async (e) => {
         }catch(err){
             if (err.status >= 400 && err.status < 600) {
                 const errorJSON = await err.json();
-                console.log(errorJSON);
             }
         }
 

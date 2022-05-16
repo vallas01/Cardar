@@ -2,9 +2,15 @@ extends layout.pug
 
 include utils.pug
 block content
-  div(class='register-error-div')
-   +validationErrorSummary(errors)
   div(display='none' class='user-id') #{user.id}
+  div(class='register-error-div')
+  //-  +validationErrorSummary(errors) 
+  -
+    var member = new Date(user.createdAt)
+    var date = member.getDate();
+    var month = member.getMonth(); 
+    var year = member.getFullYear();
+    var monthDateYear  = (month+1) + "/" + date + "/" + year; 
   div.profile-page
     div.profile-wrapper  
       div.left-side
@@ -17,7 +23,7 @@ block content
           p #{user.state}
         div.member
           h3 Member Since
-          p #{user.createdAt}
+          p #{monthDateYear}
       div.right-side
         div.bio
           h3 Bio
